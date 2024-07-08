@@ -20,11 +20,46 @@ const FlavorForm = () => {
             [box]: flavor,
         }));
     };
+    const productNumbers = {
+        'Variety Pack #1': '47635501908258',
+        'Flavor Adventure': '48168170389794',
+        'Jelly Donut': '47825809637666',
+        'Chocolate Chip Cookie': '43724077891874',
+        'Brownie': '46649579372834',
+        'Thin Mint': '47594913628450',
+        'Peach Cobbler': '48774708461858',
+    };
+
+
+    function buildShopifyCartUrl(cartItems) {
+        const baseUrl = 'https://drinkbakesale.com/cart/';
+        const queryString = Object.entries(cartItems)
+            .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
+            .join(',');
+
+        return `${baseUrl}${queryString}`;
+    }
 
     const handleOrderClick = () => {
-        const selectedFlavors = Object.values(flavors).join(',');
-        const url = `https://example.com/checkout?quantity=${quantity}&flavors=${selectedFlavors}`;
-        window.location.href = url;
+        const cartItems = {};
+        for (const [box, flavor] of Object.entries(flavors)) {
+            const productNumber = productNumbers[flavor];
+            if (productNumber) {
+                if (cartItems[productNumber]) {
+                    cartItems[productNumber] = String(parseInt(cartItems[productNumber], 10) + 1);
+                } else {
+                    cartItems[productNumber] = '1';
+                }
+            }
+        }
+        const url = buildShopifyCartUrl(cartItems);
+        console.log(url)
+        window.open(url, '_blank');
+    };
+
+    const handleSubscriptionOrderClick = () => {
+        const url = buildShopifyCartUrl({'48168170389794': '1'});
+        window.open(url, '_blank');
     };
 
     return (
@@ -134,7 +169,7 @@ const FlavorForm = () => {
                         label="Subscription - Flavor of the Month Box"
                         priceOne="$34.00 per month"
                         labelTwo="You save 15%"
-                    > <OrderButton onClick={handleOrderClick}/></CustomRadio>
+                    > <OrderButton onClick={handleSubscriptionOrderClick}/></CustomRadio>
                 </div>
             </form>
         </div>
