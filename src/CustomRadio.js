@@ -12,7 +12,7 @@ const CustomRadio = ({ value, checked, onChange, label, priceOne, priceTwo, labe
                         onChange={onChange}
                         className="hidden peer"
                     />
-                    <span className={`flex items-start ${checked ? 'bg-[#F4EDE0] border-[#7C0101]' : ''} block py-2 rounded-lg cursor-pointer`}>
+                    <span className={`flex items-start ${checked ? 'bg-[#F4EDE0] border-[#7C0101]' : ''} block pt-2 rounded-lg cursor-pointer`}>
             <span className={`shrink-0 h-4 w-4 border-2 border-[#7C0101] rounded-full mt-1 ${checked ? 'bg-[#7C0101]' : ''} mr-2`}></span>
             <div>
               <div className="font-bold">{label}</div>
@@ -21,13 +21,13 @@ const CustomRadio = ({ value, checked, onChange, label, priceOne, priceTwo, labe
           </span>
                 </div>
                 <div className="text-right mt-2 font-bold">
-                    <div className="text-[#7C0101]">{priceOne}</div>
+                    <div className="text-[#7C0101] w-20">{priceOne}</div>
                     {priceTwo && (
                         <div className="text-gray-400 line-through">{priceTwo}</div>
                     )}
                 </div>
             </div>
-            {checked && <div className="flex flex-col mt-2">{children}</div>}
+            {checked && <div className="flex flex-col">{children}</div>}
         </label>
     );
 };

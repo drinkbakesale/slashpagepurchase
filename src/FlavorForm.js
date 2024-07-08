@@ -55,6 +55,7 @@ const FlavorForm = () => {
                         <div className="flex gap-2 mt-2 w-full">
                             <CustomSelect
                                 label="Box #1"
+                                defaultText="Click to select flavor"
                                 onSelect={(flavor) => handleFlavorChange('box1', flavor)}
                                 isOpen={openSelectIndex === 1}
                                 setOpen={() => setOpenSelectIndex(openSelectIndex === 1 ? null : 1)}
@@ -75,6 +76,7 @@ const FlavorForm = () => {
                         <div className="flex gap-2 mt-2 w-full">
                             <CustomSelect
                                 label="Box #1"
+                                defaultText="Click to select flavor"
                                 onSelect={(flavor) => handleFlavorChange('box1', flavor)}
                                 isOpen={openSelectIndex === 1}
                                 setOpen={() => setOpenSelectIndex(openSelectIndex === 1 ? null : 1)}
@@ -82,6 +84,7 @@ const FlavorForm = () => {
                             />
                             <CustomSelect
                                 label="Box #2"
+                                defaultText="Click to select flavor"
                                 onSelect={(flavor) => handleFlavorChange('box2', flavor)}
                                 isOpen={openSelectIndex === 2}
                                 setOpen={() => setOpenSelectIndex(openSelectIndex === 2 ? null : 2)}
