@@ -45,6 +45,7 @@ const FlavorForm = () => {
         for (const [box, flavor] of Object.entries(flavors)) {
             const productNumber = productNumbers[flavor];
             if (productNumber) {
+                console.log(box)
                 if (cartItems[productNumber]) {
                     cartItems[productNumber] = String(parseInt(cartItems[productNumber], 10) + 1);
                 } else {
