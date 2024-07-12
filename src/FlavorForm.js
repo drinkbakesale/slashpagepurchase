@@ -21,7 +21,7 @@ const FlavorForm = () => {
         }));
     };
     const productNumbers = {
-        'Variety Pack #1': '47635501908258',
+        'Variety Pack #1': '48168170389794',
         'Flavor Adventure': '48168170389794',
         'Jelly Donut': '47825809637666',
         'Chocolate Chip Cookie': '43724077891874',
@@ -59,7 +59,7 @@ const FlavorForm = () => {
     };
 
     const handleSubscriptionOrderClick = () => {
-        const url = buildShopifyCartUrl({'48168170389794': '1'});
+        const url = 'https://drinkbakesale.com/subscribetoflavorofthemmonth'
         window.open(url, '_blank');
     };
 
@@ -170,7 +170,9 @@ const FlavorForm = () => {
                         label="Subscription - Flavor of the Month Box"
                         priceOne="$34.00 per month"
                         labelTwo="You save 15%"
-                    > <OrderButton onClick={handleSubscriptionOrderClick}/></CustomRadio>
+                    ><p className="ml-5 mt-2">Starting with this month’s flavor, each month you receive Bakesale’s newest limited-edition
+                        flavor inspired by America’s favorite treats and sweets!</p>
+                        <OrderButton buttonText="Click to purchase subscription" onClick={handleSubscriptionOrderClick}/></CustomRadio>
                 </div>
             </form>
         </div>

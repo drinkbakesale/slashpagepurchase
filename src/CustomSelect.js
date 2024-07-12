@@ -112,7 +112,7 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
         <div className="relative w-full select-container" ref={selectRef}>
             <label className="block mb-1 text-center">{label}</label>
             <div
-                className="border-2 border-[#7C0101] p-2 cursor-pointer text-center"
+                className="text-[.95rem] border-2 border-[#7C0101] p-2 cursor-pointer text-center font-bold h-[68px] flex items-center justify-center"
                 style={{ backgroundColor: selected.color, color: selected.textColor }}
                 onClick={handleToggle}
             >
