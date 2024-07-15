@@ -64,35 +64,14 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
         const adjustDropdownPosition = () => {
             if (isOpen && dropdownRef.current && selectRef.current) {
                 const dropdown = dropdownRef.current;
-                const select = selectRef.current;
-                const dropdownRect = dropdown.getBoundingClientRect();
-                const selectRect = select.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
                 const viewportWidth = window.innerWidth;
 
+                // Center the dropdown in the viewport
                 const dropdownStyles = dropdown.style;
-
-                // Reset styles to initial state
                 dropdownStyles.position = 'fixed';
-                dropdownStyles.top = `${selectRect.bottom}px`;
-                dropdownStyles.left = `${selectRect.left}px`;
-                dropdownStyles.right = 'auto';
-                dropdownStyles.bottom = 'auto';
-
-                // Adjust vertical position if it overflows
-                if (dropdownRect.bottom > viewportHeight) {
-                    dropdownStyles.top = `${selectRect.top - dropdownRect.height}px`;
-                }
-
-                // Adjust horizontal position if it overflows
-                if (dropdownRect.right > viewportWidth) {
-                    dropdownStyles.left = `${viewportWidth - dropdownRect.width}px`;
-                }
-
-                // Adjust if it overflows on the left side
-                if (dropdownRect.left < 0) {
-                    dropdownStyles.left = '0';
-                }
+                dropdownStyles.top = `${(viewportHeight - dropdown.clientHeight) / 2}px`;
+                dropdownStyles.left = `${(viewportWidth - dropdown.clientWidth) / 2}px`;
             }
         };
 
