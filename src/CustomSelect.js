@@ -61,30 +61,16 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
     };
 
     useEffect(() => {
-        const adjustDropdownPosition = () => {
-            if (isOpen && dropdownRef.current && selectRef.current) {
-                const dropdown = dropdownRef.current;
-                const viewportHeight = window.innerHeight;
-                const viewportWidth = window.innerWidth;
+        if (isOpen && selectRef.current && dropdownRef.current) {
+            const select = selectRef.current;
+            const dropdown = dropdownRef.current;
+            const selectRect = select.getBoundingClientRect();
 
-                // Center the dropdown in the viewport
-                const dropdownStyles = dropdown.style;
-                dropdownStyles.position = 'fixed';
-                dropdownStyles.top = `${(viewportHeight - dropdown.clientHeight) / 2}px`;
-                dropdownStyles.left = `${(viewportWidth - dropdown.clientWidth) / 2}px`;
-            }
-        };
-
-        if (isOpen) {
-            adjustDropdownPosition();
-            window.addEventListener('resize', adjustDropdownPosition);
-        } else {
-            window.removeEventListener('resize', adjustDropdownPosition);
+            dropdown.style.position = 'fixed';
+            dropdown.style.top = `${selectRect.top + window.scrollY + (selectRect.height / 2)}px`;
+            dropdown.style.left = '50%';
+            dropdown.style.transform = 'translateX(-50%) translateY(-50%)';
         }
-
-        return () => {
-            window.removeEventListener('resize', adjustDropdownPosition);
-        };
     }, [isOpen]);
 
     return (
@@ -99,7 +85,8 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
             </div>
             {isOpen && (
                 <div
-                    className="absolute bg-white border-2 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[230px]"
+                    id="dropdown-menu"
+                    className="fixed bg-white border-2 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[230px]"
                     ref={dropdownRef}
                 >
                     {flavorOptions.map((flavor) => (

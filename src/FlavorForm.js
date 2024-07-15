@@ -64,7 +64,7 @@ const FlavorForm = () => {
     };
 
     return (
-        <div className="bg-[#F4EDE0] rounded-lg p-2 w-96 mx-auto text-[#7C0101]">
+        <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101]">
             <h2 className="text-center text-lg font-bold mb-4">
                 Ready to begin your flavor adventure? Choose your Bakesale quantity below:
             </h2>

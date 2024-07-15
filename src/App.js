@@ -3,7 +3,7 @@ import FlavorForm from "./FlavorForm";
 
 function App() {
     return (
-        <div className="py-72">
+        <div>
             <FlavorForm/>
         </div>
     );
