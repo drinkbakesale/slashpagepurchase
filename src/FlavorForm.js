@@ -64,21 +64,7 @@ const FlavorForm = () => {
     };
 
     return (
-        <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101]">
-            <h2 className="text-center text-lg font-bold mb-4">
-                Ready to begin your flavor adventure? Choose your Bakesale quantity below:
-            </h2>
-            <div className="mb-4 flex border-t-2 border-b-2 -mx-2 px-6 py-2 border-[#7C0101] bg-[#DEBDBE]">
-                <div>
-                    <div className="text-center font-bold">MONEY-BACK GUARANTEE</div>
-                    <div className="text-center text-sm font-semibold">Your money back if it's not love at first sip.
-                    </div>
-                </div>
-                <div>
-                    <div className="text-center font-bold">FREE + FAST SHIPPING</div>
-                    <div className="text-center text-sm font-semibold">Average of 3 days from order to delivery.</div>
-                </div>
-            </div>
+        <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
             <form>
                 <div className="flex flex-col gap-4">
                     <CustomRadio
