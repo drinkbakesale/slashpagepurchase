@@ -4,6 +4,7 @@ const flavorOptions = [
     {
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
+        subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
         color: '#87c8d5',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
         textColor: '#7C0101',
@@ -11,6 +12,7 @@ const flavorOptions = [
     {
         value: 'Limited Edition Peach Cobbler',
         label: 'Peach Cobbler',
+        subText: 'Only 1000 boxes of this peachy perfection were produced',
         color: '#f99d22',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Peach_Cobbler.png?v=1719851632',
         textColor: '#7C0101',
@@ -18,6 +20,7 @@ const flavorOptions = [
     {
         value: 'Jelly Donut',
         label: 'Jelly Donut',
+        subText: 'Jam-filled jayride with bursts of raspberry jam and fluffy donut',
         color: '#e27b9c',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
         textColor: '#7C0101',
@@ -25,6 +28,7 @@ const flavorOptions = [
     {
         value: 'Chocolate Chip Cookie',
         label: 'Chocolate Chip Cookie',
+        subText: 'A perfect ratio of chocolate chips to golden, buttery cookie',
         color: '#e88b37',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cookie_Box.png?v=1718393167',
         textColor: '#7C0101',
@@ -32,6 +36,7 @@ const flavorOptions = [
     {
         value: 'Brownie',
         label: 'Brownie',
+        subText: 'Rich, fudgy, chocolatey, yet delicate, this flavor is indulgent!',
         color: '#9965a2',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Brownie_Box.png?v=1718393167',
         textColor: '#FFFFFF',
@@ -39,6 +44,7 @@ const flavorOptions = [
     {
         value: 'Thin Mint',
         label: 'Thin Mint',
+        subText: 'Luscious chocolate cookie meets spearmint freshness',
         color: '#27b376',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
         textColor: '#7C0101',
@@ -61,17 +67,27 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
     };
 
     useEffect(() => {
-        if (isOpen && selectRef.current && dropdownRef.current) {
-            const select = selectRef.current;
-            const dropdown = dropdownRef.current;
-            const selectRect = select.getBoundingClientRect();
+        const handleEsc = (event) => {
+            if (event.key === 'Escape') {
+                setOpen(false);
+            }
+        };
+        const handleClickOutside = (event) => {
+            console.log('event', dropdownRef.current.contains(event.target))
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setOpen(false);
+            }
+        };
 
-            dropdown.style.position = 'fixed';
-            dropdown.style.top = `${selectRect.top + window.scrollY + (selectRect.height / 2)}px`;
-            dropdown.style.left = '50%';
-            dropdown.style.transform = 'translateX(-50%) translateY(-50%)';
+        if (isOpen) {
+            document.addEventListener('keydown', handleEsc);
+            document.addEventListener('mousedown', handleClickOutside);
         }
-    }, [isOpen]);
+        return () => {
+            document.removeEventListener('keydown', handleEsc);
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen, setOpen]);
 
     return (
         <div className="relative w-full select-container" ref={selectRef}>
@@ -86,22 +102,27 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
             {isOpen && (
                 <div
                     id="dropdown-menu"
-                    className="fixed bg-white border-2 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[230px]"
-                    ref={dropdownRef}
+                    className="fixed inset-0 flex items-center justify-center "
                 >
+                    <div className='bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[300px]' ref={dropdownRef}>
                     {flavorOptions.map((flavor) => (
                         <div
                             key={flavor.value}
-                            className="flex items-center gap-2 px-2 py-1 cursor-pointer hover:bg-gray-200"
+                            className="flex items-center gap-2 px-2 py-2 cursor-pointer hover:bg-gray-200"
                             onClick={() => handleSelect(flavor)}
                             style={{ backgroundColor: flavor.color }}
                         >
-                            <img src={flavor.imageUrl} alt={flavor.label} className="w-14 h-14" />
-                            <span className="font-bold text-lg leading-tight" style={{ color: flavor.textColor }}>
+                            <img src={flavor.imageUrl} alt={flavor.label} className="w-20 h-20" />
+                            <div>
+                            <span className="font-bold text-2xl leading-tight" style={{ color: flavor.textColor }}>
                                 {flavor.label}
                             </span>
+                            <div className='text-xs' style={{ color: flavor.textColor }}>{flavor.subText}</div>
+
+                            </div>
                         </div>
                     ))}
+                    </div>
                 </div>
             )}
         </div>

@@ -1,3 +1,17 @@
+/* Prevent double-tap to zoom */
+html {
+  touch-action: manipulation;
+  /* Optional: Disable text selection and user scaling */
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Additional styles to ensure no zoom on double-click */
+body {
+  overflow: hidden; /* Prevents the scrollbars from appearing on zoom */
+}
+
 .App {
   text-align: center;
 }
