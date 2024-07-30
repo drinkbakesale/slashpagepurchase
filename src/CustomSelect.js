@@ -11,7 +11,7 @@ const flavorOptions = [
     },
     {
         value: 'Limited Edition Peach Cobbler',
-        label: 'Limited Edition Peach Cobbler',
+        label: 'Peach Cobbler',
         subText: 'Only 1000 boxes of this peachy perfection were produced',
         color: '#f99d22',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Peach_Cobbler.png?v=1719851632',
