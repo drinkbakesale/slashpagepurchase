@@ -20,7 +20,7 @@ const flavorOptions = [
     {
         value: 'Jelly Donut',
         label: 'Jelly Donut',
-        subText: 'Jam-filled jayride with bursts of raspberry jam and fluffy donut',
+        subText: 'Jam-filled joyride with bursts of raspberry jam and fluffy donut',
         color: '#e27b9c',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
         textColor: '#7C0101',
