@@ -102,7 +102,7 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
             {isOpen && (
                 <div
                     id="dropdown-menu"
-                    className="fixed inset-0 flex items-center justify-center "
+                    className="fixed inset-0 flex items-center justify-center z-50"
                 >
                     <div className='bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[300px]' ref={dropdownRef}>
                     {flavorOptions.map((flavor) => (
