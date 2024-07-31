@@ -10,7 +10,7 @@ const flavorOptions = [
         textColor: '#7C0101',
     },
     {
-        value: 'Limited Edition Peach Cobbler',
+        value: 'Peach Cobbler',
         label: 'Limited Edition Peach Cobbler',
         subText: 'Only 1000 boxes of this peachy perfection were produced',
         color: '#f99d22',
