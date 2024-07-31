@@ -27,7 +27,7 @@ const FlavorForm = () => {
         'Chocolate Chip Cookie': '43724077891874',
         'Brownie': '46649579372834',
         'Thin Mint': '47594913628450',
-        'Peach Cobbler': '48774708461858',
+        'Blueberry Pie': '48900876599586',
     };
 
 
