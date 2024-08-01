@@ -27,7 +27,7 @@ const FlavorForm = () => {
         'Chocolate Chip Cookie': '43724077891874',
         'Brownie': '46649579372834',
         'Thin Mint': '47594913628450',
-        'Peach Cobbler': '48774708461858',
+        'Limited Edition Blueberry Pie': '48900876599586',
     };
 
 
@@ -37,7 +37,7 @@ const FlavorForm = () => {
             .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
             .join(',');
 
-        return `${baseUrl}${queryString}?utm_source=swipesE&utm_medium=swipesE`;
+        return `${baseUrl}${queryString}?utm_source=swipesH&utm_medium=swipesH`;
     }
 
     const handleOrderClick = () => {
