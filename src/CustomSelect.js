@@ -9,11 +9,11 @@ const flavorOptions = [
         textColor: '#7C0101',
     },
     {
-        value: 'Limited Edition Peach Cobbler',
-        label: 'Peach Cobbler',
-        color: '#f99d22',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Peach_Cobbler.png?v=1719851632',
-        textColor: '#7C0101',
+        value: 'Blueberry Pie',
+        label: 'Limited Edition Blueberry Pie',
+        color: '#4E70B6',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/tiny-blueberry_pie.png?v=1722450830',
+        textColor: '#FFFFFF',
     },
     {
         value: 'Jelly Donut',
