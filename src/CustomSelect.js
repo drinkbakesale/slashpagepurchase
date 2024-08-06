@@ -12,7 +12,10 @@ const flavorOptions = [
     {
         value: 'Blueberry Pie',
         label: 'Limited Edition Blueberry Pie',
+<<<<<<< HEAD
         subText: 'Only 1000 boxes of these blueberry beauties were made',
+=======
+>>>>>>> 1ba99cece785f19fecf24f7703343b55e60f85c3
         color: '#4E70B6',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/tiny-blueberry_pie.png?v=1722450830',
         textColor: '#FFFFFF',
