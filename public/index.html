@@ -64,8 +64,8 @@
           iframe.style.setProperty('top', '0', 'important');
         }
 
-        GorgiasChat.on('widget:opened', openListener)
-        GorgiasChat.off('widget:opened', function(){}) 
+        GorgiasChat.on('ready', openListener)
+        GorgiasChat.off('ready', function(){}) 
         
         var timer = setInterval(function () {
           var chatButtonHead = document.querySelector('#gorgias-chat-container')
