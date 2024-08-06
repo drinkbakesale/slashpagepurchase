@@ -58,7 +58,7 @@
           });
 
       initGorgiasChatPromise.then(function () {
-        window.addEventListener('gorgias_widget_opened', function () {
+        window.addEventListener('gorgias-widget-opened', function () {
           const iframe = document.querySelector('#gorgias-chat-container iframe#chat-window');
           iframe.style.setProperty('height', 'calc(100% - 150px)', 'important');
           iframe.style.setProperty('top', '0', 'important');
