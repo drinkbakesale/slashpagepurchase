@@ -53,6 +53,9 @@
         ? window.GorgiasChat.init()
         : new Promise(function (resolve) {
             window.addEventListener('gorgias-widget-loaded', function () {
+              const iframe = document.querySelector('#gorgias-chat-container iframe#chat-window');
+            iframe.style.setProperty('height', 'calc(100% - 150px)', 'important');
+            iframe.style.setProperty('top', '0', 'important');
               resolve();
             });
           });
@@ -74,10 +77,6 @@
 
           var myButton = document.createElement('button');
           myButton.className = 'custom-chat-button';
-
-          const iframe = document.querySelector('#gorgias-chat-container iframe#chat-window');
-          iframe.style.setProperty('height', 'calc(100% - 150px)', 'important');
-          iframe.style.setProperty('top', '0', 'important');
 
           // onClick, behave like a chat opener
           myButton.onclick = function () {
