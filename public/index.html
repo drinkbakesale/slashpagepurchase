@@ -55,15 +55,15 @@
             window.addEventListener('gorgias-widget-loaded', function () {
               resolve();
             });
-
-            window.addEventListener('gorgias_widget_opened', function () {
-              const iframe = document.querySelector('#gorgias-chat-container iframe#chat-window');
-              iframe.style.setProperty('height', 'calc(100% - 150px)', 'important');
-              iframe.style.setProperty('top', '0', 'important');
-            })
           });
 
       initGorgiasChatPromise.then(function () {
+        window.addEventListener('gorgias_widget_opened', function () {
+          const iframe = document.querySelector('#gorgias-chat-container iframe#chat-window');
+          iframe.style.setProperty('height', 'calc(100% - 150px)', 'important');
+          iframe.style.setProperty('top', '0', 'important');
+        })
+        
         var timer = setInterval(function () {
           var chatButtonHead = document.querySelector('#gorgias-chat-container')
             ?.querySelector('#chat-button')
