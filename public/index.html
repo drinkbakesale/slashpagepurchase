@@ -25,29 +25,6 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-
-    <style>
-      /* Custom styles for the image */
-      #chatImage {
-      width: 100%; /* Initial width */
-      max-width: 100%; /* Ensure image doesn't exceed container width */
-      display: block; /* Ensure image behaves as a block element */
-      margin: 0 auto; /* Center the image horizontally */
-      }
-      
-      /* Styles for the chat button */
-      .custom-chat-button {
-      position: fixed;
-      right: 0px;
-      bottom: 0px;
-      z-index: 2147483000;
-      width: 0px;
-      height: 0px;
-      border-radius: 0px;
-      }
-      </style>
-      <!-- Include your existing Gorgias Chat Widget script -->
-      <script id="gorgias-chat-widget-install-v3" src="https://config.gorgias.chat/bundle-loader/01J36168KHPNBQSAJKBRT2NXC0"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -62,59 +39,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <img src="https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Chat_Widget.png?v=1721658661" alt="Clickable Image" id="chatImage">
-
-
-
-    <!-- This will handle the Gorgias Chat Widget initialization and custom button creation -->
-    <script>
-    var initGorgiasChatPromise = (window.GorgiasChat) ? window.GorgiasChat.init() : new Promise(function (resolve) {
-    window.addEventListener('gorgias-widget-loaded', function () {
-    resolve();
-    });
-    });
-    
-    
-    
-    initGorgiasChatPromise.then(function () {
-    var timer = setInterval(function () {
-    var chatButtonHead = document.querySelector('#gorgias-chat-container')?.querySelector('#chat-button')?.contentWindow.document.querySelector('head');
-    if (!chatButtonHead?.children.length) {
-    return;
-    }
-    clearInterval(timer);
-    
-    
-    
-    var chatButtonIframe = document.querySelector('#chat-button');
-    chatButtonIframe.style = "display:none;";
-    var myButton = document.createElement('button');
-    myButton.className = 'custom-chat-button';
-    
-    
-    
-    // onClick, behave like a chat opener
-    myButton.onclick = function () {
-    if (GorgiasChat.isOpen()) {
-    GorgiasChat.close();
-    } else {
-    GorgiasChat.open();
-    }
-    };
-    document.body.appendChild(myButton);
-    }, 50);
-    });
-    
-    
-    
-    // Function to handle clicking on the image to open chat
-    document.getElementById('chatImage').addEventListener('click', function () {
-    if (GorgiasChat.isOpen()) {
-    GorgiasChat.close();
-    } else {
-    GorgiasChat.open();
-    }
-    });
-    </script>
   </body>
 </html>
