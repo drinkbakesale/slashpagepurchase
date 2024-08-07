@@ -74,7 +74,7 @@ const FlavorForm = () => {
               checked={quantity === "1"}
               onChange={handleQuantityChange}
               label="Single Box"
-              priceOne="$40.00"
+              priceOne="$45.00"
             >
               <div className="flex gap-2 mt-2 w-full">
                 <CustomSelect
