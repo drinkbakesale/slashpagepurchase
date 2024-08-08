@@ -130,6 +130,7 @@ const FlavorForm = () => {
             </div>
             <OrderButton onClick={handleOrderClick} />
           </CustomRadio>
+
           <CustomRadio
             value="3"
             checked={quantity === "3"}
