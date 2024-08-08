@@ -32,6 +32,11 @@
         height: 0px;
         border-radius: 0px;
       }
+      #chat-window {
+      right: 0px !important;
+      top: 0px !important;
+      height: calc(100% - 150px) !important;
+    }
     </style>
 
     <!-- Include your existing Gorgias Chat Widget script -->
@@ -58,15 +63,6 @@
           });
 
       initGorgiasChatPromise.then(function () {
-        var openListener = function(data) {
-          const iframe = document.querySelector('#gorgias-chat-container iframe#chat-window');
-          iframe.style.setProperty('height', 'calc(100% - 150px)', 'important');
-          iframe.style.setProperty('top', '0', 'important');
-        }
-
-        GorgiasChat.on('ready', openListener)
-        // GorgiasChat.off('ready', function(){}) 
-        
         var timer = setInterval(function () {
           var chatButtonHead = document.querySelector('#gorgias-chat-container')
             ?.querySelector('#chat-button')
