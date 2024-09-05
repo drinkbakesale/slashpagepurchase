@@ -27,7 +27,7 @@ const FlavorForm = () => {
     "Chocolate Chip Cookie": "43724077891874",
     Brownie: "46649579372834",
     "Thin Mint": "47594913628450",
-    "Limited Edition Blueberry Pie": "48900876599586",
+    "Limited Edition 5-Layer Bar": "49097034596642",
   };
 
   function buildShopifyCartUrl(cartItems) {
