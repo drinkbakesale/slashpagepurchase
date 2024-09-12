@@ -21,13 +21,13 @@ const FlavorForm = () => {
     }));
   };
   const productNumbers = {
-    "Variety Pack #1": "48168170389794",
-    "Flavor Adventure": "48168170389794",
-    "Jelly Donut": "47825809637666",
-    "Chocolate Chip Cookie": "43724077891874",
-    Brownie: "46649579372834",
-    "Thin Mint": "47594913628450",
-    "Limited Edition 5-Layer Bar": "49077761802530",
+    "Variety Pack #1": "48766615650594",
+    "Flavor Adventure": "48766615650594",
+    "Jelly Donut": "48766619058466",
+    "Chocolate Chip Cookie": "48766610997538",
+    Brownie: "48766158111010",
+    "Thin Mint": "48766621876514",
+    "Limited Edition 5-Layer Bar": "49097034596642",
   };
 
   function buildShopifyCartUrl(cartItems) {
@@ -36,7 +36,7 @@ const FlavorForm = () => {
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-    return `${baseUrl}${queryString}?utm_source=swipesE&utm_medium=swipesE`;
+    return `${baseUrl}${queryString}?utm_source=swipesH&utm_medium=swipesH`;
   }
 
   const handleOrderClick = () => {
