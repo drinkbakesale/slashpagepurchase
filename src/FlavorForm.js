@@ -74,7 +74,7 @@ const FlavorForm = () => {
               checked={quantity === "1"}
               onChange={handleQuantityChange}
               label="Single Box"
-                priceOne="$40.00"
+                priceOne="$45.00"
   
             >
               <div className="flex gap-2 mt-2 w-full">
@@ -104,8 +104,8 @@ const FlavorForm = () => {
             onChange={handleQuantityChange}
             label="2 Boxes - Treat Yourself"
             priceOne="$68.00"
-            priceTwo="$80.00"
-            labelTwo="You save 15%"
+            priceTwo="$90.00"
+            labelTwo="You save 24%"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
@@ -136,9 +136,9 @@ const FlavorForm = () => {
             checked={quantity === "3"}
             onChange={handleQuantityChange}
             label="3 Boxes - Treat Everyone"
-            priceOne="$96.00"
-            priceTwo="$120.00"
-            labelTwo="You save 20%"
+            priceOne="$95.00"
+            priceTwo="$135.00"
+            labelTwo="You save 30%"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
