@@ -21,13 +21,13 @@ const FlavorForm = () => {
     }));
   };
   const productNumbers = {
-    "Variety Pack #1": "48766615650594",
-    "Flavor Adventure": "48766615650594",
-    "Jelly Donut": "48766619058466",
-    "Chocolate Chip Cookie": "48766610997538",
-    Brownie: "48766158111010",
-    "Thin Mint": "48766621876514",
-    "Limited Edition Blueberry Pie": "48987815674146",
+    "Variety Pack #1": "48168170389794",
+    "Flavor Adventure": "48168170389794",
+    "Jelly Donut": "47825809637666",
+    "Chocolate Chip Cookie": "43724077891874",
+    Brownie: "46649579372834",
+    "Thin Mint": "47594913628450",
+    "Limited Edition Blueberry Pie": "48900876599586",
   };
 
   function buildShopifyCartUrl(cartItems) {
@@ -36,7 +36,7 @@ const FlavorForm = () => {
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-    return `${baseUrl}${queryString}?utm_source=swipesF&utm_medium=swipesF`;
+    return `${baseUrl}${queryString}?utm_source=swipesH&utm_medium=swipesH`;
   }
 
   const handleOrderClick = () => {
@@ -103,8 +103,8 @@ const FlavorForm = () => {
             onChange={handleQuantityChange}
             label="2 Boxes - Treat Yourself"
             priceOne="$68.00"
-            priceTwo="$90.00"
-            labelTwo="You save 24%"
+            priceTwo="$80.00"
+            labelTwo="You save 15%"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
@@ -135,9 +135,9 @@ const FlavorForm = () => {
             checked={quantity === "3"}
             onChange={handleQuantityChange}
             label="3 Boxes - Treat Everyone"
-            priceOne="$95.00"
-            priceTwo="$135.00"
-            labelTwo="You save 30%"
+            priceOne="$96.00"
+            priceTwo="$120.00"
+            labelTwo="You save 20%"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
@@ -176,7 +176,7 @@ const FlavorForm = () => {
             onChange={handleQuantityChange}
             label="Subscription - Flavor of the Month Box"
             priceOne="$34.00 per month"
-            labelTwo="You save 24%"
+            labelTwo="You save 15%"
           >
             <p className="ml-5 mt-2">
               Starting with this month’s flavor, Blueberry Pie Liquor, each
