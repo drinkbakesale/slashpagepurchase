@@ -13,7 +13,7 @@ const CustomRadio = ({value, checked, onChange, label, priceOne, priceTwo, label
                         className="hidden peer"
                     />
                     <span
-                        className={`flex items-start ${checked ? 'bg-[#F4EDE0] border-[#7C0101]' : ''} block  pt-1 rounded-lg cursor-pointer`}>
+                        className={`flex items-start ${checked ? 'bg-[#E8D4B7] border-[#7C0101]' : ''} block  pt-1 rounded-lg cursor-pointer`}>
             <span
                 className={`shrink-0 h-4 w-4 border-2 border-[#7C0101] rounded-full mt-[2px] ${checked ? 'bg-[#7C0101]' : ''} mr-2`}></span>
             <div>
