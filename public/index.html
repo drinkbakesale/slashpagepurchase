@@ -10,34 +10,97 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <title>React App</title>
+
+    <style>
+      /* Custom styles for the image */
+      #chatImage {
+        width: 100%; /* Initial width */
+        max-width: 100%; /* Ensure image doesn't exceed container width */
+        display: block; /* Ensure image behaves as a block element */
+        margin: 0 auto; /* Center the image horizontally */
+      }
+      
+      /* Styles for the chat button */
+      .custom-chat-button {
+        position: fixed;
+        right: 0px;
+        bottom: 0px;
+        z-index: 2147483000;
+        width: 0px;
+        height: 0px;
+        border-radius: 0px;
+      }
+      #chat-window {
+        right: 0px !important;
+        top: 0px !important;
+        height: calc(100% - 250px) !important;
+      }
+    </style>
+
+    <!-- Include your existing Gorgias Chat Widget script -->
+    <script id="gorgias-chat-widget-install-v3" src="https://config.gorgias.chat/bundle-loader/01J36168KHPNBQSAJKBRT2NXC0"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <div style="margin: -0.3rem .5rem;">
+      <div id="chatImage" style="cursor: pointer; background: #DDBCBD; border: 2px solid #7C0101; padding: 1rem; font-weight: bold; text-align: center; color: #7C0101; border-radius: 0.5rem;">
+        Have questions? Click for live chat!
+      </div>
+    </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <!-- This will handle the Gorgias Chat Widget initialization and custom button creation -->
+    <script>
+      var initGorgiasChatPromise = (window.GorgiasChat)
+        ? window.GorgiasChat.init()
+        : new Promise(function (resolve) {
+            window.addEventListener('gorgias-widget-loaded', function () {
+              resolve();
+            });
+          });
+
+      initGorgiasChatPromise.then(function () {
+        var timer = setInterval(function () {
+          var chatButtonHead = document.querySelector('#gorgias-chat-container')
+            ?.querySelector('#chat-button')
+            ?.contentWindow.document.querySelector('head');
+
+          if (!chatButtonHead?.children.length) {
+            return;
+          }
+
+          clearInterval(timer);
+
+          var chatButtonIframe = document.querySelector('#chat-button');
+          chatButtonIframe.style = "display:none;";
+
+          var myButton = document.createElement('button');
+          myButton.className = 'custom-chat-button';
+
+          // onClick, behave like a chat opener
+          myButton.onclick = function () {
+            if (GorgiasChat.isOpen()) {
+              GorgiasChat.close();
+            } else {
+              GorgiasChat.open();
+            }
+          };
+
+          document.body.appendChild(myButton);
+        }, 50);
+      });
+
+      // Function to handle clicking on the image to open chat
+      document.getElementById('chatImage').addEventListener('click', function () {
+        if (GorgiasChat.isOpen()) {
+          GorgiasChat.close();
+        } else {
+          GorgiasChat.open();
+        }
+      });
+    </script>
   </body>
 </html>
