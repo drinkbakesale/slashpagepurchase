@@ -11,12 +11,12 @@ const flavorOptions = [
     textColor: "#7C0101",
   },
   {
-    value: "Blueberry Pie",
-    label: "Limited Edition Blueberry Pie",
-    subText: "Only 1000 boxes of these blueberry beauties were made",
-    color: "#4E70B6",
+    value: "5-Layer Bar",
+    label: "Limited Edition 5-Layer Bar",
+    subText: "Only 1000 boxes of this fabulous flavor were made",
+    color: "#C7832E",
     imageUrl:
-      "https://cdn.shopify.com/s/files/1/0677/0537/2962/files/tiny-blueberry_pie.png?v=1722450830",
+      "https://cdn.shopify.com/s/files/1/0677/0537/2962/files/5-layer_Bar_-_Tiny.png?v=1725294176",
     textColor: "#FFFFFF",
   },
   {
