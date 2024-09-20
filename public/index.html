@@ -21,7 +21,7 @@
         display: block; /* Ensure image behaves as a block element */
         margin: 0 auto; /* Center the image horizontally */
       }
-      
+
       /* Styles for the chat button */
       .custom-chat-button {
         position: fixed;
@@ -40,33 +40,31 @@
     </style>
 
     <!-- Include your existing Gorgias Chat Widget script -->
-    <script id="gorgias-chat-widget-install-v3" src="https://config.gorgias.chat/bundle-loader/01J36168KHPNBQSAJKBRT2NXC0"></script>
+    <script
+      id="gorgias-chat-widget-install-v3"
+      src="https://config.gorgias.chat/bundle-loader/01J36168KHPNBQSAJKBRT2NXC0"
+    ></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <div style="margin: -0.3rem .5rem;">
-      <div id="chatImage" style="cursor: pointer; background: #DDBCBD; border: 2px solid #7C0101; padding: 1rem; font-weight: bold; text-align: center; color: #7C0101; border-radius: 0.5rem;">
-        Have questions? Click for live chat!
-      </div>
-    </div>
-
     <!-- This will handle the Gorgias Chat Widget initialization and custom button creation -->
     <script>
-      var initGorgiasChatPromise = (window.GorgiasChat)
+      var initGorgiasChatPromise = window.GorgiasChat
         ? window.GorgiasChat.init()
         : new Promise(function (resolve) {
-            window.addEventListener('gorgias-widget-loaded', function () {
+            window.addEventListener("gorgias-widget-loaded", function () {
               resolve();
             });
           });
 
       initGorgiasChatPromise.then(function () {
         var timer = setInterval(function () {
-          var chatButtonHead = document.querySelector('#gorgias-chat-container')
-            ?.querySelector('#chat-button')
-            ?.contentWindow.document.querySelector('head');
+          var chatButtonHead = document
+            .querySelector("#gorgias-chat-container")
+            ?.querySelector("#chat-button")
+            ?.contentWindow.document.querySelector("head");
 
           if (!chatButtonHead?.children.length) {
             return;
@@ -74,11 +72,11 @@
 
           clearInterval(timer);
 
-          var chatButtonIframe = document.querySelector('#chat-button');
+          var chatButtonIframe = document.querySelector("#chat-button");
           chatButtonIframe.style = "display:none;";
 
-          var myButton = document.createElement('button');
-          myButton.className = 'custom-chat-button';
+          var myButton = document.createElement("button");
+          myButton.className = "custom-chat-button";
 
           // onClick, behave like a chat opener
           myButton.onclick = function () {
@@ -94,13 +92,15 @@
       });
 
       // Function to handle clicking on the image to open chat
-      document.getElementById('chatImage').addEventListener('click', function () {
-        if (GorgiasChat.isOpen()) {
-          GorgiasChat.close();
-        } else {
-          GorgiasChat.open();
-        }
-      });
+      document
+        .getElementById("chatImage")
+        .addEventListener("click", function () {
+          if (GorgiasChat.isOpen()) {
+            GorgiasChat.close();
+          } else {
+            GorgiasChat.open();
+          }
+        });
     </script>
   </body>
 </html>
