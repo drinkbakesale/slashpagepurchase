@@ -36,7 +36,7 @@ const FlavorForm = () => {
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-    return `${baseUrl}${queryString}?utm_source=swipesH&utm_medium=swipesH`;
+    return `${baseUrl}${queryString}/discount/Textsignup10?utm_source=swipesH&utm_medium=swipesH`;
   }
 
   const handleOrderClick = () => {
@@ -74,7 +74,9 @@ const FlavorForm = () => {
               checked={quantity === "1"}
               onChange={handleQuantityChange}
               label="Single Box"
-              priceOne="$45.00"
+              priceOne="$40.50"
+              priceTwo="$45.00"
+              labelTwo="10% Off for joining SMS"
             >
               <div className="flex gap-2 mt-2 w-full">
                 <CustomSelect
@@ -102,9 +104,9 @@ const FlavorForm = () => {
             checked={quantity === "2"}
             onChange={handleQuantityChange}
             label="2 Boxes - Treat Yourself"
-            priceOne="$68.00"
+            priceOne="$59.40"
             priceTwo="$90.00"
-            labelTwo="You save 24%"
+            labelTwo="24% Off for 2 Box Order, 10% off for SMS"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
@@ -135,9 +137,9 @@ const FlavorForm = () => {
             checked={quantity === "3"}
             onChange={handleQuantityChange}
             label="3 Boxes - Treat Everyone"
-            priceOne="$95.00"
+            priceOne="$81.00"
             priceTwo="$135.00"
-            labelTwo="You save 30%"
+            labelTwo="30% Off for 3 Box Order, 10% off for SMS"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
