@@ -65,7 +65,7 @@ const FlavorForm = () => {
   };
 
   return (
-    <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
+    <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight ">
       <form>
         <div className="flex flex-col gap-1">
           <div className="relative">
