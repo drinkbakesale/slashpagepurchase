@@ -4,7 +4,7 @@ import FlavorForm from "./FlavorForm";
 function App() {
     return (
         <div>
-            <img src="/top bar checkout.jpg" alt="bake-info"/>
+            <img src="/bs-topper-2.jpg" alt="bake-info"/>
             <FlavorForm/>
         </div>
     );
