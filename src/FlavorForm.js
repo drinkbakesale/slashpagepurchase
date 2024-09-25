@@ -33,10 +33,10 @@ const FlavorForm = () => {
   function buildShopifyCartUrl(cartItems) {
     const baseUrl = "https://drinkbakesale.com/cart/";
     const queryString = Object.entries(cartItems)
-      .map(([productNumber, quantity]) => ${productNumber}:${quantity})
+      .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-    return ${baseUrl}${queryString}?utm_source=swipesG&utm_medium=swipesG;
+    return `${baseUrl}${queryString}?utm_source=swipesG&utm_medium=swipesG`;
   }
 
   const handleOrderClick = () => {
