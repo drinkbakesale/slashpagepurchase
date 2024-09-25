@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CustomSelect from "./CustomSelect";
 import CustomRadio from "./CustomRadio";
 import OrderButton from "./OrderButton";
@@ -20,7 +20,6 @@ const FlavorForm = () => {
       [box]: flavor,
     }));
   };
-
   const productNumbers = {
     "Variety Pack #1": "48766615650594",
     "Flavor Adventure": "48766615650594",
@@ -34,10 +33,10 @@ const FlavorForm = () => {
   function buildShopifyCartUrl(cartItems) {
     const baseUrl = "https://drinkbakesale.com/cart/";
     const queryString = Object.entries(cartItems)
-      .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
+      .map(([productNumber, quantity]) => ${productNumber}:${quantity})
       .join(",");
 
-    return `${baseUrl}${queryString}?utm_source=swipesG&utm_medium=swipesG`;
+    return ${baseUrl}${queryString}?utm_source=swipesG&utm_medium=swipesG;
   }
 
   const handleOrderClick = () => {
