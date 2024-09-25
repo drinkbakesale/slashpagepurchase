@@ -51,7 +51,7 @@ const flavorOptions = [
     },
 ];
 
-const CustomSelect = ({ label, onSelect, isOpen, setOpen, defaultText }) => {
+const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) => {
     const [selected, setSelected] = useState({ label: defaultText || 'Select flavor', color: 'white', textColor: '#7C0101' });
     const selectRef = useRef(null);
     const dropdownRef = useRef(null);
@@ -72,21 +72,22 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, defaultText }) => {
                 setOpen(false);
             }
         };
-
         const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target) && selectRef.current && !selectRef.current.contains(event.target)) {
+            console.log('event', dropdownRef.current.contains(event.target))
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setOpen(false);
             }
         };
 
-        document.addEventListener('keydown', handleEsc);
-        document.addEventListener('mousedown', handleClickOutside);
-
+        if (isOpen) {
+            document.addEventListener('keydown', handleEsc);
+            document.addEventListener('mousedown', handleClickOutside);
+        }
         return () => {
             document.removeEventListener('keydown', handleEsc);
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [setOpen]);
+    }, [isOpen, setOpen]);
 
     return (
         <div className="relative w-full select-container" ref={selectRef}>
@@ -104,22 +105,23 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, defaultText }) => {
                     className="fixed inset-0 flex items-center justify-center z-50"
                 >
                     <div className='bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[300px]' ref={dropdownRef}>
-                        {flavorOptions.map((flavor) => (
-                            <div
-                                key={flavor.value}
-                                className="flex items-center gap-2 px-2 py-2 cursor-pointer hover:bg-gray-200"
-                                onClick={() => handleSelect(flavor)}
-                                style={{ backgroundColor: flavor.color }}
-                            >
-                                <img src={flavor.imageUrl} alt={flavor.label} className="w-20 h-20" />
-                                <div>
-                                    <span className="font-bold text-2xl leading-tight" style={{ color: flavor.textColor }}>
-                                        {flavor.label}
-                                    </span>
-                                    <div className='text-xs' style={{ color: flavor.textColor }}>{flavor.subText}</div>
-                                </div>
+                    {flavorOptions.map((flavor) => (
+                        <div
+                            key={flavor.value}
+                            className="flex items-center gap-2 px-2 py-2 cursor-pointer hover:bg-gray-200"
+                            onClick={() => handleSelect(flavor)}
+                            style={{ backgroundColor: flavor.color }}
+                        >
+                            <img src={flavor.imageUrl} alt={flavor.label} className="w-20 h-20" />
+                            <div>
+                            <span className="font-bold text-2xl leading-tight" style={{ color: flavor.textColor }}>
+                                {flavor.label}
+                            </span>
+                            <div className='text-xs' style={{ color: flavor.textColor }}>{flavor.subText}</div>
+
                             </div>
-                        ))}
+                        </div>
+                    ))}
                     </div>
                 </div>
             )}
