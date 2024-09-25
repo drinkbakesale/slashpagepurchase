@@ -74,7 +74,7 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, defaultText }) => {
         };
 
         const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target) && !selectRef.current.contains(event.target)) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target) && selectRef.current && !selectRef.current.contains(event.target)) {
                 setOpen(false);
             }
         };
