@@ -1,16 +1,21 @@
 /* Prevent double-tap to zoom */
 html {
   touch-action: manipulation;
-  /* Optional: Disable text selection and user scaling */
-  user-select: none;
+  user-select: none; /* Optional: Disable text selection */
   -webkit-user-select: none;
   -ms-user-select: none;
 }
 
-/* Additional styles to ensure no zoom on double-click */
-/* Removed overflow: hidden to allow scrolling */
+/* Ensure no overflow restriction on body */
+body {
+  overflow: auto; /* Allow scrolling by default */
+}
+
+/* Avoid locking the body overflow when a modal or dropdown is open */
 body.modal-open {
-    /* Ensure no overflow restriction */
+  /* If you must use a modal, consider alternatives like adding a backdrop 
+     but avoid locking the body */
+  /* overflow: hidden; */ /* Comment this out or remove it */
 }
 
 .App {
