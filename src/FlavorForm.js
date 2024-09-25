@@ -33,8 +33,8 @@ const FlavorForm = () => {
   function buildShopifyCartUrl(cartItems) {
     const baseUrl = "https://drinkbakesale.com/cart/";
     const queryString = Object.entries(cartItems)
-.map(([productNumber, quantity]) => `${productNumber}`
-  .join(",");
+      .map(([productNumber, quantity]) => ${productNumber}:${quantity})
+      .join(",");
 
     return ${baseUrl}${queryString}?utm_source=swipesG&utm_medium=swipesG;
   }
@@ -44,6 +44,7 @@ const FlavorForm = () => {
     for (const [box, flavor] of Object.entries(flavors)) {
       const productNumber = productNumbers[flavor];
       if (productNumber) {
+        console.log(box);
         if (cartItems[productNumber]) {
           cartItems[productNumber] = String(
             parseInt(cartItems[productNumber], 10) + 1
@@ -54,6 +55,7 @@ const FlavorForm = () => {
       }
     }
     const url = buildShopifyCartUrl(cartItems);
+    console.log(url);
     window.open(url, "_blank");
   };
 
@@ -61,19 +63,6 @@ const FlavorForm = () => {
     const url = "https://drinkbakesale.com/subscribetoflavorofthemmonth";
     window.open(url, "_blank");
   };
-
-  // Effect to control body overflow based on dropdown state
-  useEffect(() => {
-    if (openSelectIndex !== null) {
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
-    } else {
-      document.body.style.overflow = 'auto'; // Restore scrolling
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto'; // Clean up
-    };
-  }, [openSelectIndex]);
 
   return (
     <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
