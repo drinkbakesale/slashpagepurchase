@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 const flavorOptions = [
- {
+    {
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
         subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
@@ -79,18 +79,14 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, defaultText }) => {
             }
         };
 
-        if (isOpen) {
-            document.body.style.overflow = 'auto'; // Ensure overflow is enabled
-            document.addEventListener('keydown', handleEsc);
-            document.addEventListener('mousedown', handleClickOutside);
-        }
+        document.addEventListener('keydown', handleEsc);
+        document.addEventListener('mousedown', handleClickOutside);
 
         return () => {
-            document.body.style.overflow = 'auto'; // Reset overflow
             document.removeEventListener('keydown', handleEsc);
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [isOpen, setOpen]);
+    }, [setOpen]);
 
     return (
         <div className="relative w-full select-container" ref={selectRef}>
