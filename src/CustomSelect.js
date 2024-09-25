@@ -1,54 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 const flavorOptions = [
-    {
-        value: 'Variety Pack #1',
-        label: 'Variety Pack #1',
-        subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
-        color: '#87c8d5',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
-        textColor: '#7C0101',
-    },
-    {
-        value: '5-Layer Bar',
-        label: 'Limited Edition 5-Layer Bar',
-        subText: 'Only 1000 boxes of this fabulous flavor were made',
-        color: '#C7832E',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/5-layer_Bar_-_Tiny.png?v=1725294176',
-        textColor: '#FFFFFF',
-    },
-    {
-        value: 'Jelly Donut',
-        label: 'Jelly Donut',
-        subText: 'Jam-filled joyride with bursts of raspberry jam and fluffy donut',
-        color: '#e27b9c',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
-        textColor: '#7C0101',
-    },
-    {
-        value: 'Chocolate Chip Cookie',
-        label: 'Chocolate Chip Cookie',
-        subText: 'A perfect ratio of chocolate chips to golden, buttery cookie',
-        color: '#e88b37',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cookie_Box.png?v=1718393167',
-        textColor: '#7C0101',
-    },
-    {
-        value: 'Brownie',
-        label: 'Brownie',
-        subText: 'Rich, fudgy, chocolatey, yet delicate, this flavor is indulgent!',
-        color: '#9965a2',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Brownie_Box.png?v=1718393167',
-        textColor: '#FFFFFF',
-    },
-    {
-        value: 'Thin Mint',
-        label: 'Thin Mint',
-        subText: 'Luscious chocolate cookie meets spearmint freshness',
-        color: '#27b376',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
-        textColor: '#7C0101',
-    },
+    // ... your flavor options here
 ];
 
 const CustomSelect = ({ label, onSelect, isOpen, setOpen, defaultText }) => {
@@ -80,15 +33,13 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, defaultText }) => {
         };
 
         if (isOpen) {
-            // Allow scrolling by removing overflow: hidden from body
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // Ensure overflow is enabled
             document.addEventListener('keydown', handleEsc);
             document.addEventListener('mousedown', handleClickOutside);
         }
 
         return () => {
-            // Ensure overflow is reset when the dropdown is closed
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // Reset overflow
             document.removeEventListener('keydown', handleEsc);
             document.removeEventListener('mousedown', handleClickOutside);
         };
