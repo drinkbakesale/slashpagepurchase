@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomSelect from "./CustomSelect";
 import CustomRadio from "./CustomRadio";
 import OrderButton from "./OrderButton";
@@ -20,6 +20,7 @@ const FlavorForm = () => {
       [box]: flavor,
     }));
   };
+
   const productNumbers = {
     "Variety Pack #1": "48766615650594",
     "Flavor Adventure": "48766615650594",
@@ -44,7 +45,6 @@ const FlavorForm = () => {
     for (const [box, flavor] of Object.entries(flavors)) {
       const productNumber = productNumbers[flavor];
       if (productNumber) {
-        console.log(box);
         if (cartItems[productNumber]) {
           cartItems[productNumber] = String(
             parseInt(cartItems[productNumber], 10) + 1
@@ -55,7 +55,6 @@ const FlavorForm = () => {
       }
     }
     const url = buildShopifyCartUrl(cartItems);
-    console.log(url);
     window.open(url, "_blank");
   };
 
@@ -63,6 +62,19 @@ const FlavorForm = () => {
     const url = "https://drinkbakesale.com/subscribetoflavorofthemmonth";
     window.open(url, "_blank");
   };
+
+  // Effect to control body overflow based on dropdown state
+  useEffect(() => {
+    if (openSelectIndex !== null) {
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    } else {
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto'; // Clean up
+    };
+  }, [openSelectIndex]);
 
   return (
     <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
