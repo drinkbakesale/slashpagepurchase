@@ -8,9 +8,10 @@ html {
 }
 
 /* Additional styles to ensure no zoom on double-click */
-body {
-  overflow: hidden; /* Prevents the scrollbars from appearing on zoom */
+body.modal-open {
+    overflow: hidden;
 }
+
 
 .App {
   text-align: center;
