@@ -8,8 +8,9 @@ html {
 }
 
 /* Additional styles to ensure no zoom on double-click */
+/* Removed overflow: hidden to allow scrolling */
 body.modal-open {
-    overflow: hidden;
+    /* Ensure no overflow restriction */
 }
 
 .App {
