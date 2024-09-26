@@ -31,7 +31,7 @@ const FlavorForm = () => {
   };
 
   function buildShopifyCartUrl(cartItems) {
-    const baseUrl = "https://drinkbakesale.com/cart/";
+    const baseUrl = "https://drinkbakesale.com/";
     const queryString = Object.entries(cartItems)
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
