@@ -36,7 +36,7 @@ const FlavorForm = () => {
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-    return `${baseUrl}${queryString}?utm_source=swipesG&utm_medium=swipesG`;
+    return `${baseUrl}${queryString}?utm_source=swipesJ&utm_medium=swipesJ`;
   }
 
   const handleOrderClick = () => {
