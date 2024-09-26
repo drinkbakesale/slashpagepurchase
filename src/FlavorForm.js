@@ -36,7 +36,7 @@ const FlavorForm = () => {
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-    return `${baseUrl}/discount/Textsignup10?redirect=/cart/${queryString}&utm_source=swipesH&utm_medium=swipesH`;
+    return `${baseUrl}/discount/Textsignup10?redirect=/cart/${queryString}&utm_source=swipesK&utm_medium=swipesK`;
   }
 
   const handleOrderClick = () => {
