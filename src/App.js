@@ -9,21 +9,6 @@ function App() {
       <div
         style={{ margin: "-0.3rem 0.5rem", position: "relative", zIndex: 100 }}
       >
-        <div
-          id="chatImage"
-          style={{
-            cursor: "pointer",
-            background: "#ddbcbd",
-            border: "2px solid #7c0101",
-            padding: "1rem",
-            fontWeight: "bold",
-            textAlign: "center",
-            color: "#7c0101",
-            borderRadius: "0.5rem",
-          }}
-        >
-          Have questions? Click for live chat!
-        </div>
       </div>
     </div>
   );
