@@ -31,12 +31,12 @@ const FlavorForm = () => {
   };
 
   function buildShopifyCartUrl(cartItems) {
-    const baseUrl = "https://drinkbakesale.com/cart/";
+    const baseUrl = "https://drinkbakesale.com/";
     const queryString = Object.entries(cartItems)
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-    return `${baseUrl}${queryString}?utm_source=swipesJ&utm_medium=swipesJ`;
+    return `${baseUrl}/discount/Textsignup10?redirect=/cart/${queryString}&utm_source=swipesJ&utm_medium=swipesJ`;
   }
 
   const handleOrderClick = () => {
@@ -65,7 +65,7 @@ const FlavorForm = () => {
   };
 
   return (
-    <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
+    <div className="bg-[#F2ECDF] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
       <form>
         <div className="flex flex-col gap-1">
           <div className="relative">
@@ -74,7 +74,9 @@ const FlavorForm = () => {
               checked={quantity === "1"}
               onChange={handleQuantityChange}
               label="Single Box"
-              priceOne="$45.00"
+              priceOne="$40.50"
+              priceTwo="$45.00"
+              labelTwo="10% Off for joining SMS"
             >
               <div className="flex gap-2 mt-2 w-full">
                 <CustomSelect
@@ -102,9 +104,9 @@ const FlavorForm = () => {
             checked={quantity === "2"}
             onChange={handleQuantityChange}
             label="2 Boxes - Treat Yourself"
-            priceOne="$68.00"
+            priceOne="$59.40"
             priceTwo="$90.00"
-            labelTwo="You save 24%"
+            labelTwo="24% Off for 2 Box Order, 10% off for SMS"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
@@ -135,9 +137,9 @@ const FlavorForm = () => {
             checked={quantity === "3"}
             onChange={handleQuantityChange}
             label="3 Boxes - Treat Everyone"
-            priceOne="$95.00"
+            priceOne="$81.00"
             priceTwo="$135.00"
-            labelTwo="You save 30%"
+            labelTwo="30% Off for 3 Box Order, 10% off for SMS"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
@@ -176,7 +178,7 @@ const FlavorForm = () => {
             onChange={handleQuantityChange}
             label="Subscription - Flavor of the Month Box"
             priceOne="$34.00 per month"
-            labelTwo="You save 24%"
+            labelTwo="You save 15%"
           >
             <p className="ml-5 mt-2">
               Starting with this month’s flavor, Blueberry Pie Liquor, each
