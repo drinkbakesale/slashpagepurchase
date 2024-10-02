@@ -10,7 +10,7 @@ const flavorOptions = [
         textColor: '#7C0101',
     },
     {
-        value: 'Banana Bread',
+        value: 'Limited Edition Banana Bread',
         label: 'Limited Edition Banana Bread',
         subText: 'Notes of caramelized bananas, rich cake, and a dash of cinnamon',
         color: '#FBE04B',
