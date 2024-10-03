@@ -27,7 +27,7 @@ const FlavorForm = () => {
     "Chocolate Chip Cookie": "48766610997538",
     Brownie: "48766158111010",
     "Thin Mint": "48766621876514",
-    "Limited Edition 5-Layer Bar": "49097034596642",
+    "Limited Edition Banana Bread": "49180409954594",
   };
 
   function buildShopifyCartUrl(cartItems) {
@@ -179,7 +179,7 @@ const FlavorForm = () => {
             labelTwo="You save 15%"
           >
             <p className="ml-5 mt-2">
-              Starting with this month’s flavor, Blueberry Pie Liquor, each
+              Starting with this month’s flavor, Banana Bread Liquor, each
               month you receive Bakesale’s newest limited-edition flavor
               inspired by America’s favorite treats and sweets!
             </p>
