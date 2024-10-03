@@ -11,13 +11,12 @@ const flavorOptions = [
     textColor: "#7C0101",
   },
   {
-    value: "5-Layer Bar",
-    label: "Limited Edition 5-Layer Bar",
-    subText: "Only 1000 boxes of this fabulous flavor were made",
-    color: "#C7832E",
-    imageUrl:
-      "https://cdn.shopify.com/s/files/1/0677/0537/2962/files/5-layer_Bar_-_Tiny.png?v=1725294176",
-    textColor: "#FFFFFF",
+        value: 'Limited Edition Banana Bread',
+        label: 'Limited Edition Banana Bread',
+        subText: 'Bursting with banana, moist cake, and a dash of cinnamon',
+        color: '#FBE04B',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_Banana_Bread-min_a54d6154-5221-4c95-9356-d579b4f20e87.png?v=1727897778',
+        textColor: '#7C0101',
   },
   {
     value: "Jelly Donut",
