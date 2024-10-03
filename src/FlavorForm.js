@@ -180,7 +180,7 @@ const FlavorForm = () => {
             labelTwo="You save 15%"
           >
             <p className="ml-5 mt-2">
-              Starting with this month’s flavor, Blueberry Pie Liquor, each
+              Starting with this month’s flavor, Banana Bread Liquor, each
               month you receive Bakesale’s newest limited-edition flavor
               inspired by America’s favorite treats and sweets!
             </p>
