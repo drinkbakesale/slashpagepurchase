@@ -104,7 +104,7 @@ const FlavorForm = () => {
             checked={quantity === "2"}
             onChange={handleQuantityChange}
             label="2 Boxes - Treat Yourself"
-            priceOne="$59.40"
+            priceOne="$61.20"
             priceTwo="$90.00"
             labelTwo="24% Off for 2 Box Order, 10% off for SMS"
           >
@@ -137,7 +137,7 @@ const FlavorForm = () => {
             checked={quantity === "3"}
             onChange={handleQuantityChange}
             label="3 Boxes - Treat Everyone"
-            priceOne="$81.00"
+            priceOne="$85.50"
             priceTwo="$135.00"
             labelTwo="30% Off for 3 Box Order, 10% off for SMS"
           >
