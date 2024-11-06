@@ -12,7 +12,7 @@ const flavorOptions = [
     {
         value: 'Limited Edition Cinnamon Roll',
         label: 'Limited Edition Cinnamon Roll',
-        subText: 'Cinnamon swirled buttery dough with sweet icing',
+        subText: 'Cinnamon swirls, buttery dough, sweet icing, a total treat!',
         color: '#A25D33',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cinnamon_Roll-min.png?v=1730832932',
         textColor: '#FFFFFF',
