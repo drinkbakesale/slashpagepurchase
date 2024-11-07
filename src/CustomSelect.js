@@ -10,6 +10,14 @@ const flavorOptions = [
         textColor: '#7C0101',
     },
     {
+        value: 'Limited Edition Cinnamon Roll',
+        label: 'Limited Edition Cinnamon Roll',
+        subText: 'Cinnamon swirled buttery dough with sweet icing',
+        color: '#A25D33',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cinnamon_Roll-min.png?v=1730832932',
+        textColor: '#FFFFFF',
+    },
+    {
         value: 'Jelly Donut',
         label: 'Jelly Donut',
         subText: 'Jam-filled joyride with bursts of raspberry jam and fluffy donut',
