@@ -14,12 +14,13 @@ const FlavorForm = () => {
     setOpenSelectIndex(null);
   };
 
-  const handleFlavorChange = (box, flavor) => {
+  const handleFlavorChange = (flavorBox, flavor) => {
     setFlavors((prevFlavors) => ({
       ...prevFlavors,
-      [box]: flavor,
+      [flavorBox]: flavor,
     }));
   };
+
   const productNumbers = {
     "Variety Pack #1": "48766615650594",
     "Flavor Adventure": "48766615650594",
@@ -54,11 +55,6 @@ const FlavorForm = () => {
       }
     }
     const url = buildShopifyCartUrl(cartItems);
-    window.open(url, "_blank");
-  };
-
-  const handleSubscriptionOrderClick = () => {
-    const url = "https://drinkbakesale.com/subscribetoflavorofthemmonth";
     window.open(url, "_blank");
   };
 
