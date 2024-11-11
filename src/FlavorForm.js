@@ -85,6 +85,7 @@ const FlavorForm = () => {
                   setOpenSelectIndex(openSelectIndex === 1 ? null : 1)
                 }
                 close={() => setOpenSelectIndex(null)}
+                style={{ lineHeight: "0.67em" }}
               />
             </div>
             <OrderButton onClick={handleOrderClick} />
@@ -112,6 +113,7 @@ const FlavorForm = () => {
                     setOpenSelectIndex(openSelectIndex === num ? null : num)
                   }
                   close={() => setOpenSelectIndex(null)}
+                  style={{ lineHeight: "0.67em" }}
                 />
               ))}
             </div>
@@ -140,6 +142,7 @@ const FlavorForm = () => {
                     setOpenSelectIndex(openSelectIndex === num ? null : num)
                   }
                   close={() => setOpenSelectIndex(null)}
+                  style={{ lineHeight: "0.67em" }}
                 />
               ))}
             </div>
@@ -168,6 +171,7 @@ const FlavorForm = () => {
                     setOpenSelectIndex(openSelectIndex === num ? null : num)
                   }
                   close={() => setOpenSelectIndex(null)}
+                  style={{ lineHeight: "0.67em" }}
                 />
               ))}
             </div>
@@ -196,6 +200,7 @@ const FlavorForm = () => {
                     setOpenSelectIndex(openSelectIndex === num ? null : num)
                   }
                   close={() => setOpenSelectIndex(null)}
+                  style={{ lineHeight: "0.67em" }}
                 />
               ))}
             </div>
@@ -221,10 +226,3 @@ const FlavorForm = () => {
               onClick={handleSubscriptionOrderClick}
             />
           </CustomRadio>
-        </div>
-      </form>
-    </div>
-  );
-};
-
-export default FlavorForm;
