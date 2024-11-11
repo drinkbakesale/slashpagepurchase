@@ -58,12 +58,93 @@ const FlavorForm = () => {
     window.open(url, "_blank");
   };
 
+  const handleSubscriptionOrderClick = () => {
+    const url = "https://drinkbakesale.com/subscribetoflavorofthemmonth";
+    window.open(url, "_blank");
+  };
+
   return (
     <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
       <form>
         <div className="flex flex-col gap-1">
-          {/* Single, 2, 3 Box, and Subscription Options */}
-          {/* Existing code remains unchanged for these options */}
+          {/* 1 Box Option */}
+          <CustomRadio
+            value="1"
+            checked={quantity === "1"}
+            onChange={handleQuantityChange}
+            label="Single Box"
+            priceOne="$45.00"
+          >
+            <div className="flex gap-2 mt-2 w-full">
+              <CustomSelect
+                label="Box #1"
+                defaultText="Click to select flavor"
+                onSelect={(flavor) => handleFlavorChange("box1", flavor)}
+                isOpen={openSelectIndex === 1}
+                setOpen={() =>
+                  setOpenSelectIndex(openSelectIndex === 1 ? null : 1)
+                }
+                close={() => setOpenSelectIndex(null)}
+              />
+            </div>
+            <OrderButton onClick={handleOrderClick} />
+          </CustomRadio>
+
+          {/* 2 Boxes Option */}
+          <CustomRadio
+            value="2"
+            checked={quantity === "2"}
+            onChange={handleQuantityChange}
+            label="2 Boxes - Treat Yourself"
+            priceOne="$68.00"
+            priceTwo="$90.00"
+            labelTwo="You save 24%"
+          >
+            <div className="flex gap-2 mt-2 w-full">
+              {[1, 2].map((num) => (
+                <CustomSelect
+                  key={`box${num}`}
+                  label={`Box #${num}`}
+                  defaultText="Click to select flavor"
+                  onSelect={(flavor) => handleFlavorChange(`box${num}`, flavor)}
+                  isOpen={openSelectIndex === num}
+                  setOpen={() =>
+                    setOpenSelectIndex(openSelectIndex === num ? null : num)
+                  }
+                  close={() => setOpenSelectIndex(null)}
+                />
+              ))}
+            </div>
+            <OrderButton onClick={handleOrderClick} />
+          </CustomRadio>
+
+          {/* 3 Boxes Option */}
+          <CustomRadio
+            value="3"
+            checked={quantity === "3"}
+            onChange={handleQuantityChange}
+            label="3 Boxes - Treat Everyone"
+            priceOne="$95.00"
+            priceTwo="$135.00"
+            labelTwo="You save 30%"
+          >
+            <div className="flex gap-2 mt-2 w-full">
+              {[1, 2, 3].map((num) => (
+                <CustomSelect
+                  key={`box${num}`}
+                  label={`Box #${num}`}
+                  defaultText="Click to select flavor"
+                  onSelect={(flavor) => handleFlavorChange(`box${num}`, flavor)}
+                  isOpen={openSelectIndex === num}
+                  setOpen={() =>
+                    setOpenSelectIndex(openSelectIndex === num ? null : num)
+                  }
+                  close={() => setOpenSelectIndex(null)}
+                />
+              ))}
+            </div>
+            <OrderButton onClick={handleOrderClick} />
+          </CustomRadio>
 
           {/* 4 Boxes Option */}
           <CustomRadio
@@ -119,6 +200,26 @@ const FlavorForm = () => {
               ))}
             </div>
             <OrderButton onClick={handleOrderClick} />
+          </CustomRadio>
+
+          {/* Subscription Option */}
+          <CustomRadio
+            value="subscription"
+            checked={quantity === "subscription"}
+            onChange={handleQuantityChange}
+            label="Subscription - Flavor of the Month Box"
+            priceOne="$34.00 per month"
+            labelTwo="You save 24%"
+          >
+            <p className="ml-5 mt-2">
+              Starting with this month’s flavor, Cinnamon Roll Liquor, each
+              month you receive Bakesale’s newest limited-edition flavor
+              inspired by America’s favorite treats and sweets!
+            </p>
+            <OrderButton
+              buttonText="Click to purchase subscription"
+              onClick={handleSubscriptionOrderClick}
+            />
           </CustomRadio>
         </div>
       </form>
