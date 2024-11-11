@@ -42,7 +42,7 @@ const FlavorForm = () => {
 
   const handleOrderClick = () => {
     const cartItems = {};
-    for (const [box, flavor] of Object.entries(flavors)) {
+    for (const flavor of Object.values(flavors)) {
       const productNumber = productNumbers[flavor];
       if (productNumber) {
         if (cartItems[productNumber]) {
