@@ -12,7 +12,7 @@ exports.handler = async function (event, context) {
     }
 
     try {
-        const response = await fetch(`https://your-shopify-store.myshopify.com/admin/api/2023-01/products/${productId}.json`, {
+        const response = await fetch(`https://bakesale-site.myshopify.com/admin/api/2023-01/products/${productId}.json`, {
             headers: {
                 'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN,
                 'Content-Type': 'application/json',
