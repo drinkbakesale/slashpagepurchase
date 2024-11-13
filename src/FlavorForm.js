@@ -226,9 +226,9 @@ const FlavorForm = () => {
               onClick={handleSubscriptionOrderClick}
             />
           </CustomRadio>
-        </div> {/* End of .flex flex-col gap-1 */}
-      </form> {/* End of form */}
-    </div> {/* End of main container div */}
+        </div>
+      </form>
+    </div>
   );
 };
 
