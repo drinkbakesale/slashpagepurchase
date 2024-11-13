@@ -12,10 +12,8 @@ exports.handler = async function(event, context) {
     };
   }
 
-  const productId = event.queryStringParameters.productId;
-
   try {
-    const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/inventory_levels.json?inventory_item_ids=${productId}`, {
+    const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/inventory_levels.json`, {
       headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN,
@@ -31,15 +29,9 @@ exports.handler = async function(event, context) {
     }
 
     const data = await response.json();
-
-    // Check if `inventory_levels` exists and is non-empty
-    const inventoryData = data.inventory_levels && data.inventory_levels.length > 0 
-      ? data.inventory_levels[0].available
-      : 'N/A';
-
     return {
       statusCode: 200,
-      body: JSON.stringify({ quantity: inventoryData }),
+      body: JSON.stringify(data), // Return all inventory levels to review
     };
   } catch (error) {
     console.error('Error fetching inventory data:', error);
@@ -49,4 +41,3 @@ exports.handler = async function(event, context) {
     };
   }
 };
-
