@@ -32,7 +32,7 @@ exports.handler = async function(event, context) {
 
     const data = await response.json();
 
-    // Access the quantity from `InventoryLevel` if that is the correct key
+    // Retrieve available inventory specifically from `InventoryLevel`
     const inventoryData = data.InventoryLevel && data.InventoryLevel.length > 0 
       ? data.InventoryLevel[0].available
       : 'N/A';
