@@ -1,4 +1,3 @@
-// netlify/functions/getInventory.js
 const fetch = require('node-fetch');
 
 exports.handler = async function(event, context) {
@@ -12,7 +11,9 @@ exports.handler = async function(event, context) {
     };
   }
 
-  // Parse product_id as an integer to ensure it’s a valid numeric ID
+  // Log the query string parameters to verify `product_id` is being passed correctly
+  console.log('Query string parameters:', event.queryStringParameters);
+
   const product_id = parseInt(event.queryStringParameters.product_id, 10);
 
   if (isNaN(product_id)) {
@@ -30,7 +31,6 @@ exports.handler = async function(event, context) {
       },
     });
 
-    // Check if the response from Shopify is successful
     if (!response.ok) {
       const errorText = await response.text();
       console.error('Error fetching data from Shopify:', response.status, response.statusText, errorText);
@@ -43,7 +43,6 @@ exports.handler = async function(event, context) {
     const data = await response.json();
     console.log('Full product data:', JSON.stringify(data, null, 2));
 
-    // Check if inventory_quantity exists and return it
     const inventoryQuantity = data.product && data.product.inventory_quantity 
       ? data.product.inventory_quantity 
       : 'N/A';
