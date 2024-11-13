@@ -1,45 +1,52 @@
 // netlify/functions/getInventory.js
 const fetch = require('node-fetch');
 
-exports.handler = async function (event, context) {
-    const productId = event.queryStringParameters.productId;
+exports.handler = async function(event, context) {
+  const { SHOPIFY_STORE_URL, SHOPIFY_ADMIN_API_ACCESS_TOKEN } = process.env;
 
-    if (!productId) {
-        return {
-            statusCode: 400,
-            body: JSON.stringify({ error: 'Product ID is required' }),
-        };
+  if (!SHOPIFY_ADMIN_API_ACCESS_TOKEN || !SHOPIFY_STORE_URL) {
+    console.error('API Access Token or Store URL is missing');
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'API Access Token or Store URL is missing' }),
+    };
+  }
+
+  const productId = event.queryStringParameters.productId;
+
+  try {
+    const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/inventory_levels.json?inventory_item_ids=${productId}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN,
+      },
+    });
+
+    if (!response.ok) {
+      console.error('Error fetching data from Shopify:', response.status, response.statusText);
+      return {
+        statusCode: response.status,
+        body: JSON.stringify({ error: 'Error fetching inventory data from Shopify' }),
+      };
     }
 
-    try {
-        const response = await fetch(`https://bakesale-site.myshopify.com/admin/api/2023-01/products/${productId}.json`, {
-            headers: {
-                'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN,
-                'Content-Type': 'application/json',
-            },
-        });
+    const data = await response.json();
 
-        if (!response.ok) {
-            return {
-                statusCode: response.status,
-                body: JSON.stringify({ error: 'Error fetching inventory data' }),
-            };
-        }
+    // Check if `inventory_levels` exists and is non-empty
+    const inventoryData = data.inventory_levels && data.inventory_levels.length > 0 
+      ? data.inventory_levels[0].available
+      : 'N/A';
 
-        const data = await response.json();
-        
-        // Check if the product and inventory data are defined as expected
-        const inventoryQuantity = data?.product?.variants?.[0]?.inventory_quantity;
-
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ productId, quantity: inventoryQuantity || 'Unavailable' }),
-        };
-    } catch (error) {
-        console.error(error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Internal server error' }),
-        };
-    }
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ quantity: inventoryData }),
+    };
+  } catch (error) {
+    console.error('Error fetching inventory data:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Error fetching inventory data' }),
+    };
+  }
 };
+
