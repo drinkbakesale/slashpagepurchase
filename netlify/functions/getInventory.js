@@ -15,7 +15,6 @@ exports.handler = async function(event, context) {
   const productId = event.queryStringParameters.productId;
 
   try {
-    // Fetching product information based on productId
     const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/products/${productId}.json`, {
       headers: {
         'Content-Type': 'application/json',
@@ -23,17 +22,20 @@ exports.handler = async function(event, context) {
       },
     });
 
+    // Check if the response from Shopify is successful
     if (!response.ok) {
-      console.error('Error fetching data from Shopify:', response.status, response.statusText);
+      const errorText = await response.text();
+      console.error('Error fetching data from Shopify:', response.status, response.statusText, errorText);
       return {
         statusCode: response.status,
-        body: JSON.stringify({ error: 'Error fetching product data from Shopify' }),
+        body: JSON.stringify({ error: 'Error fetching product data from Shopify', details: errorText }),
       };
     }
 
     const data = await response.json();
+    console.log('Full product data:', JSON.stringify(data, null, 2));
 
-    // Assuming inventory_quantity data is found directly within the product data
+    // Try accessing inventory quantity if available
     const inventoryQuantity = data.product && data.product.inventory_quantity 
       ? data.product.inventory_quantity 
       : 'N/A';
