@@ -73,7 +73,7 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
                 const response = await fetch('/.netlify/functions/getInventory');
                 const data = await response.json();
                 const updatedFlavors = flavorOptions.map(flavor => {
-                    const inventoryData = data.find(item => item.productId === flavor.value);
+                    const inventoryData = data.find(item => item.product_id === flavor.value);
                     return { ...flavor, inventory: inventoryData ? inventoryData.quantity : 'N/A' };
                 });
                 setFlavors(updatedFlavors);
