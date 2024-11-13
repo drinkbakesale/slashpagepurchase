@@ -12,10 +12,18 @@ exports.handler = async function(event, context) {
     };
   }
 
-  const productId = event.queryStringParameters.productId;
+  // Parse product_id as an integer to ensure it’s a valid numeric ID
+  const product_id = parseInt(event.queryStringParameters.product_id, 10);
+
+  if (isNaN(product_id)) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: 'Invalid product ID provided. Please provide a numeric product ID.' }),
+    };
+  }
 
   try {
-    const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/products/${productId}.json`, {
+    const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/products/${product_id}.json`, {
       headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN,
@@ -35,7 +43,7 @@ exports.handler = async function(event, context) {
     const data = await response.json();
     console.log('Full product data:', JSON.stringify(data, null, 2));
 
-    // Try accessing inventory quantity if available
+    // Check if inventory_quantity exists and return it
     const inventoryQuantity = data.product && data.product.inventory_quantity 
       ? data.product.inventory_quantity 
       : 'N/A';
