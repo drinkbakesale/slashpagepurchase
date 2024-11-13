@@ -15,7 +15,8 @@ exports.handler = async function(event, context) {
   const productId = event.queryStringParameters.productId;
 
   try {
-    const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/inventory_levels.json?inventory_item_ids=${productId}`, {
+    // Fetching variants of the specified product
+    const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/products/${productId}/variants.json`, {
       headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN,
@@ -26,27 +27,26 @@ exports.handler = async function(event, context) {
       console.error('Error fetching data from Shopify:', response.status, response.statusText);
       return {
         statusCode: response.status,
-        body: JSON.stringify({ error: 'Error fetching inventory data from Shopify' }),
+        body: JSON.stringify({ error: 'Error fetching variant data from Shopify' }),
       };
     }
 
     const data = await response.json();
-    console.log('Full data response from Shopify:', JSON.stringify(data, null, 2));
 
-    // Access inventory level from the response
-    const inventoryData = data.inventory_levels && data.inventory_levels.length > 0 
-      ? data.inventory_levels[0].available
+    // Assuming the first variant's `inventory_quantity`
+    const inventoryQuantity = data.variants && data.variants.length > 0 
+      ? data.variants[0].inventory_quantity 
       : 'N/A';
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ quantity: inventoryData }),
+      body: JSON.stringify({ inventory_quantity: inventoryQuantity }),
     };
   } catch (error) {
-    console.error('Error fetching inventory data:', error);
+    console.error('Error fetching inventory quantity:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Error fetching inventory data' }),
+      body: JSON.stringify({ error: 'Error fetching inventory quantity' }),
     };
   }
 };
