@@ -32,9 +32,9 @@ exports.handler = async function(event, context) {
 
     const data = await response.json();
 
-    // Check if `inventory_levels` exists and is non-empty
-    const inventoryData = data.inventory_levels && data.inventory_levels.length > 0 
-      ? data.inventory_levels[0].available
+    // Access the quantity from `InventoryLevel` if that is the correct key
+    const inventoryData = data.InventoryLevel && data.InventoryLevel.length > 0 
+      ? data.InventoryLevel[0].available
       : 'N/A';
 
     return {
@@ -49,5 +49,3 @@ exports.handler = async function(event, context) {
     };
   }
 };
-
-
