@@ -52,6 +52,7 @@ const flavorOptions = [
 ];
 
 const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) => {
+    const [flavors, setFlavors] = useState(flavorOptions);
     const [selected, setSelected] = useState({ label: defaultText || 'Select flavor', color: 'white', textColor: '#7C0101' });
     const selectRef = useRef(null);
     const dropdownRef = useRef(null);
@@ -67,27 +68,22 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
     };
 
     useEffect(() => {
-        const handleEsc = (event) => {
-            if (event.key === 'Escape') {
-                setOpen(false);
-            }
-        };
-        const handleClickOutside = (event) => {
-            console.log('event', dropdownRef.current.contains(event.target))
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setOpen(false);
+        const fetchInventory = async () => {
+            try {
+                const response = await fetch('/.netlify/functions/getInventory');
+                const data = await response.json();
+                const updatedFlavors = flavors.map(flavor => {
+                    const inventoryData = data.find(item => item.productId === flavor.value);
+                    return { ...flavor, inventory: inventoryData ? inventoryData.quantity : 'N/A' };
+                });
+                setFlavors(updatedFlavors);
+            } catch (error) {
+                console.error('Error fetching inventory:', error);
             }
         };
 
-        if (isOpen) {
-            document.addEventListener('keydown', handleEsc);
-            document.addEventListener('mousedown', handleClickOutside);
-        }
-        return () => {
-            document.removeEventListener('keydown', handleEsc);
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [isOpen, setOpen]);
+        fetchInventory();
+    }, []);
 
     return (
         <div className="relative w-full select-container" ref={selectRef}>
@@ -105,7 +101,7 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
                     className="fixed inset-0 flex items-center justify-center z-50"
                 >
                     <div className='bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[300px]' ref={dropdownRef}>
-                    {flavorOptions.map((flavor) => (
+                    {flavors.map((flavor) => (
                         <div
                             key={flavor.value}
                             className="flex items-center gap-2 px-2 py-2 cursor-pointer hover:bg-gray-200"
@@ -118,7 +114,7 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
                                 {flavor.label}
                             </span>
                             <div className='text-xs' style={{ color: flavor.textColor }}>{flavor.subText}</div>
-
+                            <div className='text-xs' style={{ color: flavor.textColor }}>Inventory: {flavor.inventory}</div>
                             </div>
                         </div>
                     ))}
@@ -128,5 +124,3 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
         </div>
     );
 };
-
-export default CustomSelect;
