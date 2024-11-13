@@ -31,10 +31,11 @@ exports.handler = async function(event, context) {
     }
 
     const data = await response.json();
+    console.log('Full data response from Shopify:', JSON.stringify(data, null, 2));
 
-    // Retrieve available inventory specifically from `InventoryLevel`
-    const inventoryData = data.InventoryLevel && data.InventoryLevel.length > 0 
-      ? data.InventoryLevel[0].available
+    // Access inventory level from the response
+    const inventoryData = data.inventory_levels && data.inventory_levels.length > 0 
+      ? data.inventory_levels[0].available
       : 'N/A';
 
     return {
