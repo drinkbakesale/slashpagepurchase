@@ -124,3 +124,5 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
         </div>
     );
 };
+
+export default CustomSelect;
