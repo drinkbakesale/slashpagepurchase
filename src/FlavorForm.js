@@ -226,3 +226,10 @@ const FlavorForm = () => {
               onClick={handleSubscriptionOrderClick}
             />
           </CustomRadio>
+        </div> {/* Closing the inner div */}
+      </form> {/* Closing the form */}
+    </div> {/* Closing the outer div */}
+  );
+};
+
+export default FlavorForm;
