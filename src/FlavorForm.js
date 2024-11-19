@@ -25,9 +25,16 @@ const FlavorForm = () => {
     "Flavor Adventure": "48766615650594",
     "Jelly Donut": "48766619058466",
     "Chocolate Chip Cookie": "48766610997538",
-    Brownie: "48766158111010",
+    "Brownie": "48766158111010",
     "Thin Mint": "48766621876514",
     "Limited Edition Cinnamon Roll": "49275197653282",
+    "Gingerbread": "47087547547938",
+    "Limited Edition 5-Layer Bar": "49077761802530",
+    "Limited Edition Banana Bread": "49180409954594",
+    "Limited Edition Blueberry Pie": "48900876599586",
+    "Limited Edition Lemon Bar": "47953631969570",
+    "Limited Edition Peach Cobbler": "48774708461858",
+    "Limited Edition Smores": "48552021917986",
   };
 
   function buildShopifyCartUrl(cartItems) {
