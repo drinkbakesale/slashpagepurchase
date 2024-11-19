@@ -29,7 +29,7 @@ const FlavorForm = () => {
     Brownie: "48766158111010",
     "Thin Mint": "48766621876514",
     "Limited Edition Cinnamon Roll": "49275197653282",
-    "Limited Edition Gingerbread": "47087547547938",
+    "Gingerbread": "47087547547938",
     "Limited Edition 5-Layer Bar": "49077761802530",
     "Limited Edition Banana Bread": "49180409954594",
     "Limited Edition Blueberry Pie": "48900876599586",
@@ -233,3 +233,10 @@ const FlavorForm = () => {
               onClick={handleSubscriptionOrderClick}
             />
           </CustomRadio>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default FlavorForm;
