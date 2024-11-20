@@ -140,37 +140,45 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
         <div
           style={{
             position: 'fixed',
-            top: '10%', // Move popup 10% higher
+            top: '10%', // Popup moved 10% higher
             left: '50%',
-            transform: 'translate(-50%, 0)', // Center horizontally
+            transform: 'translate(-50%, 0)',
             width: '90%',
             maxWidth: '400px',
-            height: '60vh', // 60% of visible screen height
-            backgroundColor: 'transparent', // Transparent background
+            height: '60vh', // 60% of the visible screen height
+            backgroundColor: 'transparent', // Fully transparent background
             zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
-            boxShadow: 'none', // Remove shadow
+            boxShadow: 'none',
           }}
         >
           <button
             onClick={handleClosePopup}
             style={{
-              position: 'sticky', // Sticky close button
+              position: 'sticky',
               top: 0,
               right: 0,
               zIndex: 1000,
               border: 'none',
-              background: 'transparent', // Transparent button background
-              color: '#FFFFFF', // White close button text
-              fontSize: '24px', // Slightly larger size for visibility
+              background: 'transparent',
+              color: '#FFFFFF', // White close button
+              fontSize: '24px', // Larger for visibility
               cursor: 'pointer',
               padding: '10px',
             }}
           >
             &times;
           </button>
-          <div style={{ padding: '10px', backgroundColor: 'white', borderRadius: '10px', overflowY: 'auto', flex: 1 }}>
+          <div
+            style={{
+              padding: '10px',
+              backgroundColor: 'transparent', // Transparent container
+              borderRadius: '10px',
+              overflowY: 'auto',
+              flex: 1,
+            }}
+          >
             {flavorOptions.map((flavor) => (
               <div
                 key={flavor.value}
@@ -181,7 +189,6 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                   display: 'flex',
                   alignItems: 'center',
                   width: '100%',
-                  marginBottom: 0, // Remove vertical spacing
                   padding: '10px',
                   borderRadius: '5px',
                 }}
@@ -191,15 +198,15 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                   src={flavor.imageUrl}
                   alt={flavor.label}
                   style={{
-                    width: '75px', // Increased size
-                    height: '75px', // Increased size
+                    width: '75px',
+                    height: '75px',
                     marginRight: '10px',
                     borderRadius: '5px',
                   }}
                 />
                 <div>
                   <strong>{flavor.label}</strong>
-                  <p style={{ fontSize: '18px', margin: 0 }}>{flavor.subText}</p> {/* Increased font size */}
+                  <p style={{ fontSize: '18px', margin: 0 }}>{flavor.subText}</p>
                 </div>
               </div>
             ))}
