@@ -107,135 +107,115 @@ const flavorOptions = [
     },
 ];
 
-const FlavorDropdownPopup = ({ isOpen, onClose, onSelect }) => {
-  if (!isOpen) return null;
-
-  return (
-    <div
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        zIndex: 9999,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <div
-        style={{
-          width: '90%',
-          maxWidth: '400px',
-          backgroundColor: 'white',
-          borderRadius: '10px',
-          overflowY: 'auto',
-          maxHeight: '80%',
-          padding: '20px',
-        }}
-      >
-        <button
-          onClick={onClose}
-          style={{
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            border: 'none',
-            background: 'none',
-            fontSize: '18px',
-            cursor: 'pointer',
-          }}
-        >
-          &times;
-        </button>
-        <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Select a Flavor</h2>
-        <div>
-          {flavorOptions.map((flavor) => (
-            <div
-              key={flavor.value}
-              style={{
-                backgroundColor: flavor.color,
-                color: flavor.textColor,
-                borderRadius: '8px',
-                padding: '10px',
-                marginBottom: '10px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-              }}
-              onClick={() => onSelect(flavor)}
-            >
-              <img
-                src={flavor.imageUrl}
-                alt={flavor.label}
-                style={{
-                  width: '50px',
-                  height: '50px',
-                  marginRight: '10px',
-                  borderRadius: '5px',
-                }}
-              />
-              <div>
-                <strong>{flavor.label}</strong>
-                <p style={{ fontSize: '12px', margin: 0 }}>{flavor.subText}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const ParentComponent = () => {
+const CustomSelect = ({ label, onSelect, defaultText }) => {
+  const [selected, setSelected] = useState({ label: defaultText || 'Select flavor', color: 'white', textColor: '#7C0101' });
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [selectedFlavor, setSelectedFlavor] = useState(null);
 
-  const handleOpenPopup = () => {
-    setIsPopupOpen(true);
+  const handleSelect = (flavor) => {
+    setSelected(flavor);
+    setIsPopupOpen(false);
+    onSelect(flavor.label);
+  };
+
+  const handleTogglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
   };
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
   };
 
-  const handleFlavorSelect = (flavor) => {
-    setSelectedFlavor(flavor.label);
-    setIsPopupOpen(false);
-    alert(`You selected: ${flavor.label}`);
-  };
-
   return (
-    <div>
-      <button
-        onClick={handleOpenPopup}
-        style={{
-          padding: '10px 20px',
-          backgroundColor: '#15C5D8',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-        }}
+    <div className="relative w-full select-container">
+      <label className="block mb-1 text-center">{label}</label>
+      <div
+        className="text-[.95rem] border-2 border-[#7C0101] p-2 cursor-pointer text-center font-bold h-[68px] flex items-center justify-center"
+        style={{ backgroundColor: selected.color, color: selected.textColor }}
+        onClick={handleTogglePopup}
       >
-        Select Flavor
-      </button>
+        {selected.label}
+      </div>
 
-      {selectedFlavor && (
-        <p style={{ marginTop: '20px' }}>
-          Selected Flavor: <strong>{selectedFlavor}</strong>
-        </p>
+      {isPopupOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 9999,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <div
+            style={{
+              width: '90%',
+              maxWidth: '400px',
+              backgroundColor: 'white',
+              borderRadius: '10px',
+              overflowY: 'auto',
+              maxHeight: '80%',
+              padding: '20px',
+              position: 'relative',
+            }}
+          >
+            <button
+              onClick={handleClosePopup}
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                border: 'none',
+                background: 'none',
+                fontSize: '18px',
+                cursor: 'pointer',
+              }}
+            >
+              &times;
+            </button>
+            <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Select a Flavor</h2>
+            <div>
+              {flavorOptions.map((flavor) => (
+                <div
+                  key={flavor.value}
+                  style={{
+                    backgroundColor: flavor.color,
+                    color: flavor.textColor,
+                    borderRadius: '8px',
+                    padding: '10px',
+                    marginBottom: '10px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                  onClick={() => handleSelect(flavor)}
+                >
+                  <img
+                    src={flavor.imageUrl}
+                    alt={flavor.label}
+                    style={{
+                      width: '50px',
+                      height: '50px',
+                      marginRight: '10px',
+                      borderRadius: '5px',
+                    }}
+                  />
+                  <div>
+                    <strong>{flavor.label}</strong>
+                    <p style={{ fontSize: '12px', margin: 0 }}>{flavor.subText}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       )}
-
-      <FlavorDropdownPopup
-        isOpen={isPopupOpen}
-        onClose={handleClosePopup}
-        onSelect={handleFlavorSelect}
-      />
     </div>
   );
 };
 
-export default ParentComponent;
+export default CustomSelect;
