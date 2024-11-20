@@ -158,26 +158,28 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
               backgroundColor: 'white',
               borderRadius: '10px',
               overflowY: 'auto',
-              maxHeight: '80%',
-              padding: '20px',
+              height: '60vh', // Set height to 60% of the viewport height
+              padding: '0', // Remove all padding
               position: 'relative',
             }}
           >
             <button
               onClick={handleClosePopup}
               style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
+                position: 'sticky', // Sticky position for the close button
+                top: '0',
+                right: '0',
                 border: 'none',
                 background: 'none',
                 fontSize: '18px',
                 cursor: 'pointer',
+                padding: '10px',
+                zIndex: 1000,
+                backgroundColor: '#FFF', // Background color for visibility
               }}
             >
               &times;
             </button>
-            <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Select a Flavor</h2>
             <div>
               {flavorOptions.map((flavor) => (
                 <div
@@ -185,9 +187,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                   style={{
                     backgroundColor: flavor.color,
                     color: flavor.textColor,
-                    borderRadius: '8px',
-                    padding: '10px',
-                    marginBottom: '10px',
+                    width: '100%', // Full width
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
@@ -201,7 +201,6 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                       width: '50px',
                       height: '50px',
                       marginRight: '10px',
-                      borderRadius: '5px',
                     }}
                   />
                   <div>
