@@ -172,7 +172,7 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
                                 style={{ backgroundColor: flavor.color }}
                             >
                                 <span
-                                    className="font-bold text-lg text-center w-full mb-2"
+                                    className="font-bold text-sm text-center w-full mb-2" // Reduced font size by 25%
                                     style={{ color: flavor.textColor }}
                                 >
                                     {flavor.label}
@@ -185,7 +185,7 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
                                         style={{ width: '33%', margin: 0 }}
                                     />
                                     <div
-                                        className="text-sm leading-tight"
+                                        className="text-xs leading-tight" // Reduced font size for subtext by 25%
                                         style={{
                                             width: '67%',
                                             color: flavor.textColor,
