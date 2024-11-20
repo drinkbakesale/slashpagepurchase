@@ -158,24 +158,26 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
               backgroundColor: 'white',
               borderRadius: '10px',
               overflowY: 'auto',
-              height: '60vh', // Set height to 60% of the viewport height
-              padding: '0', // Remove all padding
+              height: '60vh', // Set popup height to 60% of the viewport height
               position: 'relative',
+              padding: 0, // Remove all padding
             }}
           >
             <button
               onClick={handleClosePopup}
               style={{
                 position: 'sticky', // Sticky position for the close button
-                top: '0',
-                right: '0',
+                top: 0,
+                right: 0,
+                zIndex: 1000,
                 border: 'none',
-                background: 'none',
+                background: '#FFF', // Ensure visibility on white background
                 fontSize: '18px',
                 cursor: 'pointer',
                 padding: '10px',
-                zIndex: 1000,
-                backgroundColor: '#FFF', // Background color for visibility
+                width: '100%',
+                textAlign: 'right',
+                borderBottom: '1px solid #ddd', // Optional: Add border for separation
               }}
             >
               &times;
@@ -187,10 +189,10 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                   style={{
                     backgroundColor: flavor.color,
                     color: flavor.textColor,
-                    width: '100%', // Full width
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
+                    width: '100%', // Full width
                   }}
                   onClick={() => handleSelect(flavor)}
                 >
@@ -201,6 +203,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                       width: '50px',
                       height: '50px',
                       marginRight: '10px',
+                      borderRadius: '5px',
                     }}
                   />
                   <div>
