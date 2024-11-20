@@ -167,24 +167,26 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
                             {flavorOptions.map((flavor) => (
                                 <div
                                     key={flavor.value}
-                                    className="flex flex-row items-center gap-4 px-4 py-2 cursor-pointer hover:bg-gray-200"
+                                    className="flex flex-col items-center px-4 py-2 cursor-pointer hover:bg-gray-200"
                                     onClick={() => handleSelect(flavor)}
                                     style={{ backgroundColor: flavor.color }}
                                 >
-                                    <img
-                                        src={flavor.imageUrl}
-                                        alt={flavor.label}
-                                        className="w-20 h-20 flex-shrink-0"
-                                    />
-                                    <div className="flex flex-col justify-center">
-                                        <span
-                                            className="font-bold text-lg text-center"
-                                            style={{ color: flavor.textColor }}
-                                        >
-                                            {flavor.label}
-                                        </span>
+                                    {/* Label Centered at the Top */}
+                                    <span
+                                        className="font-bold text-lg text-center mb-2"
+                                        style={{ color: flavor.textColor }}
+                                    >
+                                        {flavor.label}
+                                    </span>
+                                    {/* Image on the Left and Subtext on the Right */}
+                                    <div className="flex flex-row items-center w-full">
+                                        <img
+                                            src={flavor.imageUrl}
+                                            alt={flavor.label}
+                                            className="w-20 h-20 flex-shrink-0"
+                                        />
                                         <div
-                                            className="text-sm text-right"
+                                            className="ml-4 text-sm text-right w-full"
                                             style={{ color: flavor.textColor }}
                                         >
                                             {flavor.subText}
