@@ -160,27 +160,31 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
                     className="fixed inset-0 flex items-center justify-center z-50"
                 >
                     <div
-                        className="bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[600px]" // Adjust width for two columns
+                        className="bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[600px]" // Adjusted width for layout
                         ref={dropdownRef}
                     >
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2 gap-0"> {/* Two columns */}
                             {flavorOptions.map((flavor) => (
                                 <div
                                     key={flavor.value}
-                                    className="flex items-center gap-2 px-2 py-2 cursor-pointer hover:bg-gray-200"
+                                    className="flex flex-row items-center gap-4 px-4 py-2 cursor-pointer hover:bg-gray-200"
                                     onClick={() => handleSelect(flavor)}
                                     style={{ backgroundColor: flavor.color }}
                                 >
-                                    <img src={flavor.imageUrl} alt={flavor.label} className="w-20 h-20" />
-                                    <div>
+                                    <img
+                                        src={flavor.imageUrl}
+                                        alt={flavor.label}
+                                        className="w-20 h-20 flex-shrink-0"
+                                    />
+                                    <div className="flex flex-col justify-center">
                                         <span
-                                            className="font-bold text-2xl leading-tight"
+                                            className="font-bold text-lg text-center"
                                             style={{ color: flavor.textColor }}
                                         >
                                             {flavor.label}
                                         </span>
                                         <div
-                                            className="text-xs"
+                                            className="text-sm text-right"
                                             style={{ color: flavor.textColor }}
                                         >
                                             {flavor.subText}
