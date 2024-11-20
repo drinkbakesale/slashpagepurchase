@@ -129,7 +129,6 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
             }
         };
         const handleClickOutside = (event) => {
-            console.log('event', dropdownRef.current.contains(event.target))
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setOpen(false);
             }
@@ -139,11 +138,29 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
             document.addEventListener('keydown', handleEsc);
             document.addEventListener('mousedown', handleClickOutside);
         }
+
         return () => {
             document.removeEventListener('keydown', handleEsc);
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [isOpen, setOpen]);
+
+    // Function to send the height to the parent window
+    useEffect(() => {
+        const sendHeightToParent = () => {
+            const height = document.documentElement.scrollHeight;
+            window.parent.postMessage({ iframeHeight: height }, '*');
+        };
+
+        // Send height on load
+        sendHeightToParent();
+
+        // Send height periodically to handle dynamic content changes
+        const interval = setInterval(sendHeightToParent, 500);
+
+        // Cleanup
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className="relative w-full select-container" ref={selectRef}>
@@ -160,24 +177,31 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
                     id="dropdown-menu"
                     className="fixed inset-0 flex items-center justify-center z-50"
                 >
-                    <div className='bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[300px]' ref={dropdownRef}>
-                    {flavorOptions.map((flavor) => (
-                        <div
-                            key={flavor.value}
-                            className="flex items-center gap-2 px-2 py-2 cursor-pointer hover:bg-gray-200"
-                            onClick={() => handleSelect(flavor)}
-                            style={{ backgroundColor: flavor.color }}
-                        >
-                            <img src={flavor.imageUrl} alt={flavor.label} className="w-20 h-20" />
-                            <div>
-                            <span className="font-bold text-2xl leading-tight" style={{ color: flavor.textColor }}>
-                                {flavor.label}
-                            </span>
-                            <div className='text-xs' style={{ color: flavor.textColor }}>{flavor.subText}</div>
-
+                    <div
+                        className="bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[300px]"
+                        ref={dropdownRef}
+                    >
+                        {flavorOptions.map((flavor) => (
+                            <div
+                                key={flavor.value}
+                                className="flex items-center gap-2 px-2 py-2 cursor-pointer hover:bg-gray-200"
+                                onClick={() => handleSelect(flavor)}
+                                style={{ backgroundColor: flavor.color }}
+                            >
+                                <img src={flavor.imageUrl} alt={flavor.label} className="w-20 h-20" />
+                                <div>
+                                    <span
+                                        className="font-bold text-2xl leading-tight"
+                                        style={{ color: flavor.textColor }}
+                                    >
+                                        {flavor.label}
+                                    </span>
+                                    <div className="text-xs" style={{ color: flavor.textColor }}>
+                                        {flavor.subText}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
                     </div>
                 </div>
             )}
