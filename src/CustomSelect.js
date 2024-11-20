@@ -140,83 +140,72 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
         <div
           style={{
             position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            top: '10%', // Move popup up by 10% of the screen height
+            left: '50%',
+            transform: 'translate(-50%, 0)', // Center horizontally
+            width: '90%',
+            maxWidth: '400px',
+            backgroundColor: 'white',
+            borderRadius: '10px',
+            overflowY: 'auto',
+            height: '60vh', // 60% of the visible screen height
             zIndex: 9999,
             display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            flexDirection: 'column',
+            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', // Add a subtle shadow for visibility
           }}
         >
-          <div
+          <button
+            onClick={handleClosePopup}
             style={{
-              width: '90%',
-              maxWidth: '400px',
-              backgroundColor: 'white',
-              borderRadius: '10px',
-              overflowY: 'auto',
-              height: '60vh', // 60% of the viewport height
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
+              position: 'sticky', // Sticky close button
+              top: 0,
+              right: 0,
+              zIndex: 1000,
+              border: 'none',
+              background: '#FFFFFF', // White close button
+              color: '#7C0101', // Red text color
+              fontSize: '18px',
+              cursor: 'pointer',
+              padding: '10px',
+              textAlign: 'right',
             }}
           >
-            <button
-              onClick={handleClosePopup}
-              style={{
-                position: 'sticky', // Sticky close button
-                top: 0,
-                right: 0,
-                zIndex: 1000,
-                border: 'none',
-                background: '#FFF', // Ensure visibility
-                fontSize: '18px',
-                cursor: 'pointer',
-                padding: '10px',
-                width: '100%',
-                textAlign: 'right',
-                borderBottom: '1px solid #ddd', // Optional: Add border for separation
-              }}
-            >
-              &times;
-            </button>
-            <div style={{ padding: '10px' }}>
-              {flavorOptions.map((flavor) => (
-                <div
-                  key={flavor.value}
+            &times;
+          </button>
+          <div style={{ padding: '10px' }}>
+            {flavorOptions.map((flavor) => (
+              <div
+                key={flavor.value}
+                style={{
+                  backgroundColor: flavor.color,
+                  color: flavor.textColor,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  width: '100%',
+                  marginBottom: 0, // Remove vertical space
+                  padding: '10px', // Add some padding inside the box
+                  borderRadius: '5px',
+                }}
+                onClick={() => handleSelect(flavor)}
+              >
+                <img
+                  src={flavor.imageUrl}
+                  alt={flavor.label}
                   style={{
-                    backgroundColor: flavor.color,
-                    color: flavor.textColor,
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    width: '100%',
-                    marginBottom: 0, // Remove vertical space
-                    padding: '10px', // Add some padding inside the box
+                    width: '75px', // Increased size
+                    height: '75px', // Increased size
+                    marginRight: '10px',
                     borderRadius: '5px',
                   }}
-                  onClick={() => handleSelect(flavor)}
-                >
-                  <img
-                    src={flavor.imageUrl}
-                    alt={flavor.label}
-                    style={{
-                      width: '75px', // Increased size
-                      height: '75px', // Increased size
-                      marginRight: '10px',
-                      borderRadius: '5px',
-                    }}
-                  />
-                  <div>
-                    <strong>{flavor.label}</strong>
-                    <p style={{ fontSize: '18px', margin: 0 }}>{flavor.subText}</p> {/* Increased font size */}
-                  </div>
+                />
+                <div>
+                  <strong>{flavor.label}</strong>
+                  <p style={{ fontSize: '18px', margin: 0 }}>{flavor.subText}</p> {/* Increased font size */}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       )}
