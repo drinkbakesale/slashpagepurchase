@@ -1,55 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 const flavorOptions = [
-    {
-        value: 'Variety Pack #1',
-        label: 'Variety Pack #1',
-        subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
-        color: '#87c8d5',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
-        textColor: '#7C0101',
-    },
-    {
-        value: 'Limited Edition Cinnamon Roll',
-        label: 'Limited Edition Cinnamon Roll',
-        subText: 'Cinnamon swirled buttery dough with sweet icing',
-        color: '#A25D33',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cinnamon_Roll-min.png?v=1730832932',
-        textColor: '#FFFFFF',
-    },
-    {
-        value: 'Jelly Donut',
-        label: 'Jelly Donut',
-        subText: 'Jam-filled joyride with bursts of raspberry jam and fluffy donut',
-        color: '#e27b9c',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
-        textColor: '#7C0101',
-    },
-    {
-        value: 'Chocolate Chip Cookie',
-        label: 'Chocolate Chip Cookie',
-        subText: 'A perfect ratio of chocolate chips to golden, buttery cookie',
-        color: '#e88b37',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cookie_Box.png?v=1718393167',
-        textColor: '#7C0101',
-    },
-    {
-        value: 'Brownie',
-        label: 'Brownie',
-        subText: 'Rich, fudgy, chocolatey, yet delicate, this flavor is indulgent!',
-        color: '#9965a2',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Brownie_Box.png?v=1718393167',
-        textColor: '#FFFFFF',
-    },
-    {
-        value: 'Thin Mint',
-        label: 'Thin Mint',
-        subText: 'Luscious chocolate cookie meets spearmint freshness',
-        color: '#27b376',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
-        textColor: '#7C0101',
-    },
-     {
+        {
         value: 'Limited Edition 5-Layer Bar',
         label: 'Limited Edition 5-Layer Bar',
         subText: 'Honeyed graham, caramel swirls, toasted coconut bliss',
@@ -105,6 +57,54 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Gingerbread-min.png?v=1732037885',
         textColor: '#FFFFFF',
     },
+    {
+        value: 'Variety Pack #1',
+        label: 'Variety Pack #1',
+        subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
+        color: '#87c8d5',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
+        textColor: '#7C0101',
+    },
+    {
+        value: 'Limited Edition Cinnamon Roll',
+        label: 'Limited Edition Cinnamon Roll',
+        subText: 'Cinnamon swirled buttery dough with sweet icing',
+        color: '#A25D33',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cinnamon_Roll-min.png?v=1730832932',
+        textColor: '#FFFFFF',
+    },
+    {
+        value: 'Jelly Donut',
+        label: 'Jelly Donut',
+        subText: 'Jam-filled joyride with bursts of raspberry jam and fluffy donut',
+        color: '#e27b9c',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
+        textColor: '#7C0101',
+    },
+    {
+        value: 'Chocolate Chip Cookie',
+        label: 'Chocolate Chip Cookie',
+        subText: 'A perfect ratio of chocolate chips to golden, buttery cookie',
+        color: '#e88b37',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cookie_Box.png?v=1718393167',
+        textColor: '#7C0101',
+    },
+    {
+        value: 'Brownie',
+        label: 'Brownie',
+        subText: 'Rich, fudgy, chocolatey, yet delicate, this flavor is indulgent!',
+        color: '#9965a2',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Brownie_Box.png?v=1718393167',
+        textColor: '#FFFFFF',
+    },
+    {
+        value: 'Thin Mint',
+        label: 'Thin Mint',
+        subText: 'Luscious chocolate cookie meets spearmint freshness',
+        color: '#27b376',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
+        textColor: '#7C0101',
+    },
 ];
 
 const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) => {
@@ -129,6 +129,7 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
             }
         };
         const handleClickOutside = (event) => {
+            console.log('event', dropdownRef.current.contains(event.target))
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
                 setOpen(false);
             }
@@ -159,44 +160,24 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
                     id="dropdown-menu"
                     className="fixed inset-0 flex items-center justify-center z-50"
                 >
-                    <div
-                        className="bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 grid grid-cols-2"
-                        style={{ width: '600px' }} // Adjust width as needed
-                        ref={dropdownRef}
-                    >
-                        {flavorOptions.map((flavor) => (
-                            <div
-                                key={flavor.value}
-                                className="flex flex-col items-center p-2"
-                                onClick={() => handleSelect(flavor)}
-                                style={{ backgroundColor: flavor.color }}
-                            >
-                                <span
-                                    className="font-bold text-sm text-center w-full mb-2" // Reduced font size by 25%
-                                    style={{ color: flavor.textColor }}
-                                >
-                                    {flavor.label}
-                                </span>
-                                <div className="flex items-center w-full">
-                                    <img
-                                        src={flavor.imageUrl}
-                                        alt={flavor.label}
-                                        className="flex-shrink-0"
-                                        style={{ width: '33%', margin: 0 }}
-                                    />
-                                    <div
-                                        className="text-xs leading-tight" // Reduced font size for subtext by 25%
-                                        style={{
-                                            width: '67%',
-                                            color: flavor.textColor,
-                                            margin: 0,
-                                        }}
-                                    >
-                                        {flavor.subText}
-                                    </div>
-                                </div>
+                    <div className='bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 w-[300px]' ref={dropdownRef}>
+                    {flavorOptions.map((flavor) => (
+                        <div
+                            key={flavor.value}
+                            className="flex items-center gap-2 px-2 py-2 cursor-pointer hover:bg-gray-200"
+                            onClick={() => handleSelect(flavor)}
+                            style={{ backgroundColor: flavor.color }}
+                        >
+                            <img src={flavor.imageUrl} alt={flavor.label} className="w-20 h-20" />
+                            <div>
+                            <span className="font-bold text-2xl leading-tight" style={{ color: flavor.textColor }}>
+                                {flavor.label}
+                            </span>
+                            <div className='text-xs' style={{ color: flavor.textColor }}>{flavor.subText}</div>
+
                             </div>
-                        ))}
+                        </div>
+                    ))}
                     </div>
                 </div>
             )}
