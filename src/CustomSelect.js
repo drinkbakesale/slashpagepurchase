@@ -108,11 +108,7 @@ const flavorOptions = [
 ];
 
 const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) => {
-    const [selected, setSelected] = useState({
-        label: defaultText || 'Select flavor',
-        color: 'white',
-        textColor: '#7C0101',
-    });
+    const [selected, setSelected] = useState({ label: defaultText || 'Select flavor', color: 'white', textColor: '#7C0101' });
     const selectRef = useRef(null);
     const dropdownRef = useRef(null);
 
@@ -164,30 +160,38 @@ const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) 
                     className="fixed inset-0 flex items-center justify-center z-50"
                 >
                     <div
-                        className="bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 grid grid-cols-2 w-[300px]"
+                        className="bg-white border-4 border-[#7C0101] mt-1 rounded shadow-lg z-10 grid grid-cols-2"
+                        style={{ width: '600px' }} // Adjust width as needed
                         ref={dropdownRef}
                     >
                         {flavorOptions.map((flavor) => (
                             <div
                                 key={flavor.value}
-                                className="flex flex-col items-center px-2 py-2 cursor-pointer hover:bg-gray-200"
+                                className="flex flex-col items-center p-2"
                                 onClick={() => handleSelect(flavor)}
-                                style={{ backgroundColor: flavor.color, width: '50%' }}
+                                style={{ backgroundColor: flavor.color }}
                             >
-                                {/* Label at the top, centered, full width */}
-                                <div className="w-full text-center font-bold text-2xl mb-2" style={{ color: flavor.textColor }}>
+                                <span
+                                    className="font-bold text-lg text-center w-full mb-2"
+                                    style={{ color: flavor.textColor }}
+                                >
                                     {flavor.label}
-                                </div>
-
-                                {/* Container for image and subtext */}
-                                <div className="flex w-full items-center">
-                                    {/* Image taking 1/3 of the width */}
-                                    <div className="w-1/3 flex-shrink-0">
-                                        <img src={flavor.imageUrl} alt={flavor.label} className="w-full h-auto" />
-                                    </div>
-
-                                    {/* Subtext taking 2/3 of the width */}
-                                    <div className="w-2/3 text-sm pl-2" style={{ color: flavor.textColor }}>
+                                </span>
+                                <div className="flex items-center w-full">
+                                    <img
+                                        src={flavor.imageUrl}
+                                        alt={flavor.label}
+                                        className="flex-shrink-0"
+                                        style={{ width: '33%', margin: 0 }}
+                                    />
+                                    <div
+                                        className="text-sm leading-tight"
+                                        style={{
+                                            width: '67%',
+                                            color: flavor.textColor,
+                                            margin: 0,
+                                        }}
+                                    >
                                         {flavor.subText}
                                     </div>
                                 </div>
