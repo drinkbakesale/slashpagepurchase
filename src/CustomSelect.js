@@ -158,20 +158,21 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
               backgroundColor: 'white',
               borderRadius: '10px',
               overflowY: 'auto',
-              height: '60vh', // Set popup height to 60% of the viewport height
+              height: '60vh', // 60% of the viewport height
+              display: 'flex',
+              flexDirection: 'column',
               position: 'relative',
-              padding: 0, // Remove all padding
             }}
           >
             <button
               onClick={handleClosePopup}
               style={{
-                position: 'sticky', // Sticky position for the close button
+                position: 'sticky', // Sticky close button
                 top: 0,
                 right: 0,
                 zIndex: 1000,
                 border: 'none',
-                background: '#FFF', // Ensure visibility on white background
+                background: '#FFF', // Ensure visibility
                 fontSize: '18px',
                 cursor: 'pointer',
                 padding: '10px',
@@ -182,7 +183,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
             >
               &times;
             </button>
-            <div>
+            <div style={{ padding: '10px' }}>
               {flavorOptions.map((flavor) => (
                 <div
                   key={flavor.value}
@@ -192,7 +193,10 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
-                    width: '100%', // Full width
+                    width: '100%',
+                    marginBottom: 0, // Remove vertical space
+                    padding: '10px', // Add some padding inside the box
+                    borderRadius: '5px',
                   }}
                   onClick={() => handleSelect(flavor)}
                 >
@@ -200,15 +204,15 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                     src={flavor.imageUrl}
                     alt={flavor.label}
                     style={{
-                      width: '50px',
-                      height: '50px',
+                      width: '75px', // Increased size
+                      height: '75px', // Increased size
                       marginRight: '10px',
                       borderRadius: '5px',
                     }}
                   />
                   <div>
                     <strong>{flavor.label}</strong>
-                    <p style={{ fontSize: '12px', margin: 0 }}>{flavor.subText}</p>
+                    <p style={{ fontSize: '18px', margin: 0 }}>{flavor.subText}</p> {/* Increased font size */}
                   </div>
                 </div>
               ))}
