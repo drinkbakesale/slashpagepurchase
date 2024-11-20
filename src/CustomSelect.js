@@ -140,19 +140,17 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
         <div
           style={{
             position: 'fixed',
-            top: '10%', // Move popup up by 10% of the screen height
+            top: '10%', // Move popup 10% higher
             left: '50%',
             transform: 'translate(-50%, 0)', // Center horizontally
             width: '90%',
             maxWidth: '400px',
-            backgroundColor: 'white',
-            borderRadius: '10px',
-            overflowY: 'auto',
-            height: '60vh', // 60% of the visible screen height
+            height: '60vh', // 60% of visible screen height
+            backgroundColor: 'transparent', // Transparent background
             zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
-            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', // Add a subtle shadow for visibility
+            boxShadow: 'none', // Remove shadow
           }}
         >
           <button
@@ -163,17 +161,16 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
               right: 0,
               zIndex: 1000,
               border: 'none',
-              background: '#FFFFFF', // White close button
-              color: '#7C0101', // Red text color
-              fontSize: '18px',
+              background: 'transparent', // Transparent button background
+              color: '#FFFFFF', // White close button text
+              fontSize: '24px', // Slightly larger size for visibility
               cursor: 'pointer',
               padding: '10px',
-              textAlign: 'right',
             }}
           >
             &times;
           </button>
-          <div style={{ padding: '10px' }}>
+          <div style={{ padding: '10px', backgroundColor: 'white', borderRadius: '10px', overflowY: 'auto', flex: 1 }}>
             {flavorOptions.map((flavor) => (
               <div
                 key={flavor.value}
@@ -184,8 +181,8 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                   display: 'flex',
                   alignItems: 'center',
                   width: '100%',
-                  marginBottom: 0, // Remove vertical space
-                  padding: '10px', // Add some padding inside the box
+                  marginBottom: 0, // Remove vertical spacing
+                  padding: '10px',
                   borderRadius: '5px',
                 }}
                 onClick={() => handleSelect(flavor)}
