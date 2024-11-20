@@ -50,8 +50,8 @@ const flavorOptions = [
         textColor: '#FFFFFF',
     },
       {
-        value: 'Limited Edition Gingerbread Liquor',
-        label: 'Limited Edition Gingerbread Liquor',
+        value: 'Limited Edition Gingerbread',
+        label: 'Limited Edition Gingerbread',
         subText: 'Spiced gingerbread cookie with sweet molasses and warm cinnamon',
         color: '#3EB65F',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Gingerbread-min.png?v=1732037885',
