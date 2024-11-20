@@ -92,7 +92,7 @@ const flavorOptions = [
       {
         value: 'Limited Edition Smores',
         label: 'Limited Edition Smores',
-        subText: 'Toasted marshmallow, rich chocolate, and honeyed graham cracker',
+        subText: 'Toasted marshmallow, rich chocolate, and graham cracker',
         color: '#4B2D13',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Smores.png?v=1718393168',
         textColor: '#FFFFFF',
