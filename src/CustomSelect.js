@@ -153,31 +153,33 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
         >
           <div
             style={{
-              width: '90%',
-              maxWidth: '400px',
+              width: '100%',
+              maxWidth: '500px',
               backgroundColor: 'white',
-              borderRadius: '10px',
+              borderRadius: '0px', // Removed border radius
               overflowY: 'auto',
-              maxHeight: '80%',
-              padding: '20px',
+              height: '75vh', // 75% of visible screen height
+              padding: '0', // Removed padding
               position: 'relative',
             }}
           >
             <button
               onClick={handleClosePopup}
               style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
+                position: 'sticky', // Sticky close button
+                top: '0',
+                right: '0',
                 border: 'none',
                 background: 'none',
-                fontSize: '18px',
+                fontSize: '24px',
                 cursor: 'pointer',
+                zIndex: 1000,
+                padding: '10px',
+                backgroundColor: '#FFF', // Background for visibility
               }}
             >
               &times;
             </button>
-            <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Select a Flavor</h2>
             <div>
               {flavorOptions.map((flavor) => (
                 <div
@@ -185,12 +187,10 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                   style={{
                     backgroundColor: flavor.color,
                     color: flavor.textColor,
-                    borderRadius: '8px',
-                    padding: '10px',
-                    marginBottom: '10px',
-                    cursor: 'pointer',
+                    width: '100%', // Full width
                     display: 'flex',
                     alignItems: 'center',
+                    cursor: 'pointer',
                   }}
                   onClick={() => handleSelect(flavor)}
                 >
@@ -201,7 +201,6 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                       width: '50px',
                       height: '50px',
                       marginRight: '10px',
-                      borderRadius: '5px',
                     }}
                   />
                   <div>
