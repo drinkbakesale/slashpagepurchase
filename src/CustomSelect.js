@@ -153,23 +153,31 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
             boxShadow: 'none',
           }}
         >
-          <button
-            onClick={handleClosePopup}
+          <div
             style={{
               position: 'sticky',
               top: 0,
               right: 0,
+              width: '100%',
+              textAlign: 'right',
               zIndex: 1000,
-              border: 'none',
-              background: 'transparent',
-              color: '#FFFFFF', // White close button
-              fontSize: '24px', // Larger for visibility
-              cursor: 'pointer',
               padding: '10px',
             }}
           >
-            &times;
-          </button>
+            <button
+              onClick={handleClosePopup}
+              style={{
+                border: 'none',
+                background: 'transparent',
+                color: '#FFFFFF', // White close button
+                fontSize: '36px', // Larger and bolder "X"
+                fontWeight: 'bold',
+                cursor: 'pointer',
+              }}
+            >
+              &times;
+            </button>
+          </div>
           <div
             style={{
               padding: '10px',
