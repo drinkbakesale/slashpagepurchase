@@ -142,37 +142,37 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
             position: 'fixed',
             top: '50%',
             left: '50%',
-            transform: 'translate(-50%, -50%)', // Center popup vertically and horizontally
+            transform: 'translate(-50%, -50%)', // Center popup
             width: '90%',
             maxWidth: '400px',
-            height: '60vh', // 60% of the visible screen height
-            backgroundColor: 'transparent',
+            height: '60vh', // 60% of visible screen height
             zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
-            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
-            borderRadius: '10px',
             overflow: 'hidden', // Prevent content overflow
+            backgroundColor: 'transparent', // Transparent background
           }}
         >
           {/* Header Section */}
           <div
             style={{
+              width: '100%',
+              backgroundColor: '#FFFFFF', // White background
+              padding: '10px 0',
               display: 'flex',
-              justifyContent: 'space-between',
+              justifyContent: 'center',
               alignItems: 'center',
-              padding: '10px 15px',
-              backgroundColor: '#FFFFFF', // White background for the header
-              boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-              zIndex: 1000,
+              position: 'relative',
             }}
           >
             <h2
               style={{
                 fontSize: '18px',
-                fontWeight: 'bold',
-                color: '#000000', // Black text for the header
+                fontWeight: 'normal',
+                fontFamily: 'Arial, sans-serif', // Same font as subtext
+                color: '#000000',
                 margin: 0,
+                textAlign: 'center',
               }}
             >
               Select your flavor
@@ -180,10 +180,14 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
             <button
               onClick={handleClosePopup}
               style={{
+                position: 'absolute',
+                top: '50%',
+                right: '10px',
+                transform: 'translateY(-50%)',
                 border: 'none',
                 background: 'none',
                 color: '#000000', // Black close button
-                fontSize: '24px',
+                fontSize: '20px',
                 fontWeight: 'bold',
                 cursor: 'pointer',
               }}
@@ -195,8 +199,8 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
           {/* Flavor Options */}
           <div
             style={{
-              padding: '10px',
-              backgroundColor: 'transparent', // Transparent for the options
+              padding: '10px 0',
+              backgroundColor: 'transparent',
               overflowY: 'auto',
               flex: 1,
             }}
