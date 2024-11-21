@@ -140,37 +140,50 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
         <div
           style={{
             position: 'fixed',
-            top: '10%', // Popup moved 10% higher
+            top: '50%',
             left: '50%',
-            transform: 'translate(-50%, 0)',
+            transform: 'translate(-50%, -50%)', // Center popup vertically and horizontally
             width: '90%',
             maxWidth: '400px',
             height: '60vh', // 60% of the visible screen height
-            backgroundColor: 'transparent', // Fully transparent background
+            backgroundColor: 'transparent',
             zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
-            boxShadow: 'none',
+            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
+            borderRadius: '10px',
+            overflow: 'hidden', // Prevent content overflow
           }}
         >
+          {/* Header Section */}
           <div
             style={{
-              position: 'sticky',
-              top: 0,
-              right: 0,
-              width: '100%',
-              textAlign: 'right',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '10px 15px',
+              backgroundColor: '#FFFFFF', // White background for the header
+              boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
               zIndex: 1000,
-              padding: '10px',
             }}
           >
+            <h2
+              style={{
+                fontSize: '18px',
+                fontWeight: 'bold',
+                color: '#000000', // Black text for the header
+                margin: 0,
+              }}
+            >
+              Select your flavor
+            </h2>
             <button
               onClick={handleClosePopup}
               style={{
                 border: 'none',
-                background: 'transparent',
-                color: '#FFFFFF', // White close button
-                fontSize: '36px', // Larger and bolder "X"
+                background: 'none',
+                color: '#000000', // Black close button
+                fontSize: '24px',
                 fontWeight: 'bold',
                 cursor: 'pointer',
               }}
@@ -178,11 +191,12 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
               &times;
             </button>
           </div>
+
+          {/* Flavor Options */}
           <div
             style={{
               padding: '10px',
-              backgroundColor: 'transparent', // Transparent container
-              borderRadius: '10px',
+              backgroundColor: 'transparent', // Transparent for the options
               overflowY: 'auto',
               flex: 1,
             }}
