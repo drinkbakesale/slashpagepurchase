@@ -143,9 +143,9 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)', // Center popup
-            width: '90%',
-            maxWidth: '400px',
-            height: '60vh', // 60% of visible screen height
+            width: '90%', // Adjusted width to account for reduced size
+            maxWidth: '360px', // Reduced width by 10%
+            height: '60vh', // Set popup height to 60% of the visible screen
             zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
@@ -157,7 +157,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
           <div
             style={{
               width: '100%',
-              backgroundColor: '#FFFFFF', // White background
+              backgroundColor: '#15C5D8', // Updated background color
               padding: '10px 0',
               display: 'flex',
               justifyContent: 'center',
@@ -170,7 +170,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                 fontSize: '18px',
                 fontWeight: 'normal',
                 fontFamily: 'Arial, sans-serif', // Same font as subtext
-                color: '#000000',
+                color: '#7C0101', // Updated text color
                 margin: 0,
                 textAlign: 'center',
               }}
@@ -186,7 +186,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                 transform: 'translateY(-50%)',
                 border: 'none',
                 background: 'none',
-                color: '#000000', // Black close button
+                color: '#7C0101', // Updated close button color
                 fontSize: '20px',
                 fontWeight: 'bold',
                 cursor: 'pointer',
@@ -217,6 +217,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                   width: '100%',
                   padding: '10px',
                   borderRadius: '5px',
+                  marginBottom: '0', // Removed vertical spacing
                 }}
                 onClick={() => handleSelect(flavor)}
               >
