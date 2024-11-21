@@ -125,6 +125,19 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
     setIsPopupOpen(false);
   };
 
+  useEffect(() => {
+    if (isPopupOpen) {
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    } else {
+      document.body.style.overflow = ''; // Re-enable scrolling
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isPopupOpen]);
+
   return (
     <div className="relative w-full select-container">
       <label className="block mb-1 text-center">{label}</label>
@@ -143,14 +156,14 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)', // Center popup
-            width: '90%', // Adjusted width to account for reduced size
-            maxWidth: '360px', // Reduced width by 10%
+            width: '90%',
+            maxWidth: '360px',
             height: '60vh', // Set popup height to 60% of the visible screen
             zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
-            overflow: 'hidden', // Prevent content overflow
-            backgroundColor: 'transparent', // Transparent background
+            overflow: 'hidden',
+            backgroundColor: 'transparent',
           }}
         >
           {/* Header Section */}
