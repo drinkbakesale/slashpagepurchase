@@ -127,12 +127,6 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
   };
 
   useEffect(() => {
-    if (isPopupOpen) {
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    } else {
-      document.body.style.overflow = ''; // Re-enable background scrolling
-    }
-
     const handleOutsideClick = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         setIsPopupOpen(false); // Close popup if clicked outside
@@ -232,7 +226,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
               style={{
                 padding: '10px 0',
                 backgroundColor: 'transparent',
-                overflowY: 'auto',
+                overflowY: 'auto', // Enable scrolling
                 flex: 1,
                 width: '100%',
               }}
