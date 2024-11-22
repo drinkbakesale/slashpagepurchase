@@ -1,13 +1,29 @@
 const fetch = require('node-fetch');
 
-exports.handler = async function () {
+exports.handler = async function (event, context) {
   const { SHOPIFY_STORE_URL, SHOPIFY_ADMIN_API_ACCESS_TOKEN } = process.env;
+
+  // Handle preflight (OPTIONS) request for CORS
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+      body: '',
+    };
+  }
 
   // Check if necessary environment variables are set
   if (!SHOPIFY_ADMIN_API_ACCESS_TOKEN || !SHOPIFY_STORE_URL) {
     console.error('API Access Token or Store URL is missing');
     return {
       statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
       body: JSON.stringify({ error: 'API Access Token or Store URL is missing' }),
     };
   }
@@ -25,6 +41,9 @@ exports.handler = async function () {
       console.error('Error fetching products:', productsResponse.status, productsResponse.statusText);
       return {
         statusCode: productsResponse.status,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
         body: JSON.stringify({ error: 'Error fetching products from Shopify' }),
       };
     }
@@ -57,12 +76,20 @@ exports.handler = async function () {
     // Return all products and their variants
     return {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*', // Allow all origins
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', // Allowed HTTP methods
+        'Access-Control-Allow-Headers': 'Content-Type', // Allowed headers
+      },
       body: JSON.stringify({ products: allVariants }, null, 2),
     };
   } catch (error) {
     console.error('Error fetching data:', error);
     return {
       statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*', // Allow all origins
+      },
       body: JSON.stringify({ error: 'Error fetching data' }),
     };
   }
