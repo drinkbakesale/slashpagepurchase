@@ -1,15 +1,15 @@
 export const getIDS = async () => {
-  const { REACT_APP_SHOPIFY_STORE_URL, REACT_APP_SHOPIFY_ADMIN_API_ACCESS_TOKEN } = process.env;
+  const { SHOPIFY_STORE_URL, SHOPIFY_ADMIN_API_ACCESS_TOKEN } = process.env;
 
-  if (!REACT_APP_SHOPIFY_ADMIN_API_ACCESS_TOKEN || !REACT_APP_SHOPIFY_STORE_URL) {
+  if (!SHOPIFY_ADMIN_API_ACCESS_TOKEN || !SHOPIFY_STORE_URL) {
     throw new Error('API Access Token or Store URL is missing');
   }
 
   try {
-    const productsResponse = await fetch(`${REACT_APP_SHOPIFY_STORE_URL}/admin/api/2023-01/products.json`, {
+    const productsResponse = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/products.json`, {
       headers: {
         'Content-Type': 'application/json',
-        'X-Shopify-Access-Token': REACT_APP_SHOPIFY_ADMIN_API_ACCESS_TOKEN,
+        'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN,
       },
     });
 
@@ -23,10 +23,10 @@ export const getIDS = async () => {
     const allVariants = [];
     for (const product of products) {
       const productId = product.id;
-      const variantsResponse = await fetch(`${REACT_APP_SHOPIFY_STORE_URL}/admin/api/2023-01/products/${productId}/variants.json`, {
+      const variantsResponse = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/products/${productId}/variants.json`, {
         headers: {
           'Content-Type': 'application/json',
-          'X-Shopify-Access-Token': REACT_APP_SHOPIFY_ADMIN_API_ACCESS_TOKEN,
+          'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN,
         },
       });
 
