@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import getIDS from 'netlify/functions/getIDS'; // Import the getIDS.js function directly
+import getIDS from './netlify/functions/getIDS'; // Import the getIDS.js function directly
 
 const flavorOptions = [
         {
