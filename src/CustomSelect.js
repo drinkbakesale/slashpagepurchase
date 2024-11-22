@@ -109,8 +109,32 @@ const flavorOptions = [
 
 
 const CustomSelect = ({ label, onSelect, defaultText }) => {
-  const [selected, setSelected] = useState({ label: defaultText || 'Select flavor', color: 'white', textColor: '#7C0101' });
+  const [selected, setSelected] = useState({ label: defaultText || "Select flavor", color: "white", textColor: "#7C0101" });
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [inventory, setInventory] = useState({});
+
+  useEffect(() => {
+    const fetchInventory = async () => {
+      try {
+        const inventoryData = await Promise.all(
+          flavorOptions.map(async (flavor) => {
+            const response = await fetch(`https://shopify-inventory-server.netlify.app?id=${flavor.id}`);
+            const data = await response.json();
+            return { id: flavor.id, inventory: data.inventory_quantity || "N/A" };
+          })
+        );
+        const inventoryMap = inventoryData.reduce((acc, item) => {
+          acc[item.id] = item.inventory;
+          return acc;
+        }, {});
+        setInventory(inventoryMap);
+      } catch (error) {
+        console.error("Error fetching inventory:", error);
+      }
+    };
+
+    fetchInventory();
+  }, []);
 
   const handleSelect = (flavor) => {
     setSelected(flavor);
@@ -246,6 +270,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                 <div>
                   <strong>{flavor.label}</strong>
                   <p style={{ fontSize: '18px', margin: 0 }}>{flavor.subText}</p>
+                <p>Inventory: {inventory[flavor.id] || "Loading..."}</p>
                 </div>
               </div>
             ))}
