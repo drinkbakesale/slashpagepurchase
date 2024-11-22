@@ -23,7 +23,7 @@ export const getIDS = async () => {
     const allVariants = [];
     for (const product of products) {
       const productId = product.id;
-      const variantsResponse = await fetch(`${REACT_APP_SHOPIFY_STORE_URL}/admin/api/2023-01/products/${product_Id}/variants.json`, {
+      const variantsResponse = await fetch(`${REACT_APP_SHOPIFY_STORE_URL}/admin/api/2023-01/products/${productId}/variants.json`, {
         headers: {
           'Content-Type': 'application/json',
           'X-Shopify-Access-Token': REACT_APP_SHOPIFY_ADMIN_API_ACCESS_TOKEN,
