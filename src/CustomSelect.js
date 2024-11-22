@@ -126,18 +126,13 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [inventory, setInventory] = useState({});
 
-  useEffect(() => {
+   useEffect(() => {
     const fetchInventory = async () => {
       try {
-        const inventoryData = await Promise.all(
-          flavorOptions.map(async (flavor) => {
-            const response = await fetch(`https://shopify-inventory-server.netlify.app?id=${flavor.id}`);
-            const data = await response.json();
-            return { id: flavor.id, inventory: data.inventory_quantity || "N/A" };
-          })
-        );
-        const inventoryMap = inventoryData.reduce((acc, item) => {
-          acc[item.id] = item.inventory;
+        const response = await fetch("https://shopify-inventory-server.netlify.app/.netlify/functions/getIDS");
+        const data = await response.json();
+        const inventoryMap = data.reduce((acc, item) => {
+          acc[item.id] = item.inventory_quantity || "N/A";
           return acc;
         }, {});
         setInventory(inventoryMap);
@@ -147,6 +142,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
     };
 
     fetchInventory();
+  }, []);
   }, []);
 
   const handleSelect = (flavor) => {
