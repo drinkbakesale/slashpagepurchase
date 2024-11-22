@@ -126,21 +126,26 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [inventory, setInventory] = useState({});
 
-   useEffect(() => {
+    useEffect(() => {
     const fetchInventory = async () => {
-  try {
-    const response = await fetch("https://shopify-inventory-server.netlify.app/.netlify/functions/getIDS");
-    const data = await response.json();
-    console.log("Fetched Inventory Data:", data); // Debug log
-    const inventoryMap = data.reduce((acc, item) => {
-      acc[item.id] = item.inventory_quantity || "N/A";
-      return acc;
-    }, {});
-    setInventory(inventoryMap);
-  } catch (error) {
-    console.error("Error fetching inventory:", error);
-  }
-};
+      try {
+        const response = await fetch('/.netlify/functions/getIDS'); // Local function endpoint
+        if (!response.ok) {
+          throw new Error(`Failed to fetch inventory: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log('Fetched Inventory Data:', data); // Debug log
+
+        // Map inventory data by `product_id`
+        const inventoryMap = data.reduce((acc, item) => {
+          acc[item.id] = item.inventory_quantity || 'N/A';
+          return acc;
+        }, {});
+        setInventory(inventoryMap);
+      } catch (error) {
+        console.error('Error fetching inventory:', error);
+      }
+    };
 
     fetchInventory();
   }, []);
