@@ -1,8 +1,28 @@
-export const getIDS = async () => {
+const fetch = require('node-fetch');
+
+exports.handler = async function (event, context) {
   const { REACT_APP_SHOPIFY_STORE_URL, REACT_APP_SHOPIFY_ADMIN_API_ACCESS_TOKEN } = process.env;
 
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+      body: '',
+    };
+  }
+
   if (!REACT_APP_SHOPIFY_ADMIN_API_ACCESS_TOKEN || !REACT_APP_SHOPIFY_STORE_URL) {
-    throw new Error('API Access Token or Store URL is missing');
+    return {
+      statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({ error: 'API Access Token or Store URL is missing' }),
+    };
   }
 
   try {
@@ -39,12 +59,23 @@ export const getIDS = async () => {
       allVariants.push(...variantsData.variants);
     }
 
-    return allVariants;
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+      body: JSON.stringify(allVariants),
+    };
   } catch (error) {
     console.error('Error in getIDS:', error);
-    throw error;
+    return {
+      statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({ error: 'Failed to fetch products or variants' }),
+    };
   }
 };
-
-// Add this line for default export
-export default getIDS;
