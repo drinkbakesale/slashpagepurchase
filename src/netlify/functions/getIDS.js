@@ -31,7 +31,7 @@ export const getIDS = async () => {
       });
 
       if (!variantsResponse.ok) {
-        console.warn(`Error fetching variants for product ${productId}: ${variantsResponse.statusText}`);
+        console.warn(`Error fetching variants for product ${product_Id}: ${variantsResponse.statusText}`);
         continue;
       }
 
