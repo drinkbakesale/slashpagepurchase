@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import getIDS from "netlify/functions/getIDS.js"; // Import the getIDS.js function directly
+import getIDS from 'netlify/functions/getIDS'; // Import the getIDS.js function directly
 
 const flavorOptions = [
         {
@@ -127,28 +127,26 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [inventory, setInventory] = useState({});
 
-  useEffect(() => {
-   const fetchInventory = async () => {
-  try {
-    const response = await fetch('/.netlify/functions/getIDS'); // Adjust to the Netlify function endpoint
-    if (!response.ok) {
-      throw new Error(`Failed to fetch inventory: ${response.statusText}`);
-    }
-    const data = await response.json();
-    console.log('Fetched Inventory Data:', data); // Debug log
-    const inventoryMap = data.reduce((acc, item) => {
-      acc[item.product_id] = item.inventory_quantity || 'N/A';
-      return acc;
-    }, {});
-    setInventory(inventoryMap);
-  } catch (error) {
-    console.error('Error fetching inventory:', error);
-  }
-};
+ useEffect(() => {
+        const fetchInventory = async () => {
+            try {
+                // Use the `getIDS` function to fetch inventory
+                const data = await getIDS();
+                console.log('Fetched Inventory Data:', data); // Debug log
 
-    fetchInventory();
-  }, []);
+                // Map inventory data by `product_id`
+                const inventoryMap = data.reduce((acc, item) => {
+                    acc[item.product_id] = item.inventory_quantity || 'N/A';
+                    return acc;
+                }, {});
+                setInventory(inventoryMap);
+            } catch (error) {
+                console.error('Error fetching inventory:', error);
+            }
+        };
 
+        fetchInventory();
+    }, []);
   const handleSelect = (flavor) => {
     setSelected(flavor);
     setIsPopupOpen(false);
