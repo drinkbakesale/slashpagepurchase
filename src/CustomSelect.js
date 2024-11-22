@@ -8,6 +8,7 @@ const flavorOptions = [
         color: '#C7832E',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/5-layer_Bar_-_Tiny.png?v=1725552129',
         textColor: '#FFFFFF',
+        id: '49077761802530',
     },
          {
         value: 'Limited Edition Banana Bread',
@@ -16,6 +17,7 @@ const flavorOptions = [
         color: '#FBE04B',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_Banana_Bread-min_a54d6154-5221-4c95-9356-d579b4f20e87.png?v=1727897778',
         textColor: '#830005',
+                 id: '49180409954594',
     },
       {
         value: 'Limited Edition Blueberry Pie',
@@ -24,6 +26,7 @@ const flavorOptions = [
         color: '#4E70B6',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/tiny-blueberry_pie.png?v=1722450830',
         textColor: '#FFFFFF',
+               id: '48900876599586',
     },
       {
         value: 'Limited Edition Lemon Bar',
@@ -32,6 +35,7 @@ const flavorOptions = [
         color: '#FFC627',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Lemon_Bar-min.png?v=1732037885',
         textColor: '#7C0101',
+               id: '47953631969570',
     },
       {
         value: 'Limited Edition Peach Cobbler',
@@ -40,6 +44,7 @@ const flavorOptions = [
         color: '#F99D22',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Peach_Cobbler.png?v=1719851632',
         textColor: '#FFFFFF',
+               id: '48774708461858',
     },
       {
         value: 'Limited Edition Smores',
@@ -48,6 +53,7 @@ const flavorOptions = [
         color: '#4B2D13',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Smores.png?v=1718393168',
         textColor: '#FFFFFF',
+               id: '48552021917986',
     },
       {
         value: 'Limited Edition Gingerbread',
@@ -56,6 +62,7 @@ const flavorOptions = [
         color: '#3EB65F',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Gingerbread-min.png?v=1732037885',
         textColor: '#FFFFFF',
+               id: '47087547547938',
     },
     {
         value: 'Variety Pack #1',
@@ -64,6 +71,7 @@ const flavorOptions = [
         color: '#87c8d5',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
         textColor: '#7C0101',
+             id: '48766615650594',
     },
     {
         value: 'Limited Edition Cinnamon Roll',
@@ -72,6 +80,7 @@ const flavorOptions = [
         color: '#A25D33',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cinnamon_Roll-min.png?v=1730832932',
         textColor: '#FFFFFF',
+             id: '49275197653282',
     },
     {
         value: 'Jelly Donut',
@@ -80,6 +89,7 @@ const flavorOptions = [
         color: '#e27b9c',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
         textColor: '#7C0101',
+             id: '48766619058466',
     },
     {
         value: 'Chocolate Chip Cookie',
@@ -88,6 +98,7 @@ const flavorOptions = [
         color: '#e88b37',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cookie_Box.png?v=1718393167',
         textColor: '#7C0101',
+             id: '48766610997538',
     },
     {
         value: 'Brownie',
@@ -96,6 +107,7 @@ const flavorOptions = [
         color: '#9965a2',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Brownie_Box.png?v=1718393167',
         textColor: '#FFFFFF',
+             id: '48766158111010',
     },
     {
         value: 'Thin Mint',
@@ -104,6 +116,7 @@ const flavorOptions = [
         color: '#27b376',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
         textColor: '#7C0101',
+             id: '48766621876514',
     },
 ];
 
