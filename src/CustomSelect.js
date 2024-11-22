@@ -4,7 +4,7 @@ const flavorOptions = [
         {
         value: 'Limited Edition 5-Layer Bar',
         label: 'Limited Edition 5-Layer Bar',
-        subText: 'Honeyed graham, caramel swirls, toasted coconut bliss',
+        subText: 'A blondie with layers of toasted coconut and caramel',
         color: '#C7832E',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/5-layer_Bar_-_Tiny.png?v=1725552129',
         textColor: '#FFFFFF',
