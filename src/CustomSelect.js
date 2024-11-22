@@ -138,7 +138,7 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
 
         // Map inventory data by `product_id`
         const inventoryMap = data.reduce((acc, item) => {
-          acc[item.proudct_id] = item.inventory_quantity || 'N/A';
+          acc[item.product_id] = item.inventory_quantity || 'N/A';
           return acc;
         }, {});
         setInventory(inventoryMap);
