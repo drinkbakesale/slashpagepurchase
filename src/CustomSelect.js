@@ -143,7 +143,6 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
 
     fetchInventory();
   }, []);
-  }, []);
 
   const handleSelect = (flavor) => {
     setSelected(flavor);
