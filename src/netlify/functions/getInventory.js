@@ -32,6 +32,16 @@ exports.handler = async function (event) {
   }
 
   try {
+    // Proxy external request (e.g., to app-directory.s3.amazonaws.com) for CORS handling
+    const externalURL = 'https://app-directory.s3.amazonaws.com/hootlet/launched-app-directory-apps.json';
+    const externalResponse = await fetch(externalURL);
+
+    if (!externalResponse.ok) {
+      console.warn(`Warning: Unable to fetch external data. Status: ${externalResponse.statusText}`);
+    } else {
+      console.log('External data fetched successfully.');
+    }
+
     // Fetch product data from Shopify API
     const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/products/${productId}.json`, {
       headers: {
