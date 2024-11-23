@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import getIDS from './netlify/functions/getIDS'; // Import the getIDS.js function directly
 
 const flavorOptions = [
         {
@@ -123,18 +122,19 @@ const flavorOptions = [
 
 
 const CustomSelect = ({ label, onSelect, defaultText }) => {
-  const [selected, setSelected] = useState({ label: defaultText || "Select flavor", color: "white", textColor: "#7C0101" });
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [inventory, setInventory] = useState({});
+    const [selected, setSelected] = useState({ label: defaultText || "Select flavor", color: "white", textColor: "#7C0101" });
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [inventory, setInventory] = useState({});
 
- useEffect(() => {
+    useEffect(() => {
         const fetchInventory = async () => {
             try {
-                // Use the `getIDS` function to fetch inventory
-                const data = await getIDS();
-                console.log('Fetched Inventory Data:', data); // Debug log
+                const response = await fetch('/.netlify/functions/getIDS');
+                if (!response.ok) throw new Error(`Error: ${response.statusText}`);
+                
+                const data = await response.json();
+                console.log('Fetched Inventory Data:', data);
 
-                // Map inventory data by `product_id`
                 const inventoryMap = data.reduce((acc, item) => {
                     acc[item.product_id] = item.inventory_quantity || 'N/A';
                     return acc;
