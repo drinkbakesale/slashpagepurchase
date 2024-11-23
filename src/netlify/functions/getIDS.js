@@ -1,8 +1,6 @@
 const fetch = require('node-fetch');
 
-exports.handler = async function (event, context) {
-  const { SHOPIFY_STORE_URL, SHOPIFY_ADMIN_API_ACCESS_TOKEN } = process.env;
-
+exports.handler = async (event, context) => {
   if (event.httpMethod === 'OPTIONS') {
     return {
       statusCode: 200,
@@ -15,27 +13,34 @@ exports.handler = async function (event, context) {
     };
   }
 
-  if (!SHOPIFY_ADMIN_API_ACCESS_TOKEN || !SHOPIFY_STORE_URL) {
+  try {
+    const data = await fetch(`${process.env.SHOPIFY_STORE_URL}/admin/api/2023-01/products.json`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN,
+      },
+    });
+
+    const products = await data.json();
+
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      },
+      body: JSON.stringify(products),
+    };
+  } catch (error) {
     return {
       statusCode: 500,
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({ error: 'API Access Token or Store URL is missing' }),
+      body: JSON.stringify({ error: error.message }),
     };
   }
-
-  try {
-    const productsResponse = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/products.json`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN,
-      },
-    });
-
-    if (!productsResponse.ok) {
-      throw new Error(`Error fetching products: ${productsResponse.statusText}`);
-    }
+};
 
     const productsData = await productsResponse.json();
     const products = productsData.products;
