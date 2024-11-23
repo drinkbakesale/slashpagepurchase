@@ -1,66 +1,47 @@
 const fetch = require('node-fetch');
 
-exports.handler = async function (event, context) {
-  const { SHOPIFY_STORE_URL, SHOPIFY_ADMIN_API_ACCESS_TOKEN } = process.env;
+exports.handler = async (event) => {
+    const productId = event.queryStringParameters.product_id;
 
-  if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
-      body: '',
-    };
-  }
-
-  const product_Id = event.queryStringParameters.product_Id;
-
-  if (!SHOPIFY_ADMIN_API_ACCESS_TOKEN || !SHOPIFY_STORE_URL || !product_Id) {
-    return {
-      statusCode: 400,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({ error: 'Missing necessary parameters or environment variables' }),
-    };
-  }
-
-  try {
-    const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/products/${product_Id}.json`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Error fetching product: ${response.statusText}`);
+    if (!productId) {
+        return {
+            statusCode: 400,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify({ error: 'Missing product ID' }),
+        };
     }
 
-    const data = await response.json();
-    const inventoryQuantity = data.product && data.product.variants
-      ? data.product.variants.reduce((sum, variant) => sum + (variant.inventory_quantity || 0), 0)
-      : 'N/A';
+    try {
+        const response = await fetch(`${process.env.SHOPIFY_STORE_URL}/admin/api/2023-01/products/${productId}.json`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN,
+            },
+        });
 
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
-      body: JSON.stringify({ inventory_quantity: inventoryQuantity }),
-    };
-  } catch (error) {
-    console.error('Error in getInventory:', error);
-    return {
-      statusCode: 500,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({ error: 'Failed to fetch inventory quantity' }),
-    };
-  }
+        if (!response.ok) throw new Error(`Error fetching product: ${response.statusText}`);
+
+        const data = await response.json();
+        const inventoryQuantity = data.product.variants.reduce((sum, variant) => sum + (variant.inventory_quantity || 0), 0);
+
+        return {
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type',
+            },
+            body: JSON.stringify({ inventory_quantity: inventoryQuantity }),
+        };
+    } catch (error) {
+        return {
+            statusCode: 500,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify({ error: error.message }),
+        };
+    }
 };
