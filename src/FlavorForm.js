@@ -158,7 +158,7 @@ const FlavorForm = () => {
             checked={quantity === "4"}
             onChange={handleQuantityChange}
             label="4 Boxes - Share the Delight"
-            priceOne="$126.50"
+            priceOne="$126.00"
             priceTwo="$180.00"
             labelTwo="You save 30%"
           >
