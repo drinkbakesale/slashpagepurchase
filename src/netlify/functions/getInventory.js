@@ -1,91 +1,104 @@
 const fetch = require('node-fetch');
 
-exports.handler = async function (event) {
-  const { SHOPIFY_STORE_URL, SHOPIFY_ADMIN_API_ACCESS_TOKEN } = process.env;
+exports.handler = async () => {
+    try {
+        const response = await fetch(`${process.env.SHOPIFY_STORE_URL}/admin/api/2023-01/products.json`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN,
+            },
+        });
 
-  // Preflight check for CORS
-  if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
-      body: '',
-    };
-  }
+        if (!response.ok) throw new Error(`Error fetching products: ${response.statusText}`);
+        
+        const productsData = await response.json();
+        const allVariants = [];
 
-  // Extract product ID from query parameters
-  const productId = event.queryStringParameters?.product_id;
+        for (const product of productsData.products) {
+            const variantsResponse = await fetch(`${process.env.SHOPIFY_STORE_URL}/admin/api/2023-01/products/${product.id}/variants.json`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN,
+                },
+            });
 
-  if (!SHOPIFY_STORE_URL || !SHOPIFY_ADMIN_API_ACCESS_TOKEN || !productId) {
-    return {
-      statusCode: 400,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({
-        error: 'Missing necessary parameters or environment variables.',
-      }),
-    };
-  }
+            if (!variantsResponse.ok) {
+                console.warn(`Error fetching variants for product ${product.id}: ${variantsResponse.statusText}`);
+                continue;
+            }
 
-  try {
-    // Proxy external request (e.g., to app-directory.s3.amazonaws.com) for CORS handling
-    const externalURL = 'https://app-directory.s3.amazonaws.com/hootlet/launched-app-directory-apps.json';
-    const externalResponse = await fetch(externalURL);
+            const variantsData = await variantsResponse.json();
+            allVariants.push(...variantsData.variants);
+        }
 
-    if (!externalResponse.ok) {
-      console.warn(`Warning: Unable to fetch external data. Status: ${externalResponse.statusText}`);
-    } else {
-      console.log('External data fetched successfully.');
+        return {
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type',
+            },
+            body: JSON.stringify(allVariants),
+        };
+    } catch (error) {
+        return {
+            statusCode: 500,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify({ error: error.message }),
+        };
+    }
+};
+Updated getInventory.js
+Handle individual product inventory queries.
+
+javascript
+Copy code
+const fetch = require('node-fetch');
+
+exports.handler = async (event) => {
+    const productId = event.queryStringParameters.product_id;
+
+    if (!productId) {
+        return {
+            statusCode: 400,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify({ error: 'Missing product ID' }),
+        };
     }
 
-    // Fetch product data from Shopify API
-    const response = await fetch(`${SHOPIFY_STORE_URL}/admin/api/2023-01/products/${productId}.json`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN,
-      },
-    });
+    try {
+        const response = await fetch(`${process.env.SHOPIFY_STORE_URL}/admin/api/2023-01/products/${productId}.json`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN,
+            },
+        });
 
-    if (!response.ok) {
-      return {
-        statusCode: response.status,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
-        body: JSON.stringify({
-          error: `Error fetching product: ${response.statusText}`,
-        }),
-      };
+        if (!response.ok) throw new Error(`Error fetching product: ${response.statusText}`);
+
+        const data = await response.json();
+        const inventoryQuantity = data.product.variants.reduce((sum, variant) => sum + (variant.inventory_quantity || 0), 0);
+
+        return {
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type',
+            },
+            body: JSON.stringify({ inventory_quantity: inventoryQuantity }),
+        };
+    } catch (error) {
+        return {
+            statusCode: 500,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify({ error: error.message }),
+        };
     }
-
-    const data = await response.json();
-
-    // Calculate inventory quantity
-    const inventoryQuantity = data.product?.variants?.reduce((sum, variant) => sum + (variant.inventory_quantity || 0), 0) || 0;
-
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
-      body: JSON.stringify({ inventory_quantity: inventoryQuantity }),
-    };
-  } catch (error) {
-    console.error('Error in getInventory.js:', error);
-    return {
-      statusCode: 500,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: JSON.stringify({
-        error: 'Failed to fetch inventory quantity.',
-      }),
-    };
-  }
 };
