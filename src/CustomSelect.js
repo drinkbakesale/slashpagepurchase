@@ -10,15 +10,6 @@ const flavorOptions = [
         textColor: '#FFFFFF',
         product_id: '9456474456354',
     },
-         {
-        value: 'Limited Edition Banana Bread',
-        label: 'Limited Edition Banana Bread',
-        subText: 'Ripe bananas, vanilla, and cinnamon in cake-like harmony',
-        color: '#FBE04B',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_Banana_Bread-min_a54d6154-5221-4c95-9356-d579b4f20e87.png?v=1727897778',
-        textColor: '#830005',
-        product_id: '9493909438754',
-    },
       {
         value: 'Limited Edition Blueberry Pie',
         label: 'Limited Edition Blueberry Pie',
@@ -74,15 +65,6 @@ const flavorOptions = [
         product_id: '9342358421794',
     },
     {
-        value: 'Limited Edition Cinnamon Roll',
-        label: 'Limited Edition Cinnamon Roll',
-        subText: 'Cinnamon swirled buttery dough with sweet icing',
-        color: '#A25D33',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cinnamon_Roll-min.png?v=1730832932',
-        textColor: '#FFFFFF',
-        product_id: '9525727002914',
-    },
-    {
         value: 'Jelly Donut',
         label: 'Jelly Donut',
         subText: 'Jam-filled joyride with bursts of raspberry jam and fluffy donut',
@@ -91,25 +73,7 @@ const flavorOptions = [
         textColor: '#7C0101',
         product_id: '9342359044386',
     },
-    {
-        value: 'Chocolate Chip Cookie',
-        label: 'Chocolate Chip Cookie',
-        subText: 'A perfect ratio of chocolate chips to golden, buttery cookie',
-        color: '#e88b37',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cookie_Box.png?v=1718393167',
-        textColor: '#7C0101',
-        product_id: '9342357668130',
-    },
-    {
-        value: 'Brownie',
-        label: 'Brownie',
-        subText: 'Rich, fudgy, chocolatey, yet delicate, this flavor is indulgent!',
-        color: '#9965a2',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Brownie_Box.png?v=1718393167',
-        textColor: '#FFFFFF',
-        product_id: '9342276534562',
-    },
-    {
+       {
         value: 'Thin Mint',
         label: 'Thin Mint',
         subText: 'Luscious chocolate cookie meets spearmint freshness',
@@ -124,30 +88,7 @@ const flavorOptions = [
 const CustomSelect = ({ label, onSelect, defaultText }) => {
     const [selected, setSelected] = useState({ label: defaultText || "Select flavor", color: "white", textColor: "#7C0101" });
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [inventory, setInventory] = useState({});
-
-    useEffect(() => {
-        const fetchInventory = async () => {
-            try {
-                const response = await fetch('/.netlify/functions/getIDS');
-                if (!response.ok) throw new Error(`Error: ${response.statusText}`);
-                
-                const data = await response.json();
-                console.log('Fetched Inventory Data:', data);
-
-                const inventoryMap = data.reduce((acc, item) => {
-                    acc[item.product_id] = item.inventory_quantity || 'N/A';
-                    return acc;
-                }, {});
-                setInventory(inventoryMap);
-            } catch (error) {
-                console.error('Error fetching inventory:', error);
-            }
-        };
-
-        fetchInventory();
-    }, []);
-
+  
     const handleSelect = (flavor) => {
         setSelected(flavor);
         setIsPopupOpen(false);
@@ -264,7 +205,6 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
                                 <div>
                                     <strong>{flavor.label}</strong>
                                     <p style={{ fontSize: '18px', margin: 0 }}>{flavor.subText}</p>
-                                    <p>Inventory: {inventory[flavor.product_id] || "Loading..."}</p>
                                 </div>
                             </div>
                         ))}
