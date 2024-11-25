@@ -158,9 +158,9 @@ const FlavorForm = () => {
             checked={quantity === "4"}
             onChange={handleQuantityChange}
             label="4 Boxes - Share the Delight"
-            priceOne="$120.00"
-            priceTwo="$170.00"
-            labelTwo="You save 35%"
+            priceOne="$126.50"
+            priceTwo="$180.00"
+            labelTwo="You save 30%"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3, 4].map((num) => (
@@ -187,9 +187,9 @@ const FlavorForm = () => {
             checked={quantity === "5"}
             onChange={handleQuantityChange}
             label="5 Boxes - Flavor Extravaganza"
-            priceOne="$145.00"
-            priceTwo="$200.00"
-            labelTwo="You save 40%"
+            priceOne="$157.50"
+            priceTwo="$225.00"
+            labelTwo="You save 30%"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3, 4, 5].map((num) => (
