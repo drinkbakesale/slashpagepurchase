@@ -147,149 +147,132 @@ const CustomSelect = ({ label, onSelect, defaultText }) => {
 
         fetchInventory();
     }, []);
-  const handleSelect = (flavor) => {
-    setSelected(flavor);
-    setIsPopupOpen(false);
-    onSelect(flavor.label);
-  };
 
-  const handleTogglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
-  };
-
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
-
-  useEffect(() => {
-    if (isPopupOpen) {
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
-    } else {
-      document.body.style.overflow = ''; // Re-enable scrolling
-    }
-
-    return () => {
-      document.body.style.overflow = ''; // Cleanup
+    const handleSelect = (flavor) => {
+        setSelected(flavor);
+        setIsPopupOpen(false);
+        onSelect(flavor.label);
     };
-  }, [isPopupOpen]);
 
-  return (
-    <div className="relative w-full select-container">
-      <label className="block mb-1 text-center">{label}</label>
-      <div
-        className="text-[.95rem] border-2 border-[#7C0101] p-2 cursor-pointer text-center font-bold h-[68px] flex items-center justify-center"
-        style={{ backgroundColor: selected.color, color: selected.textColor }}
-        onClick={handleTogglePopup}
-      >
-        {selected.label}
-      </div>
+    const handleTogglePopup = () => {
+        setIsPopupOpen(!isPopupOpen);
+    };
 
-      {isPopupOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)', // Center popup
-            width: '90%',
-            maxWidth: '360px',
-            height: '60vh', // Set popup height to 60% of the visible screen
-            zIndex: 9999,
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden',
-            backgroundColor: 'transparent',
-          }}
-        >
-          {/* Header Section */}
-          <div
-            style={{
-              width: '100%',
-              backgroundColor: '#15C5D8', // Updated background color
-              padding: '10px 0',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              position: 'relative',
-            }}
-          >
-            <h2
-              style={{
-                fontSize: '18px',
-                fontWeight: 'bold', // Bold text
-                color: '#FFFFFF', // White text
-                margin: 0,
-                textAlign: 'center',
-              }}
+    const handleClosePopup = () => {
+        setIsPopupOpen(false);
+    };
+
+    useEffect(() => {
+        document.body.style.overflow = isPopupOpen ? 'hidden' : '';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isPopupOpen]);
+
+    return (
+        <div className="relative w-full select-container">
+            <label className="block mb-1 text-center">{label}</label>
+            <div
+                className="text-[.95rem] border-2 border-[#7C0101] p-2 cursor-pointer text-center font-bold h-[68px] flex items-center justify-center"
+                style={{ backgroundColor: selected.color, color: selected.textColor }}
+                onClick={handleTogglePopup}
             >
-              Select your flavor
-            </h2>
-            <button
-              onClick={handleClosePopup}
-              style={{
-                position: 'absolute',
-                top: '50%',
-                right: '10px',
-                transform: 'translateY(-50%)',
-                border: 'none',
-                background: 'none',
-                color: '#FFFFFF', // White close button color
-                fontSize: '20px',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-              }}
-            >
-              &times;
-            </button>
-          </div>
+                {selected.label}
+            </div>
 
-          {/* Flavor Options */}
-          <div
-            style={{
-              padding: '10px 0',
-              backgroundColor: 'transparent',
-              overflowY: 'auto',
-              flex: 1,
-            }}
-          >
-            {flavorOptions.map((flavor) => (
-              <div
-                key={flavor.value}
-                style={{
-                  backgroundColor: flavor.color,
-                  color: flavor.textColor,
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  width: '100%',
-                  padding: '10px',
-                  borderRadius: '5px',
-                  marginBottom: '0', // Removed vertical spacing
-                }}
-                onClick={() => handleSelect(flavor)}
-              >
-                <img
-                  src={flavor.imageUrl}
-                  alt={flavor.label}
-                  style={{
-                    width: '75px',
-                    height: '75px',
-                    marginRight: '10px',
-                    borderRadius: '5px',
-                  }}
-                />
-                <div>
-                  <strong>{flavor.label}</strong>
-                  <p style={{ fontSize: '18px', margin: 0 }}>{flavor.subText}</p>
-                <p>Inventory: {inventory[flavor.id] || "Loading..."}</p>
+            {isPopupOpen && (
+                <div
+                    style={{
+                        position: 'fixed',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '90%',
+                        maxWidth: '360px',
+                        height: '60vh',
+                        zIndex: 9999,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        overflow: 'hidden',
+                        backgroundColor: 'transparent',
+                    }}
+                >
+                    <div
+                        style={{
+                            width: '100%',
+                            backgroundColor: '#15C5D8',
+                            padding: '10px 0',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            position: 'relative',
+                        }}
+                    >
+                        <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: '#FFFFFF', margin: 0 }}>Select your flavor</h2>
+                        <button
+                            onClick={handleClosePopup}
+                            style={{
+                                position: 'absolute',
+                                top: '50%',
+                                right: '10px',
+                                transform: 'translateY(-50%)',
+                                border: 'none',
+                                background: 'none',
+                                color: '#FFFFFF',
+                                fontSize: '20px',
+                                fontWeight: 'bold',
+                                cursor: 'pointer',
+                            }}
+                        >
+                            &times;
+                        </button>
+                    </div>
+                    <div
+                        style={{
+                            padding: '10px 0',
+                            backgroundColor: 'transparent',
+                            overflowY: 'auto',
+                            flex: 1,
+                        }}
+                    >
+                        {flavorOptions.map((flavor) => (
+                            <div
+                                key={flavor.value}
+                                style={{
+                                    backgroundColor: flavor.color,
+                                    color: flavor.textColor,
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    width: '100%',
+                                    padding: '10px',
+                                    borderRadius: '5px',
+                                    marginBottom: '0',
+                                }}
+                                onClick={() => handleSelect(flavor)}
+                            >
+                                <img
+                                    src={flavor.imageUrl}
+                                    alt={flavor.label}
+                                    style={{
+                                        width: '75px',
+                                        height: '75px',
+                                        marginRight: '10px',
+                                        borderRadius: '5px',
+                                    }}
+                                />
+                                <div>
+                                    <strong>{flavor.label}</strong>
+                                    <p style={{ fontSize: '18px', margin: 0 }}>{flavor.subText}</p>
+                                    <p>Inventory: {inventory[flavor.product_id] || "Loading..."}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-              </div>
-            ))}
-          </div>
+            )}
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 export default CustomSelect;
