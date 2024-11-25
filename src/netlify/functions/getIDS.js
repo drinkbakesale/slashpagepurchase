@@ -1,19 +1,46 @@
 const fetch = require('node-fetch');
 
-exports.handler = async () => {
+exports.handler = async (event) => {
+    // Check if the request is a preflight (OPTIONS) request
+    if (event.httpMethod === 'OPTIONS') {
+        return {
+            statusCode: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type',
+            },
+            body: '',
+        };
+    }
+
     try {
-        const response = await fetch(`${process.env.SHOPIFY_STORE_URL}/admin/api/2023-01/products.json`, {
+        // Proxy request for external data (e.g., app-directory.s3.amazonaws.com)
+        const externalURL = 'https://app-directory.s3.amazonaws.com/hootlet/launched-app-directory-apps.json';
+        const externalResponse = await fetch(externalURL);
+
+        if (!externalResponse.ok) {
+            console.warn(`Error fetching external data: ${externalResponse.statusText}`);
+        } else {
+            console.log('Fetched external data successfully');
+        }
+
+        // Fetch Shopify products
+        const shopifyResponse = await fetch(`${process.env.SHOPIFY_STORE_URL}/admin/api/2023-01/products.json`, {
             headers: {
                 'Content-Type': 'application/json',
                 'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN,
             },
         });
 
-        if (!response.ok) throw new Error(`Error fetching products: ${response.statusText}`);
-        
-        const productsData = await response.json();
+        if (!shopifyResponse.ok) {
+            throw new Error(`Error fetching products: ${shopifyResponse.statusText}`);
+        }
+
+        const productsData = await shopifyResponse.json();
         const allVariants = [];
 
+        // Fetch variants for each product
         for (const product of productsData.products) {
             const variantsResponse = await fetch(`${process.env.SHOPIFY_STORE_URL}/admin/api/2023-01/products/${product.id}/variants.json`, {
                 headers: {
@@ -41,6 +68,7 @@ exports.handler = async () => {
             body: JSON.stringify(allVariants),
         };
     } catch (error) {
+        console.error('Error in getIDS:', error);
         return {
             statusCode: 500,
             headers: {
