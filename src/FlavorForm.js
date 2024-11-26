@@ -22,8 +22,6 @@ const FlavorForm = () => {
   };
 
   const productNumbers = {
-    "Variety Pack #1": "48766615650594",
-    "Flavor Adventure": "48766615650594",
     "Jelly Donut": "48766619058466",
     "Thin Mint": "48766621876514",
       "Limited Edition Gingerbread": "47087547547938",
