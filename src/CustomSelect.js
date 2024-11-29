@@ -55,6 +55,14 @@ const flavorOptions = [
         textColor: '#FFFFFF',
         product_id: '9260360007970',
     },
+ {
+        value: 'Variety Pack #1',
+        label: 'Variety Pack #1',
+        subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
+        color: '#87c8d5',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
+        textColor: '#7C0101',
+    },
        {
         value: 'Jelly Donut',
         label: 'Jelly Donut',
