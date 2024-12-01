@@ -39,7 +39,7 @@ const FlavorForm = () => {
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-    return `${baseUrl}${queryString}?utm_source=swipesX&utm_medium=swipesX`;
+   return `${baseUrl}/discount/cybermonday5?redirect=/cart/${queryString}&utm_source=swipesX&utm_medium=swipesX`;
   }
 
   const handleOrderClick = () => {
