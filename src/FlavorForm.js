@@ -21,8 +21,8 @@ const FlavorForm = () => {
     }));
   };
 
-  const productNumbers = {
-    "Variety Pack #1": "48766615650594",
+ const productNumbers = {
+   "Variety Pack #1": "48766615650594",
     "Jelly Donut": "48766619058466",
     "Thin Mint": "48766621876514",
       "Limited Edition Gingerbread": "47087547547938",
@@ -31,6 +31,7 @@ const FlavorForm = () => {
     "Limited Edition Lemon Bar": "47953631969570",
     "Limited Edition Peach Cobbler": "48774708461858",
     "Limited Edition Smores": "48552021917986",
+    "Limited Edition Frosted Sugar Cookie": "49369324323106",
   };
 
   function buildShopifyCartUrl(cartItems) {
@@ -65,7 +66,7 @@ const FlavorForm = () => {
     window.open(url, "_blank");
   };
 
-  return (
+ return (
     <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
       <form>
         <div className="flex flex-col gap-1">
@@ -75,7 +76,9 @@ const FlavorForm = () => {
             checked={quantity === "1"}
             onChange={handleQuantityChange}
             label="Single Box"
-            priceOne="$45.00"
+            priceOne="$42.75"
+            priceTwo="$45.00"
+            labelTwo="CYBER MONDAY 5% Off"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
@@ -99,9 +102,9 @@ const FlavorForm = () => {
             checked={quantity === "2"}
             onChange={handleQuantityChange}
             label="2 Boxes - Treat Yourself"
-            priceOne="$68.00"
+            priceOne="$64.60"
             priceTwo="$90.00"
-            labelTwo="You save 24%"
+            labelTwo="You save 24% + 5% for CYBER MONDAY"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2].map((num) => (
@@ -128,9 +131,9 @@ const FlavorForm = () => {
             checked={quantity === "3"}
             onChange={handleQuantityChange}
             label="3 Boxes - Treat Everyone"
-            priceOne="$95.00"
+            priceOne="$89.77"
             priceTwo="$135.00"
-            labelTwo="You save 30%"
+            labelTwo="You save 30% + 5% for CYBER MONDAY"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3].map((num) => (
@@ -157,9 +160,9 @@ const FlavorForm = () => {
             checked={quantity === "4"}
             onChange={handleQuantityChange}
             label="4 Boxes - Share the Delight"
-            priceOne="$126.00"
+            priceOne="$119.70"
             priceTwo="$180.00"
-            labelTwo="You save 30%"
+            labelTwo="You save 30% + 5% for CYBER MONDAY"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3, 4].map((num) => (
@@ -186,9 +189,9 @@ const FlavorForm = () => {
             checked={quantity === "5"}
             onChange={handleQuantityChange}
             label="5 Boxes - Flavor Extravaganza"
-            priceOne="$157.50"
+            priceOne="$149.62"
             priceTwo="$225.00"
-            labelTwo="You save 30%"
+            labelTwo="You save 30% + 5% for CYBER MONDAY"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3, 4, 5].map((num) => (
@@ -208,7 +211,6 @@ const FlavorForm = () => {
             </div>
             <OrderButton onClick={handleOrderClick} />
           </CustomRadio>
-
           {/* Subscription Option */}
           <CustomRadio
             value="subscription"
