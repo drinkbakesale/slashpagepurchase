@@ -34,13 +34,13 @@ const FlavorForm = () => {
     "Limited Edition Frosted Sugar Cookie": "49369324323106",
   };
 
-  function buildShopifyCartUrl(cartItems) {
-    const baseUrl = "https://drinkbakesale.com/cart/";
+function buildShopifyCartUrl(cartItems) {
+    const baseUrl = "https://drinkbakesale.com/";
     const queryString = Object.entries(cartItems)
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-   return `${baseUrl}/discount/cybermonday5off?redirect=/cart/${queryString}&utm_source=swipesU&utm_medium=swipesU`;
+    return `${baseUrl}/discount/cybermonday5off?redirect=/cart/${queryString}&utm_source=swipesU&utm_medium=swipesU`;
   }
 
   const handleOrderClick = () => {
