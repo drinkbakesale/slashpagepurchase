@@ -2,6 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 const flavorOptions = [
         {
+        value: 'Limited Edition Frosted Sugar Cookie',
+        label: 'Limited Edition Frosted Sugar Cookie',
+        subText: 'Snowman-shaped pouches that taste like sugar cookies!',
+        color: '#159E49',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Frosted_Sugar_Cookie-min.png?v=1733148271',
+        textColor: '#FFFFFF',
+        product_id: '9456474456354',
+    },
+        {
         value: 'Limited Edition 5-Layer Bar',
         label: 'Limited Edition 5-Layer Bar',
         subText: 'A blondie with layers of toasted coconut and caramel',
