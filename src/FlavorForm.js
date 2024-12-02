@@ -33,13 +33,13 @@ const FlavorForm = () => {
     "Limited Edition Smores": "48552021917986",
   };
 
-  function buildShopifyCartUrl(cartItems) {
-    const baseUrl = "https://drinkbakesale.com";
+   function buildShopifyCartUrl(cartItems) {
+    const baseUrl = "https://drinkbakesale.com/";
     const queryString = Object.entries(cartItems)
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-   return `${baseUrl}/discount/cybermonday5?redirect=/cart/${queryString}&utm_source=swipesX&utm_medium=swipesX`;
+    return `${baseUrl}/discount/cybermonday5off?redirect=/cart/${queryString}&utm_source=swipesU&utm_medium=swipesU`;
   }
 
   const handleOrderClick = () => {
