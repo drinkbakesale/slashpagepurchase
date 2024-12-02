@@ -31,6 +31,7 @@ const FlavorForm = () => {
     "Limited Edition Lemon Bar": "47953631969570",
     "Limited Edition Peach Cobbler": "48774708461858",
     "Limited Edition Smores": "48552021917986",
+    "Limited Edition Frosted Sugar Cookie": "49369324323106",
   };
 
    function buildShopifyCartUrl(cartItems) {
@@ -101,7 +102,7 @@ const FlavorForm = () => {
             checked={quantity === "2"}
             onChange={handleQuantityChange}
             label="2 Boxes - Treat Yourself"
-            priceOne="$68.00"
+            priceOne="$64.60"
             priceTwo="$90.00"
             labelTwo="You save 24% + 5% for CYBER MONDAY"
           >
@@ -130,7 +131,7 @@ const FlavorForm = () => {
             checked={quantity === "3"}
             onChange={handleQuantityChange}
             label="3 Boxes - Treat Everyone"
-            priceOne="$95.00"
+            priceOne="$89.77"
             priceTwo="$135.00"
             labelTwo="You save 30% + 5% for CYBER MONDAY"
           >
@@ -159,7 +160,7 @@ const FlavorForm = () => {
             checked={quantity === "4"}
             onChange={handleQuantityChange}
             label="4 Boxes - Share the Delight"
-            priceOne="$126.00"
+            priceOne="$119.70"
             priceTwo="$180.00"
             labelTwo="You save 30% + 5% for CYBER MONDAY"
           >
@@ -188,7 +189,7 @@ const FlavorForm = () => {
             checked={quantity === "5"}
             onChange={handleQuantityChange}
             label="5 Boxes - Flavor Extravaganza"
-            priceOne="$157.50"
+            priceOne="$149.62"
             priceTwo="$225.00"
             labelTwo="You save 30% + 5% for CYBER MONDAY"
           >
@@ -221,7 +222,7 @@ const FlavorForm = () => {
             labelTwo="You save 24%"
           >
             <p className="ml-5 mt-2">
-              Starting with this month’s flavor, Cinnamon Roll Liquor, each
+              Starting with this month’s flavor, Sugar Cookie Liquor, each
               month you receive Bakesale’s newest limited-edition flavor
               inspired by America’s favorite treats and sweets!
             </p>
