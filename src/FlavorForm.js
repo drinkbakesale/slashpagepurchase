@@ -76,9 +76,7 @@ const FlavorForm = () => {
             checked={quantity === "1"}
             onChange={handleQuantityChange}
             label="Single Box"
-            priceOne="$42.75"
-            priceTwo="$45.00"
-            labelTwo="CYBER MONDAY 5% Off"
+            priceOne="$45.00"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
@@ -102,9 +100,9 @@ const FlavorForm = () => {
             checked={quantity === "2"}
             onChange={handleQuantityChange}
             label="2 Boxes - Treat Yourself"
-            priceOne="$64.60"
+            priceOne="$68.00"
             priceTwo="$90.00"
-            labelTwo="You save 24% + 5% for CYBER MONDAY"
+            labelTwo="You save 24%"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2].map((num) => (
@@ -131,9 +129,9 @@ const FlavorForm = () => {
             checked={quantity === "3"}
             onChange={handleQuantityChange}
             label="3 Boxes - Treat Everyone"
-            priceOne="$89.77"
+            priceOne="$95.00"
             priceTwo="$135.00"
-            labelTwo="You save 30% + 5% for CYBER MONDAY"
+            labelTwo="You save 30%"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3].map((num) => (
@@ -160,9 +158,9 @@ const FlavorForm = () => {
             checked={quantity === "4"}
             onChange={handleQuantityChange}
             label="4 Boxes - Share the Delight"
-            priceOne="$119.70"
+            priceOne="$126.00"
             priceTwo="$180.00"
-            labelTwo="You save 30% + 5% for CYBER MONDAY"
+            labelTwo="You save 30%"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3, 4].map((num) => (
@@ -189,9 +187,9 @@ const FlavorForm = () => {
             checked={quantity === "5"}
             onChange={handleQuantityChange}
             label="5 Boxes - Flavor Extravaganza"
-            priceOne="$149.62"
+            priceOne="$157.50"
             priceTwo="$225.00"
-            labelTwo="You save 30% + 5% for CYBER MONDAY"
+            labelTwo="You save 30%"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3, 4, 5].map((num) => (
@@ -221,7 +219,7 @@ const FlavorForm = () => {
             labelTwo="You save 24%"
           >
             <p className="ml-5 mt-2">
-              Starting with this month’s flavor, Cinnamon Roll Liquor, each
+              Starting with this month’s flavor, Frosted Sugar Cookie, each
               month you receive Bakesale’s newest limited-edition flavor
               inspired by America’s favorite treats and sweets!
             </p>
