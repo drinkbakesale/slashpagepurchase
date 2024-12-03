@@ -40,7 +40,7 @@ function buildShopifyCartUrl(cartItems) {
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-    return `${baseUrl}/discount/cybermonday5off?redirect=/cart/${queryString}&utm_source=swipesU&utm_medium=swipesU`;
+    return `${baseUrl}cart/${queryString}&utm_source=swipesU&utm_medium=swipesU`;
   }
 
   const handleOrderClick = () => {
