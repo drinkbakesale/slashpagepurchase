@@ -29,7 +29,6 @@ const FlavorForm = () => {
     "Limited Edition 5-Layer Bar": "49077761802530",
      "Limited Edition Blueberry Pie": "48900876599586",
     "Limited Edition Lemon Bar": "47953631969570",
-    "Limited Edition Peach Cobbler": "48774708461858",
     "Limited Edition Smores": "48552021917986",
     "Limited Edition Frosted Sugar Cookie": "49369324323106",
   };
