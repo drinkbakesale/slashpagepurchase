@@ -47,15 +47,6 @@ const flavorOptions = [
         product_id: '9016836620578',
     },
       {
-        value: 'Limited Edition Peach Cobbler',
-        label: 'Limited Edition Peach Cobbler',
-        subText: 'Juicy peaches, cinnamon, and brown sugar—summer in a sip',
-        color: '#F99D22',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Peach_Cobbler.png?v=1719851632',
-        textColor: '#FFFFFF',
-        product_id: '9344663159074',
-    },
-      {
         value: 'Limited Edition Smores',
         label: 'Limited Edition Smores',
         subText: 'Toasted marshmallow, rich chocolate, and graham cracker',
