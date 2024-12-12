@@ -31,6 +31,7 @@ const FlavorForm = () => {
     "Limited Edition Lemon Bar": "47953631969570",
         "Limited Edition Smores": "48552021917986",
     "Limited Edition Frosted Sugar Cookie": "49369324323106",
+    "Chocolate Chip Cookie": "48766610997538",
   };
 
   function buildShopifyCartUrl(cartItems) {
