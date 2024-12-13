@@ -24,8 +24,7 @@ const FlavorForm = () => {
   const productNumbers = {
    "Variety Pack #1": "48766615650594",
     "Jelly Donut": "48766619058466",
-    "Thin Mint": "48766621876514",
-      "Limited Edition Gingerbread": "47087547547938",
+        "Limited Edition Gingerbread": "47087547547938",
      "Chocolate Chip Cookie": "48766610997538",
      "Limited Edition Frosted Sugar Cookie": "49369324323106",
   };
