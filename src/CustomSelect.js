@@ -44,16 +44,7 @@ const flavorOptions = [
         textColor: '#7C0101',
         product_id: '9342359044386',
     },
-       {
-        value: 'Thin Mint',
-        label: 'Thin Mint',
-        subText: 'Luscious chocolate cookie meets spearmint freshness',
-        color: '#27b376',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
-        textColor: '#7C0101',
-        product_id: '9342359601442',
-    },
-];
+  ];
 
 const CustomSelect = ({ label, onSelect, defaultText }) => {
     const [selected, setSelected] = useState({ label: defaultText || "Select flavor", color: "white", textColor: "#7C0101" });
