@@ -37,15 +37,6 @@ const flavorOptions = [
         textColor: '#FFFFFF',
         product_id: '9395140460834',
     },
-      {
-        value: 'Limited Edition Lemon Bar',
-        label: 'Limited Edition Lemon Bar',
-        subText: 'Zesty lemon filling over rich, honeyed graham cracker',
-        color: '#FFC627',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Lemon_Bar-min.png?v=1732037885',
-        textColor: '#7C0101',
-        product_id: '9016836620578',
-    },
  {
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
