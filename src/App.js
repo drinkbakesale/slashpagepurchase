@@ -4,7 +4,7 @@ import FlavorForm from "./FlavorForm";
 function App() {
   return (
     <div className="overflow-y-auto h-[100vh] pb-3">
-      <img src="/sugarcookieheader.png" alt="bake-info" />
+      <img src="/purchasecheckouttopperxmaswarning-min.png" alt="bake-info" />
       <FlavorForm />
     </div>
   );
