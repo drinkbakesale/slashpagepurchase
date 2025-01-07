@@ -11,14 +11,6 @@ const flavorOptions = [
     textColor: "#7C0101",
   },
   {
-        value: 'Limited Edition Banana Bread',
-        label: 'Limited Edition Banana Bread',
-        subText: 'Bursting with banana, moist cake, and a dash of cinnamon',
-        color: '#FBE04B',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_Banana_Bread-min_a54d6154-5221-4c95-9356-d579b4f20e87.png?v=1727897778',
-        textColor: '#7C0101',
-  },
-  {
     value: "Jelly Donut",
     label: "Jelly Donut",
     subText: "Jam-filled joyride with bursts of raspberry jam and fluffy donut",
