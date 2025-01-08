@@ -26,7 +26,6 @@ const FlavorForm = () => {
     "Jelly Donut": "48766619058466",
         "Limited Edition Gingerbread": "47087547547938",
      "Chocolate Chip Cookie": "48766610997538",
-     "Limited Edition Frosted Sugar Cookie": "49369324323106",
   };
 
   function buildShopifyCartUrl(cartItems) {
