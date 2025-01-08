@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 const flavorOptions = [
-    },
-          {
-        value: 'Limited Edition Gingerbread',
-        label: 'Limited Edition Gingerbread',
-        subText: 'Gingerbread-man shaped pouches that taste like gingerbread!',
-        color: '#3EB65F',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Gingerbread-min.png?v=1732037885',
-        textColor: '#FFFFFF',
-        product_id: '9260360007970',
-    },
  {
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
