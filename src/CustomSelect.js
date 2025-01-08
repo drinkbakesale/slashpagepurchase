@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const flavorOptions = [
-        {
-        value: 'Limited Edition Frosted Sugar Cookie',
-        label: 'Limited Edition Frosted Sugar Cookie',
-        subText: 'Snowman-shaped pouches that taste like sugar cookies!',
-        color: '#159E49',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Frosted_Sugar_Cookie-min.png?v=1733148271',
-        textColor: '#FFFFFF',
-        product_id: '9456474456354',
-    },
+
           {
         value: 'Limited Edition Gingerbread',
         label: 'Limited Edition Gingerbread',
@@ -18,24 +10,6 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Gingerbread-min.png?v=1732037885',
         textColor: '#FFFFFF',
         product_id: '9260360007970',
-    },
-        {
-        value: 'Limited Edition 5-Layer Bar',
-        label: 'Limited Edition 5-Layer Bar',
-        subText: 'A blondie with layers of toasted coconut and caramel',
-        color: '#C7832E',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/5-layer_Bar_-_Tiny.png?v=1725552129',
-        textColor: '#FFFFFF',
-        product_id: '9456474456354',
-    },
-      {
-        value: 'Limited Edition Blueberry Pie',
-        label: 'Limited Edition Blueberry Pie',
-        subText: 'Sun-kissed blueberries meet buttery, flaky pie crust',
-        color: '#4E70B6',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/tiny-blueberry_pie.png?v=1722450830',
-        textColor: '#FFFFFF',
-        product_id: '9395140460834',
     },
  {
         value: 'Variety Pack #1',
