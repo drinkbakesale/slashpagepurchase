@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 const flavorOptions = [
+      {
+        value: 'Limited Edition Apple Pie',
+        label: 'Limited Edition Apple Pie',
+        subText: 'Irresistible blend of baked apple, brown sugar, and spices!',
+        color: '#A71E22',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Apple_Pie_-_Tiny-min.png?v=1737566796',
+        textColor: '#FFFFFF',
+        product_id: '9608812036386',
+    },
  {
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
@@ -9,7 +18,15 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
         textColor: '#7C0101',
     },
-        {
+ {
+        value: 'Jelly Donut',
+        label: 'Jelly Donut',
+        subText: 'Jam-filled joyride with bursts of raspberry jam and fluffy donut',
+        color: '#e27b9c',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
+        textColor: '#7C0101',
+    },
+    {
         value: 'Chocolate Chip Cookie',
         label: 'Chocolate Chip Cookie',
         subText: 'A perfect ratio of chocolate chips to golden, buttery cookie',
@@ -17,23 +34,13 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cookie_Box.png?v=1718393167',
         textColor: '#7C0101',
     },
-        {
-        value: 'Jelly Donut',
-        label: 'Jelly Donut',
-        subText: 'Jam-filled joyride with bursts of raspberry jam and fluffy donut',
-        color: '#e27b9c',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
-        textColor: '#7C0101',
-        product_id: '9342359044386',
-    },
-       {
+    {
         value: 'Thin Mint',
         label: 'Thin Mint',
         subText: 'Luscious chocolate cookie meets spearmint freshness',
         color: '#27b376',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
         textColor: '#7C0101',
-        product_id: '9342359601442',
     },
 ];
 
