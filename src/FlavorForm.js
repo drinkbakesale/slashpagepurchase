@@ -27,6 +27,7 @@ const FlavorForm = () => {
     "Jelly Donut": "48766619058466",
     "Thin Mint": "48766621876514",
       "Limited Edition Apple Pie": "49545731572002",
+    "Brownie": "48766158111010",
   };
 
   function buildShopifyCartUrl(cartItems) {
