@@ -27,6 +27,14 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
         textColor: '#7C0101',
     },
+            {
+        value: 'Brownie',
+        label: 'Brownie',
+        subText: 'Rich, fudgy, chocolatey, yet delicate, this flavor is indulgent!',
+        color: '#9965a2',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Brownie_Box.png?v=1718393167',
+        textColor: '#FFFFFF',
+    },
     {
         value: 'Chocolate Chip Cookie',
         label: 'Chocolate Chip Cookie',
