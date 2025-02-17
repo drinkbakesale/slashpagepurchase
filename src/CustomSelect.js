@@ -1,15 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 const flavorOptions = [
-       {
-        value: 'Limited Edition Apple Pie',
-        label: 'Limited Edition Apple Pie',
-        subText: 'Irresistible blend of baked apple, brown sugar, and spices!',
-        color: '#A71E22',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Apple_Pie_-_Tiny-min.png?v=1737566796',
-        textColor: '#FFFFFF',
-        product_id: '9608812036386',
-    },
+
  {
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
