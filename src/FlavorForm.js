@@ -22,7 +22,8 @@ const FlavorForm = () => {
   };
 
   const productNumbers = {
-   "Variety Pack #1": "48766615650594",
+   "Salted Caramel Chocolate Truffle": "49729571160354",
+    "Variety Pack #1": "48766615650594",
     "Chocolate Chip Cookie": "48766610997538",
     "Jelly Donut": "48766619058466",
     "Thin Mint": "48766621876514",
@@ -217,7 +218,7 @@ const FlavorForm = () => {
             labelTwo="You save 24%"
           >
             <p className="ml-5 mt-2">
-              Starting with this month’s flavor, Apple Pie Liquor, each
+              Starting with this month’s flavor, Salted Caramel Chocolate Truffle Liquor, each
               month you receive Bakesale’s newest limited-edition flavor
               inspired by America’s favorite treats and sweets!
             </p>
