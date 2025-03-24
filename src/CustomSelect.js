@@ -4,6 +4,14 @@ const flavorOptions = [
 
       
  {
+        value: 'Salted Caramel Chocolate Truffle',
+        label: 'Salted Caramel Chocolate Truffle',
+        subText: 'A whirlwind of rich, velvety chocolate flowing into luscious caramel',
+        color: '#A71E22',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Salted_Caramel.png?v=1742827765',
+        textColor: '#FFFFFF',
+    },
+{
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
         subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
