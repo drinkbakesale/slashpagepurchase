@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const flavorOptions = [
      {
-        value: 'Salted Caramel Chocolate Truffle',
-        label: 'Salted Caramel Chocolate Truffle',
-        subText: 'A whirlwind of rich, velvety chocolate flowing into luscious caramel',
-        color: '#A71E22',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Salted_Caramel.png?v=1742827765',
+        value: 'Almond Sponge Cake',
+        label: 'Almond Sponge Cake',
+        subText: 'Sophisticated almond infused into moist golden sponge cake',
+        color: '#D4782C',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Almond_Sponge_Cake.png?v=1745260054',
         textColor: '#FFFFFF',
     },
  {
