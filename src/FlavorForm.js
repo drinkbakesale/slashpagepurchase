@@ -22,7 +22,7 @@ const FlavorForm = () => {
   };
 
   const productNumbers = {
-    "Salted Caramel Chocolate Truffle": "49729571160354",
+    "Almond Sponge Cake": "49805529383202",
     "Variety Pack #1": "48766615650594",
     "Chocolate Chip Cookie": "48766610997538",
     "Jelly Donut": "48766619058466",
