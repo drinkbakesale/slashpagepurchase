@@ -216,7 +216,7 @@ const FlavorForm = () => {
             labelTwo="You save 24%"
           >
             <p className="ml-5 mt-2">
-              Starting with this month’s flavor, Salted Caramel Chocolate Truffle Liquor, each
+              Starting with this month’s flavor, Almond Sponge Cake Liquor, each
               month you receive Bakesale’s newest limited-edition flavor
               inspired by America’s favorite treats and sweets!
             </p>
