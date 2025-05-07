@@ -24,7 +24,6 @@ const FlavorForm = () => {
     "Almond Sponge Cake": "49805529383202",
     "Variety Pack #1": "48766615650594",
     "Chocolate Chip Cookie": "48766610997538",
-    "Jelly Donut": "48766619058466",
     "Thin Mint": "48766621876514",
   };
 
@@ -58,7 +57,7 @@ const FlavorForm = () => {
   };
 
   const handleSubscriptionOrderClick = () => {
-    const url = "https://drinkbakesale.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%255B0%255D%255Bid%255D%3D49729571160354%26items%255B0%255D%255Bselling_plan%255D%3D5995528482%26items%255B0%255D%255Bquantity%255D%3D1%26return_to%3D%252Fcheckout";
+    const url = "https://drinkbakesale.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%255B0%255D%255Bid%255D%3D49805529383202%26items%255B0%255D%255Bselling_plan%255D%3D5995528482%26items%255B0%255D%255Bquantity%255D%3D1%26return_to%3D%252Fcheckout";
     window.open(url, "_blank");
   };
 
