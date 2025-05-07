@@ -17,14 +17,6 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
         textColor: '#7C0101',
     },
- {
-        value: 'Jelly Donut',
-        label: 'Jelly Donut',
-        subText: 'Jam-filled joyride with bursts of raspberry jam and fluffy donut',
-        color: '#e27b9c',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
-        textColor: '#7C0101',
-    },
     {
         value: 'Chocolate Chip Cookie',
         label: 'Chocolate Chip Cookie',
