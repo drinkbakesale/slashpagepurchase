@@ -24,9 +24,7 @@ const FlavorForm = () => {
   const productNumbers = {
     "Almond Sponge Cake": "49805529383202",
     "Variety Pack #1": "48766615650594",
-    "Chocolate Chip Cookie": "48766610997538",
     "Thin Mint": "48766621876514",
-     "Brownie": "48766158111010",
   };
 
    function buildShopifyCartUrl(cartItems) {
