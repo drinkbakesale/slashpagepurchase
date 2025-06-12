@@ -64,16 +64,48 @@ const FlavorForm = () => {
   };
 
   return (
-    <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
+    <div className="bg-[#F2ECDF] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
       <form>
         <div className="flex flex-col gap-1">
-          {/* 1 Box Option */}
+          <div className="relative">
+            <CustomRadio
+              value="1"
+              checked={quantity === "1"}
+              onChange={handleQuantityChange}
+              label="Single Box"
+              priceOne="$40.50"
+              priceTwo="$45.00"
+              labelTwo="10% Off for joining SMS"
+            >
+              <div className="flex gap-2 mt-2 w-full">
+                <CustomSelect
+                  label="Box #1"
+                  defaultText="Click to select flavor"
+                  onSelect={(flavor) => handleFlavorChange("box1", flavor)}
+                  isOpen={openSelectIndex === 1}
+                  setOpen={() =>
+                    setOpenSelectIndex(openSelectIndex === 1 ? null : 1)
+                  }
+                  close={() => setOpenSelectIndex(null)}
+                />
+              </div>
+              <OrderButton onClick={handleOrderClick} />
+            </CustomRadio>
+            <div
+              className="absolute font-bold bg-[#8adcfa] px-4 border-2"
+              style={{ bottom: "-19px", right: "70px", borderColor: "#7C0101" }}
+            >
+              Most Popular
+            </div>
+          </div>
           <CustomRadio
-            value="1"
-            checked={quantity === "1"}
+            value="2"
+            checked={quantity === "2"}
             onChange={handleQuantityChange}
-            label="Single Box"
-            priceOne="$45.00"
+            label="2 Boxes - Treat Yourself"
+            priceOne="$61.20"
+            priceTwo="$90.00"
+            labelTwo="24% Off for 2 Box Order, 10% off for SMS"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
@@ -85,129 +117,78 @@ const FlavorForm = () => {
                   setOpenSelectIndex(openSelectIndex === 1 ? null : 1)
                 }
                 close={() => setOpenSelectIndex(null)}
-                style={{ lineHeight: "0.67em" }}
+              />
+              <CustomSelect
+                label="Box #2"
+                defaultText="Click to select flavor"
+                onSelect={(flavor) => handleFlavorChange("box2", flavor)}
+                isOpen={openSelectIndex === 2}
+                setOpen={() =>
+                  setOpenSelectIndex(openSelectIndex === 2 ? null : 2)
+                }
+                close={() => setOpenSelectIndex(null)}
               />
             </div>
             <OrderButton onClick={handleOrderClick} />
           </CustomRadio>
-
-          {/* 2 Boxes Option */}
-          <CustomRadio
-            value="2"
-            checked={quantity === "2"}
-            onChange={handleQuantityChange}
-            label="2 Boxes - Treat Yourself"
-            priceOne="$68.00"
-            priceTwo="$90.00"
-            labelTwo="You save 24%"
-          >
-            <div className="flex gap-2 mt-2 w-full">
-              {[1, 2].map((num) => (
-                <CustomSelect
-                  key={`box${num}`}
-                  label={`Box #${num}`}
-                  defaultText="Click to select flavor"
-                  onSelect={(flavor) => handleFlavorChange(`box${num}`, flavor)}
-                  isOpen={openSelectIndex === num}
-                  setOpen={() =>
-                    setOpenSelectIndex(openSelectIndex === num ? null : num)
-                  }
-                  close={() => setOpenSelectIndex(null)}
-                  style={{ lineHeight: "0.67em" }}
-                />
-              ))}
-            </div>
-            <OrderButton onClick={handleOrderClick} />
-          </CustomRadio>
-
-          {/* 3 Boxes Option */}
           <CustomRadio
             value="3"
             checked={quantity === "3"}
             onChange={handleQuantityChange}
             label="3 Boxes - Treat Everyone"
-            priceOne="$95.00"
+            priceOne="$85.50"
             priceTwo="$135.00"
-            labelTwo="You save 30%"
+            labelTwo="30% Off for 3 Box Order, 10% off for SMS"
           >
             <div className="flex gap-2 mt-2 w-full">
-              {[1, 2, 3].map((num) => (
-                <CustomSelect
-                  key={`box${num}`}
-                  label={`Box #${num}`}
-                  defaultText="Click to select flavor"
-                  onSelect={(flavor) => handleFlavorChange(`box${num}`, flavor)}
-                  isOpen={openSelectIndex === num}
-                  setOpen={() =>
-                    setOpenSelectIndex(openSelectIndex === num ? null : num)
-                  }
-                  close={() => setOpenSelectIndex(null)}
-                  style={{ lineHeight: "0.67em" }}
-                />
-              ))}
+              <CustomSelect
+                label="Box #1"
+                onSelect={(flavor) => handleFlavorChange("box1", flavor)}
+                isOpen={openSelectIndex === 1}
+                setOpen={() =>
+                  setOpenSelectIndex(openSelectIndex === 1 ? null : 1)
+                }
+                close={() => setOpenSelectIndex(null)}
+              />
+              <CustomSelect
+                label="Box #2"
+                onSelect={(flavor) => handleFlavorChange("box2", flavor)}
+                isOpen={openSelectIndex === 2}
+                setOpen={() =>
+                  setOpenSelectIndex(openSelectIndex === 2 ? null : 2)
+                }
+                close={() => setOpenSelectIndex(null)}
+              />
+              <CustomSelect
+                label="Box #3"
+                onSelect={(flavor) => handleFlavorChange("box3", flavor)}
+                isOpen={openSelectIndex === 3}
+                setOpen={() =>
+                  setOpenSelectIndex(openSelectIndex === 3 ? null : 3)
+                }
+                close={() => setOpenSelectIndex(null)}
+              />
             </div>
             <OrderButton onClick={handleOrderClick} />
           </CustomRadio>
-
-          {/* 4 Boxes Option */}
           <CustomRadio
-            value="4"
-            checked={quantity === "4"}
+            value="subscription"
+            checked={quantity === "subscription"}
             onChange={handleQuantityChange}
-            label="4 Boxes - Share the Delight"
-            priceOne="$126.00"
-            priceTwo="$180.00"
-            labelTwo="You save 30%"
+            label="Subscription - Flavor of the Month Box"
+            priceOne="$34.00 per month"
+            labelTwo="You save 15%"
           >
-            <div className="flex gap-2 mt-2 w-full">
-              {[1, 2, 3, 4].map((num) => (
-                <CustomSelect
-                  key={`box${num}`}
-                  label={`Box #${num}`}
-                  defaultText="Click to select flavor"
-                  onSelect={(flavor) => handleFlavorChange(`box${num}`, flavor)}
-                  isOpen={openSelectIndex === num}
-                  setOpen={() =>
-                    setOpenSelectIndex(openSelectIndex === num ? null : num)
-                  }
-                  close={() => setOpenSelectIndex(null)}
-                  style={{ lineHeight: "0.67em" }}
-                />
-              ))}
-            </div>
-            <OrderButton onClick={handleOrderClick} />
+            <p className="ml-5 mt-2">
+              Starting with this month’s flavor, Almond Sponge Cake Liquor, each
+              month you receive Bakesale’s newest limited-edition flavor
+              inspired by America’s favorite treats and sweets!
+            </p>
+            <OrderButton
+              buttonText="Click to purchase subscription"
+              onClick={handleSubscriptionOrderClick}
+            />
           </CustomRadio>
-
-          {/* 5 Boxes Option */}
-          <CustomRadio
-            value="5"
-            checked={quantity === "5"}
-            onChange={handleQuantityChange}
-            label="5 Boxes - Flavor Extravaganza"
-            priceOne="$157.50"
-            priceTwo="$225.00"
-            labelTwo="You save 30%"
-          >
-            <div className="flex gap-2 mt-2 w-full">
-              {[1, 2, 3, 4, 5].map((num) => (
-                <CustomSelect
-                  key={`box${num}`}
-                  label={`Box #${num}`}
-                  defaultText="Click to select flavor"
-                  onSelect={(flavor) => handleFlavorChange(`box${num}`, flavor)}
-                  isOpen={openSelectIndex === num}
-                  setOpen={() =>
-                    setOpenSelectIndex(openSelectIndex === num ? null : num)
-                  }
-                  close={() => setOpenSelectIndex(null)}
-                  style={{ lineHeight: "0.67em" }}
-                />
-              ))}
-            </div>
-            <OrderButton onClick={handleOrderClick} />
-          </CustomRadio>
-
-  
         </div>
       </form>
     </div>
