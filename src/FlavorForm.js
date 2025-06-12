@@ -21,23 +21,23 @@ const FlavorForm = () => {
     }));
   };
 
-   const productNumbers = {
-    "Almond Sponge Cake": "49805529383202",
+  const productNumbers = {
+    "Limited Edition Almond Sponge Cake": "49805529383202",
     "Variety Pack #1": "48766615650594",
     "Thin Mint": "48766621876514",
-    "Blueberry Pie": "48900876599586",
-    "5-Layer Bar": "49077761802530",
-    "Cinnamon Roll": "49275197653282",
-    "Salted Caramel Chocolate Truffle": "49729571160354"
+    "Limited Edition Blueberry Pie": "48900876599586",
+    "Limited Edition 5-Layer Bar": "49077761802530",
+    "Limited Edition Cinnamon Roll": "49275197653282",
+    "Limited Edition Salted Caramel Chocolate Truffle": "49729571160354"
   };
 
-   function buildShopifyCartUrl(cartItems) {
-    const baseUrl = "https://drinkbakesale.com/";
+ function buildShopifyCartUrl(cartItems) {
+    const baseUrl = "https://drinkbakesale.com/cart/";
     const queryString = Object.entries(cartItems)
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
       .join(",");
 
-    return `${baseUrl}/discount/cybermonday5off?redirect=/cart/${queryString}&utm_source=swipesU&utm_medium=swipesU`;
+    return `${baseUrl}${queryString}?utm_source=swipesX&utm_medium=swipesX`;
   }
 
   const handleOrderClick = () => {
@@ -63,7 +63,7 @@ const FlavorForm = () => {
     window.open(url, "_blank");
   };
 
-  return (
+ return (
     <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
       <form>
         <div className="flex flex-col gap-1">
@@ -73,9 +73,7 @@ const FlavorForm = () => {
             checked={quantity === "1"}
             onChange={handleQuantityChange}
             label="Single Box"
-            priceOne="$42.75"
-            priceTwo="$45.00"
-            labelTwo="CYBER MONDAY 5% Off"
+            priceOne="$45.00"
           >
             <div className="flex gap-2 mt-2 w-full">
               <CustomSelect
@@ -99,9 +97,9 @@ const FlavorForm = () => {
             checked={quantity === "2"}
             onChange={handleQuantityChange}
             label="2 Boxes - Treat Yourself"
-            priceOne="$64.60"
+            priceOne="$68.00"
             priceTwo="$90.00"
-            labelTwo="You save 24% + 5% for CYBER MONDAY"
+            labelTwo="You save 24%"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2].map((num) => (
@@ -128,9 +126,9 @@ const FlavorForm = () => {
             checked={quantity === "3"}
             onChange={handleQuantityChange}
             label="3 Boxes - Treat Everyone"
-            priceOne="$89.77"
+            priceOne="$95.00"
             priceTwo="$135.00"
-            labelTwo="You save 30% + 5% for CYBER MONDAY"
+            labelTwo="You save 30%"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3].map((num) => (
@@ -157,9 +155,9 @@ const FlavorForm = () => {
             checked={quantity === "4"}
             onChange={handleQuantityChange}
             label="4 Boxes - Share the Delight"
-            priceOne="$119.70"
+            priceOne="$126.00"
             priceTwo="$180.00"
-            labelTwo="You save 30% + 5% for CYBER MONDAY"
+            labelTwo="You save 30%"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3, 4].map((num) => (
@@ -186,9 +184,9 @@ const FlavorForm = () => {
             checked={quantity === "5"}
             onChange={handleQuantityChange}
             label="5 Boxes - Flavor Extravaganza"
-            priceOne="$149.62"
+            priceOne="$157.50"
             priceTwo="$225.00"
-            labelTwo="You save 30% + 5% for CYBER MONDAY"
+            labelTwo="You save 30%"
           >
             <div className="flex gap-2 mt-2 w-full">
               {[1, 2, 3, 4, 5].map((num) => (
@@ -208,7 +206,6 @@ const FlavorForm = () => {
             </div>
             <OrderButton onClick={handleOrderClick} />
           </CustomRadio>
-
           {/* Subscription Option */}
           <CustomRadio
             value="subscription"
