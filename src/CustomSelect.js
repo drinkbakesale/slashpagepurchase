@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const flavorOptions = [
      {
-        value: 'Almond Sponge Cake',
+        value: 'Limited Edition Almond Sponge Cake',
         label: 'Almond Sponge Cake',
         subText: 'Sophisticated almond infused into moist golden sponge cake',
         color: '#D4782C',
@@ -18,7 +18,7 @@ const flavorOptions = [
         textColor: '#7C0101',
     },
     {
-        value: 'Blueberry Pie',
+        value: 'Limited Edition Blueberry Pie',
         label: 'Blueberry Pie',
         subText: 'A blueberry treat that is perfect for summer!',
         color: '#4E70B6',
@@ -26,7 +26,7 @@ const flavorOptions = [
         textColor: '#FFFFFF',
     },
       {
-        value: 'Salted Caramel Chocolate Truffle',
+        value: 'Limited Edition Salted Caramel Chocolate Truffle',
         label: 'Salted Caramel Chocolate Truffle',
         subText: 'Luscious chocolate cookie meets spearmint freshness',
         color: '#A71E22',
@@ -34,7 +34,7 @@ const flavorOptions = [
         textColor: '#FFFFFF',
     },
       {
-        value: 'Cinnamon Roll',
+        value: 'Limited Edition Cinnamon Roll',
         label: 'Cinnamon Roll',
         subText: 'Gooey goodness, cinnamon swirling with icing',
         color: '#490406',
@@ -42,7 +42,7 @@ const flavorOptions = [
         textColor: '#FFFFFF',
     },
       {
-        value: '5-Layer Bar',
+        value: 'Limited Edition 5-Layer Bar',
         label: '5-Layer Bar',
         subText: 'Coconut, caramel, chocolate, delightful!',
         color: '#C7832E',
