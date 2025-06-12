@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const flavorOptions = [
      {
         value: 'Limited Edition Almond Sponge Cake',
-        label: 'Almond Sponge Cake',
+        label: 'Limited Edition Almond Sponge Cake',
         subText: 'Sophisticated almond infused into moist golden sponge cake',
         color: '#D4782C',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Almond_Sponge_Cake.png?v=1745260054',
@@ -19,7 +19,7 @@ const flavorOptions = [
     },
     {
         value: 'Limited Edition Blueberry Pie',
-        label: 'Blueberry Pie',
+        label: 'Limited Edition Blueberry Pie',
         subText: 'A blueberry treat that is perfect for summer!',
         color: '#4E70B6',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/tiny-blueberry_pie.png?v=1722450830',
@@ -27,7 +27,7 @@ const flavorOptions = [
     },
       {
         value: 'Limited Edition Salted Caramel Chocolate Truffle',
-        label: 'Salted Caramel Chocolate Truffle',
+        label: 'Limited Edition Salted Caramel Chocolate Truffle',
         subText: 'Luscious chocolate cookie meets spearmint freshness',
         color: '#A71E22',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Salted_Caramel.png?v=1742827765',
@@ -35,7 +35,7 @@ const flavorOptions = [
     },
       {
         value: 'Limited Edition Cinnamon Roll',
-        label: 'Cinnamon Roll',
+        label: 'Limited Edition Cinnamon Roll',
         subText: 'Gooey goodness, cinnamon swirling with icing',
         color: '#490406',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cinnamon_Roll-min.png?v=1730916075',
@@ -43,7 +43,7 @@ const flavorOptions = [
     },
       {
         value: 'Limited Edition 5-Layer Bar',
-        label: '5-Layer Bar',
+        label: 'Limited Edition 5-Layer Bar',
         subText: 'Coconut, caramel, chocolate, delightful!',
         color: '#C7832E',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/5-layer_Bar_-_Tiny.png?v=1725552129',
