@@ -28,7 +28,7 @@ const FlavorForm = () => {
     "Blueberry Pie": "48900876599586",
     "5-Layer Bar": "49077761802530",
     "Cinnamon Roll": "49275197653282",
-    "Salted Caramel Chocolate Truffle": "49729571160354",
+    "Salted Caramel Chocolate Truffle": "49729571160354"
   };
 
   function buildShopifyCartUrl(cartItems) {
