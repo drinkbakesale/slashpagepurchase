@@ -24,6 +24,7 @@ const flavorOptions = [
         color: '#27b376',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
         textColor: '#7C0101',
+     },
     {
         value: 'Limited Edition Blueberry Pie',
         label: 'Limited Edition Blueberry Pie',
