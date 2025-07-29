@@ -24,6 +24,7 @@ const FlavorForm = () => {
     "Almond Sponge Cake": "49805529383202",
     "Variety Pack #1": "48766615650594",
     "Blueberry Pie": "48900876599586",
+    "Thin Mint": "48766621876514",
     "5-Layer Bar": "49077761802530",
     "Cinnamon Roll": "49275197653282",
     "Salted Caramel Chocolate Truffle": "49729571160354"
