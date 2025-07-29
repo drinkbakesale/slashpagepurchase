@@ -41,14 +41,6 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Brownie_Box.png?v=1718393167',
         textColor: '#FFFFFF',
     },
-    {
-        value: 'Thin Mint',
-        label: 'Thin Mint',
-        subText: 'Luscious chocolate cookie meets spearmint freshness',
-        color: '#27b376',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
-        textColor: '#7C0101',
-    },
 ];
 
 const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) => {
