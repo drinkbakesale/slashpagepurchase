@@ -24,6 +24,7 @@ const FlavorForm = () => {
   const productNumbers = {
     "Limited Edition Almond Sponge Cake": "49805529383202",
     "Variety Pack #1": "48766615650594",
+    "Thin Mint": "48766621876514",
     "Limited Edition Blueberry Pie": "48987815674146",
     "Limited Edition 5-Layer Bar": "49097034596642",
     "Limited Edition Cinnamon Roll": "49275197653282",
