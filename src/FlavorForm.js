@@ -26,7 +26,6 @@ const FlavorForm = () => {
     "Variety Pack #1": "48766615650594",
     "Thin Mint": "48766621876514",
     "Limited Edition Blueberry Pie": "48900876599586",
-    "Limited Edition 5-Layer Bar": "49077761802530",
     "Limited Edition Cinnamon Roll": "49275197653282",
     "Limited Edition Salted Caramel Chocolate Truffle": "49729571160354"
   };
