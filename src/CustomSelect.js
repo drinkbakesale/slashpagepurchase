@@ -49,14 +49,6 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cinnamon_Roll-min.png?v=1730916075',
         textColor: '#FFFFFF',
     },
-      {
-        value: 'Limited Edition 5-Layer Bar',
-        label: 'Limited Edition 5-Layer Bar',
-        subText: 'Coconut, caramel, chocolate, delightful!',
-        color: '#C7832E',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/5-layer_Bar_-_Tiny.png?v=1725552129',
-        textColor: '#FFFFFF',
-    },
 ];
 
 
