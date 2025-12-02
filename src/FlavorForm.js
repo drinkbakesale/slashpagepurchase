@@ -21,13 +21,16 @@ const FlavorForm = () => {
     }));
   };
 
- const productNumbers = {
-   "Almond Sponge Cake": "49805529383202",  
-   "Variety Pack #1": "48766615650594",
-    "Thin Mint": "48766621876514",
+  const productNumbers = {
+    "Limited Edition Almond Sponge Cake": "49805529383202",
+    "Variety Pack #1": "48766615650594",
+    "Limited Edition Snickerdoodle": "49991372013858",
+    "Limited Edition Blueberry Pie": "48987815674146",
+    "Limited Edition Cinnamon Roll": "49275197653282",
+    "Limited Edition Salted Caramel Chocolate Truffle": "49729571160354"
   };
 
-  function buildShopifyCartUrl(cartItems) {
+ function buildShopifyCartUrl(cartItems) {
     const baseUrl = "https://drinkbakesale.com/cart/";
     const queryString = Object.entries(cartItems)
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
@@ -201,25 +204,6 @@ const FlavorForm = () => {
               ))}
             </div>
             <OrderButton onClick={handleOrderClick} />
-          </CustomRadio>
-          {/* Subscription Option */}
-          <CustomRadio
-            value="subscription"
-            checked={quantity === "subscription"}
-            onChange={handleQuantityChange}
-            label="Subscription - Flavor of the Month Box"
-            priceOne="$34.00 per month"
-            labelTwo="You save 24%"
-          >
-            <p className="ml-5 mt-2">
-              Starting with this month’s flavor, Almond Sponge Cake Liquor, each
-              month you receive Bakesale’s newest limited-edition flavor
-              inspired by America’s favorite treats and sweets!
-            </p>
-            <OrderButton
-              buttonText="Click to purchase subscription"
-              onClick={handleSubscriptionOrderClick}
-            />
           </CustomRadio>
         </div>
       </form>
