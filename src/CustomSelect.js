@@ -3,15 +3,23 @@ import React, { useState, useEffect } from 'react';
 const flavorOptions = [
 
       
- {
-      value: 'Almond Sponge Cake',
-        label: 'Almond Sponge Cake',
+  {
+        value: 'Limited Edition Snickerdoodle',
+        label: 'Limited Edition Snickerdoodle',
+        subText: 'Sugar, spice, and a glassful of nice!',
+        color: '#F0AB53',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_Template_-_Snickerdoodle.png?v=1764714539',
+        textColor: '#FFFFFF',
+    },
+      {
+        value: 'Limited Edition Almond Sponge Cake',
+        label: 'Limited Edition Almond Sponge Cake',
         subText: 'Sophisticated almond infused into moist golden sponge cake',
         color: '#D4782C',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Almond_Sponge_Cake.png?v=1745260054',
         textColor: '#FFFFFF',
     },
-{
+ {
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
         subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
@@ -19,13 +27,37 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
         textColor: '#7C0101',
     },
-    {
+     {
         value: 'Thin Mint',
         label: 'Thin Mint',
-        subText: 'Luscious chocolate cookie meets spearmint freshness',
+          subText: 'Luscious chocolate cookie meets spearmint freshness',
         color: '#27b376',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
         textColor: '#7C0101',
+     },
+    {
+        value: 'Limited Edition Blueberry Pie',
+        label: 'Limited Edition Blueberry Pie',
+        subText: 'A blueberry treat that is perfect for summer!',
+        color: '#4E70B6',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/tiny-blueberry_pie.png?v=1722450830',
+        textColor: '#FFFFFF',
+    },
+      {
+        value: 'Limited Edition Salted Caramel Chocolate Truffle',
+        label: 'Limited Edition Salted Caramel Chocolate Truffle',
+        subText: 'Luscious chocolate cookie meets spearmint freshness',
+        color: '#A71E22',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Salted_Caramel.png?v=1742827765',
+        textColor: '#FFFFFF',
+    },
+      {
+        value: 'Limited Edition Cinnamon Roll',
+        label: 'Limited Edition Cinnamon Roll',
+        subText: 'Gooey goodness, cinnamon swirling with icing',
+        color: '#490406',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cinnamon_Roll-min.png?v=1730916075',
+        textColor: '#FFFFFF',
     },
 ];
 
