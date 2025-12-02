@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 const flavorOptions = [
      {
+        value: 'Limited Edition Snickerdoodle',
+        label: 'Limited Edition Snickerdoodle',
+        subText: 'Sugar, spice, and a glassful of nice!',
+        color: '#F0AB53',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_Template_-_Snickerdoodle.png?v=1764714539',
+        textColor: '#FFFFFF',
+    },
+      {
         value: 'Limited Edition Almond Sponge Cake',
         label: 'Limited Edition Almond Sponge Cake',
         subText: 'Sophisticated almond infused into moist golden sponge cake',
