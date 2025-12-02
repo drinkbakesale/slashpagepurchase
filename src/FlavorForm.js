@@ -205,25 +205,6 @@ const FlavorForm = () => {
             </div>
             <OrderButton onClick={handleOrderClick} />
           </CustomRadio>
-          {/* Subscription Option */}
-          <CustomRadio
-            value="subscription"
-            checked={quantity === "subscription"}
-            onChange={handleQuantityChange}
-            label="Subscription - Flavor of the Month Box"
-            priceOne="$34.00 per month"
-            labelTwo="You save 24%"
-          >
-            <p className="ml-5 mt-2">
-              Starting with this month’s flavor, Almond Sponge Cake Liquor, each
-              month you receive Bakesale’s newest limited-edition flavor
-              inspired by America’s favorite treats and sweets!
-            </p>
-            <OrderButton
-              buttonText="Click to purchase subscription"
-              onClick={handleSubscriptionOrderClick}
-            />
-          </CustomRadio>
         </div>
       </form>
     </div>
