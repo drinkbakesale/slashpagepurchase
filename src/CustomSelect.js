@@ -11,14 +11,6 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_Template_-_Snickerdoodle.png?v=1764714539',
         textColor: '#FFFFFF',
     },
-      {
-        value: 'Limited Edition Almond Sponge Cake',
-        label: 'Limited Edition Almond Sponge Cake',
-        subText: 'Sophisticated almond infused into moist golden sponge cake',
-        color: '#D4782C',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Almond_Sponge_Cake.png?v=1745260054',
-        textColor: '#FFFFFF',
-    },
  {
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
