@@ -54,11 +54,6 @@ const FlavorForm = () => {
     window.open(url, "_blank");
   };
 
-  const handleSubscriptionOrderClick = () => {
-    const url = "https://drinkbakesale.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%255B0%255D%255Bid%255D%3D49805529383202%26items%255B0%255D%255Bselling_plan%255D%3D5995528482%26items%255B0%255D%255Bquantity%255D%3D1%26return_to%3D%252Fcheckout";
-    window.open(url, "_blank");
-  };
-
  return (
     <div className="bg-[#F4EDE0] rounded-lg p-2 mx-auto text-[#7C0101] leading-tight">
       <form>
