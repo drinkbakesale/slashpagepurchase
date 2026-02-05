@@ -21,7 +21,6 @@ const FlavorForm = () => {
     }));
   };
   const productNumbers = {
-    "Almond Sponge Cake": "49805529383202",
     "Variety Pack #1": "48766615650594",
     "Blueberry Pie": "48900876599586",
     "Thin Mint": "48766621876514",
@@ -169,25 +168,6 @@ const FlavorForm = () => {
               />
             </div>
             <OrderButton onClick={handleOrderClick} />
-          </CustomRadio>
-          <CustomRadio
-            value="subscription"
-            checked={quantity === "subscription"}
-            onChange={handleQuantityChange}
-            label="Subscription - Flavor of the Month Box"
-            priceOne="$34.00 per month"
-            labelTwo="You save 24%"
-          >
-            <p className="ml-5 mt-2">
-              Starting with this month’s flavor, Cinnamon Roll Liquor, each
-              month you receive Bakesale’s newest limited-edition flavor
-              inspired by America’s favorite treats and sweets!
-            </p>
-            <OrderButton
-              buttonText="Click to purchase subscription"
-              onClick={handleSubscriptionOrderClick}
-            />
-          </CustomRadio>
         </div>
       </form>
     </div>
