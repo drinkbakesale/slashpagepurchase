@@ -4,14 +4,6 @@ const flavorOptions = [
 
 
     {
-      value: 'Almond Sponge Cake',
-        label: 'Almond Sponge Cake',
-        subText: 'Sophisticated almond infused into moist golden sponge cake',
-        color: '#D4782C',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Almond_Sponge_Cake.png?v=1745260054',
-        textColor: '#FFFFFF',
-    },
-    {
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
         subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
@@ -38,16 +30,7 @@ const flavorOptions = [
         textColor: '#7C0101',
         product_id: '9342357668130',
     },
-    {
-        value: 'Brownie',
-        label: 'Brownie',
-        subText: 'Rich, fudgy, chocolatey, yet delicate, this flavor is indulgent!',
-        color: '#9965a2',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Brownie_Box.png?v=1718393167',
-        textColor: '#FFFFFF',
-        product_id: '9342276534562',
-    },
-    {
+      {
         value: 'Thin Mint',
         label: 'Thin Mint',
         subText: 'Luscious chocolate cookie meets spearmint freshness',
