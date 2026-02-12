@@ -20,7 +20,7 @@ const flavorOptions = [
       {
         value: 'Limited Edition Salted Caramel Chocolate Truffle',
         label: 'Limited Edition Salted Caramel Chocolate Truffle',
-        subText: 'Luscious chocolate cookie meets spearmint freshness',
+        subText: 'Luscious chocolate and salty caramel',
         color: '#A71E22',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Salted_Caramel.png?v=1742827765',
         textColor: '#FFFFFF',
