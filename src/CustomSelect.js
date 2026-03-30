@@ -2,29 +2,30 @@ import React, { useState, useRef, useEffect } from "react";
 
 const flavorOptions = [
 
- {
-      value: 'Almond Sponge Cake',
-        label: 'Almond Sponge Cake',
-        subText: 'Sophisticated almond infused into moist golden sponge cake',
-        color: '#D4782C',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Almond_Sponge_Cake.png?v=1745260054',
+const flavorOptions = [
+     {
+        value: 'Limited Edition Snickerdoodle',
+        label: 'Limited Edition Snickerdoodle',
+        subText: 'Sugar, spice, and a glassful of nice!',
+        color: '#F0AB53',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_Template_-_Snickerdoodle.png?v=1764714539',
         textColor: '#FFFFFF',
     },
- {
-       value: 'Variety Pack #1',
+      {
+        value: 'Variety Pack #1',
         label: 'Variety Pack #1',
         subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
         color: '#87c8d5',
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
         textColor: '#7C0101',
     },
-     {
-        value: 'Thin Mint',
-        label: 'Thin Mint',
-        subText: 'Luscious chocolate cookie meets spearmint freshness',
-        color: '#27b376',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
-        textColor: '#7C0101',
+      {
+        value: 'Limited Edition Salted Caramel Chocolate Truffle',
+        label: 'Limited Edition Salted Caramel Chocolate Truffle',
+        subText: 'Luscious chocolate and salty caramel',
+        color: '#A71E22',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Salted_Caramel.png?v=1742827765',
+        textColor: '#FFFFFF',
     },
 ];
 
