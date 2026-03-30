@@ -27,8 +27,7 @@ const FlavorForm = () => {
      "Limited Edition Salted Caramel Chocolate Truffle": "49729571160354"
   };
 
-  
- function buildShopifyCartUrl(cartItems) {
+  function buildShopifyCartUrl(cartItems) {
     const baseUrl = "https://drinkbakesale.com/cart/";
     const queryString = Object.entries(cartItems)
       .map(([productNumber, quantity]) => `${productNumber}:${quantity}`)
@@ -52,11 +51,6 @@ const FlavorForm = () => {
       }
     }
     const url = buildShopifyCartUrl(cartItems);
-    window.open(url, "_blank");
-  };
-
-  const handleSubscriptionOrderClick = () => {
-    const url = "https://drinkbakesale.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%255B0%255D%255Bid%255D%3D49805529383202%26items%255B0%255D%255Bselling_plan%255D%3D5995528482%26items%255B0%255D%255Bquantity%255D%3D1%26return_to%3D%252Fcheckout";
     window.open(url, "_blank");
   };
 
