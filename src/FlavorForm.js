@@ -20,10 +20,10 @@ const FlavorForm = () => {
       [box]: flavor,
     }));
   };
-  const productNumbers = {
-    "Almond Sponge Cake": "49805529383202",
+ const productNumbers = {
     "Variety Pack #1": "48766615650594",
-    "Thin Mint": "48766621876514",
+    "Limited Edition Snickerdoodle": "49991372013858",
+    "Limited Edition Salted Caramel Chocolate Truffle": "49729571160354"
   };
 
   function buildShopifyCartUrl(cartItems) {
