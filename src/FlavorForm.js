@@ -20,11 +20,10 @@ const FlavorForm = () => {
       [box]: flavor,
     }));
   };
-  const productNumbers = {
+ const productNumbers = {
     "Variety Pack #1": "48766615650594",
-    "Chocolate Chip Cookie": "48766610997538",
-    "Jelly Donut": "48766619058466",
-    "Thin Mint": "48766621876514",
+    "Limited Edition Snickerdoodle": "49991372013858",
+    "Limited Edition Salted Caramel Chocolate Truffle": "49729571160354"
   };
 
   function buildShopifyCartUrl(cartItems) {
