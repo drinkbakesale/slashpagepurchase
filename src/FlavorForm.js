@@ -21,12 +21,11 @@ const FlavorForm = () => {
     }));
   };
   const productNumbers = {
-  "Almond Sponge Cake": "49805529383202",
     "Variety Pack #1": "48766615650594",
-    "Chocolate Chip Cookie": "48766610997538",
-    "Thin Mint": "48766621876514",
+    "Limited Edition Snickerdoodle": "49991372013858",
+    "Limited Edition Salted Caramel Chocolate Truffle": "49729571160354"
   };
-
+  
   function buildShopifyCartUrl(cartItems) {
     const baseUrl = "https://drinkbakesale.com/";
     const queryString = Object.entries(cartItems)
