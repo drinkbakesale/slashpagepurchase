@@ -1,8 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 const flavorOptions = [
-
- {
+     {
+        value: 'Limited Edition Snickerdoodle',
+        label: 'Limited Edition Snickerdoodle',
+        subText: 'Sugar, spice, and a glassful of nice!',
+        color: '#F0AB53',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_Template_-_Snickerdoodle.png?v=1764714539',
+        textColor: '#FFFFFF',
+    },
+      {
         value: 'Variety Pack #1',
         label: 'Variety Pack #1',
         subText: 'Includes Cookie, Jelly Donut, Brownie, and Thin Mint liquors',
@@ -10,31 +17,16 @@ const flavorOptions = [
         imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Flavor_Adventure_w_Shadow.png?v=1718393167',
         textColor: '#7C0101',
     },
- {
-        value: 'Jelly Donut',
-        label: 'Jelly Donut',
-        subText: 'Jam-filled joyride with bursts of raspberry jam and fluffy donut',
-        color: '#e27b9c',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Jelly_Donut.png?v=1718393168',
-        textColor: '#7C0101',
-    },
-    {
-        value: 'Chocolate Chip Cookie',
-        label: 'Chocolate Chip Cookie',
-        subText: 'A perfect ratio of chocolate chips to golden, buttery cookie',
-        color: '#e88b37',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Cookie_Box.png?v=1718393167',
-        textColor: '#7C0101',
-    },
-    {
-        value: 'Thin Mint',
-        label: 'Thin Mint',
-        subText: 'Luscious chocolate cookie meets spearmint freshness',
-        color: '#27b376',
-        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Thin_Mint.png?v=1718393168',
-        textColor: '#7C0101',
+      {
+        value: 'Limited Edition Salted Caramel Chocolate Truffle',
+        label: 'Limited Edition Salted Caramel Chocolate Truffle',
+        subText: 'Luscious chocolate and salty caramel',
+        color: '#A71E22',
+        imageUrl: 'https://cdn.shopify.com/s/files/1/0677/0537/2962/files/Tiny_-_Salted_Caramel.png?v=1742827765',
+        textColor: '#FFFFFF',
     },
 ];
+
 
 const CustomSelect = ({ label, onSelect, isOpen, setOpen, close, defaultText }) => {
     const [selected, setSelected] = useState({ label: defaultText || 'Select flavor', color: 'white', textColor: '#7C0101' });
