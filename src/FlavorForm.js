@@ -27,6 +27,7 @@ const FlavorForm = () => {
      "Limited Edition Salted Caramel Chocolate Truffle": "49729571160354"
   };
 
+  
  function buildShopifyCartUrl(cartItems) {
     const baseUrl = "https://drinkbakesale.com/cart/";
     const queryString = Object.entries(cartItems)
